@@ -1,0 +1,7 @@
+<h1><%= t ('.title') %></h1>
+
+
+<%= render 'form', interest: @interest %>
+
+<%= link_to t('links.show'), @interest %> |
+<%= link_to t('links.back'), interests_path %>

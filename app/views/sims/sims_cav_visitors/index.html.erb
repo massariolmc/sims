@@ -1,0 +1,52 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<div class="row">
+<%= form_tag(  sims_cav_visitors_path  , :method => :get) do %>
+<legend><strong>Para pesquisar, informe o nome do visitante:</strong></legend>
+<div class="col-sm-6">
+  <div class="input-group">
+    <%= text_field_tag 'busca_people', nil, placeholder: 'Informe parte do nome', class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Pesquisa", class: "btn btn-default" %>
+    </span>
+  </div><!-- /input-group -->
+</div>
+<% end %>
+</div>
+
+<hr />
+<h1><%= t ('.title') %></h1>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('sims.sims_cav_visitors.fields.visitante_nome') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visitante_datan') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visitante_telefone') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% i = 0 %>
+    <% @sims_cav_visitors.each do |sims_cav_visitor| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= sims_cav_visitor.visitante_nome %></td>
+        <td><%= sims_cav_visitor.visitante_datan.strftime("%d/%m/%Y") %></td>
+        <td><%= sims_cav_visitor.visitante_telefone %></td>
+        <td><%= link_to t('links.show'), sims_cav_visitor %></td>
+        <!-- <td><%#= link_to t('links.edit'), edit_sims_cav_visitor_path(sims_cav_visitor) %></td> -->
+        <!-- <td><%#= link_to t('links.destroy'), sims_cav_visitor, method: :delete, data: { confirm: t('msg.deletar') } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @sims_cav_visitors, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+<br>
+
+<%#= link_to t('links.new'), new_sims_cav_visitor_path %>

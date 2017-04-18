@@ -1,0 +1,33 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<hr />
+<h1><%= t ('sims.sims_biga_licenses.index.cnh_vencidas') %></h1>
+<table class="display" id="datatable">
+  <thead>
+    <tr>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_pes_id') %></th>
+      <th><%= t('sims.sims_people.fields.pesncompleto') %></th>
+      <th><%= t('sims.sims_people.fields.peslocaltrabalho') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></th>
+      <th><%= t('sims.sims_people.fields.pessituacao') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cnhs.each do |cnh| %>
+      <tr>
+        <td><%= cnh.nome %></td>
+        <td><%= cnh.pesncompleto %></td>
+        <td><%= cnh.lpsdesc %></td>
+        <td><%= cnh.cnh_validade.strftime("%d/%m/%Y") %></td>      
+        <td><%= cnh.situacaodesc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+<br>
+

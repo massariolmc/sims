@@ -1,0 +1,107 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<h1><%= t('.title') %></h1>
+<br />
+
+<p>
+  <strong><%= t('empenho.interests.fields.company_id') %>:</strong>
+  <%= "#{@interest.company.nome_fantasia} - CNPJ: #{@interest.company.cnpj} - TEL: #{@interest.company.telefone} - CIDADE: #{@interest.company.cidade} - UF: #{@interest.company.estado}" %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.n_empenho') %>:</strong>
+  <%= @interest.n_empenho %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.aplicacao') %>:</strong>
+  <%= @interest.aplicacao %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.rsrp') %>:</strong>
+  <%= @interest.rsrp %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.pregao') %>:</strong>
+  <%= @interest.pregao %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.emissao') %>:</strong>
+  <%= @interest.emissao.strftime("%d/%m/%Y") %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.interests.fields.processo') %>:</strong>
+  <%= @interest.processo %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.interests.fields.squad_id') %>:</strong>
+  <%= @interest.nome_squad(@interest.sims_squad_id) %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.interests.fields.data_envio') %>:</strong>
+  <%= @interest.data_envio.strftime("%d/%m/%Y") %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.interests.fields.prazo') %>:</strong>
+  <%= @interest.prazo.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('empenho.interests.fields.obs') %>:</strong>
+  <%= @interest.obs %>
+</p>
+
+<p>
+<%= link_to "Download - Nota de Empenho", abrir_anexo_interest_path(@interest), :target => '_blank' %>
+</p>
+
+<br />
+<strong><%= t('.especifications') %>:</strong>
+
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+    <th><%= t('empenho.especifications.fields.modality_id') %> </th>
+    <th><%= t('empenho.especifications.fields.descricao') %> </th>    
+    <th><%= t('empenho.especifications.fields.type_id') %> </th>    
+    <th><%= t('empenho.especifications.fields.qtde') %> </th>    
+    <th><%= t('empenho.especifications.fields.valor_un') %> </th>       
+    <th><%= t('empenho.especifications.fields.total') %> </th>     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @especifications.each do |especification| %>
+      <tr>
+        <td><%= especification.modality.nome%></td>
+        <td><%= especification.descricao%></td>
+        <td><%= especification.type.nome%></td>
+        <td><%= especification.qtde%></td>
+        <td><%= number_to_currency(especification.valor_un) %></td>
+        <td><%= number_to_currency(especification.valor_un * especification.qtde) %></td>        
+      </tr>
+      <% @aux = @aux.to_f + (especification.valor_un * especification.qtde).to_f %>      
+    <% end %>
+  </tbody>
+</table>
+<span><strong>TOTAL: </strong><%= p number_to_currency(@aux.to_f.round(2)) %></span>
+<br /><br /><br />
+
+<%= link_to t('links.edit'), edit_interest_path(@interest) %> |
+<%= link_to t('links.back'), interests_path %>

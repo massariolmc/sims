@@ -1,0 +1,2 @@
+module Sims::SimsPeopleHelper
+end

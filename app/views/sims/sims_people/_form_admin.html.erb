@@ -1,0 +1,434 @@
+<%= form_for(@sims_person, html: { class: "form-horizontal"}) do |f| %>
+  <% if @sims_person.errors.any? %>
+    <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+
+  <div class="row">
+  <div class="col-sm-12">
+
+  <div class="field form-group">
+    <%= f.label :pesfoto, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesfoto, class: "form-control" %>
+    </div>
+  </div>  
+</div>
+</div>
+
+<legend>Informações do Militar</legend>
+<div class="row">
+
+<div class="col-sm-4">
+  <div class="field form-group">
+    <%= f.label :pescodigo, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pescodigo, class: "form-control" %>
+      <%= error_tag @sims_person, :pescodigo %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesncompleto, class: "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+        <%= f.text_field :pesncompleto, class: "form-control"%>    
+        <%= error_tag @sims_person, :pesncompleto %>
+      </div>    
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesnguerra, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesnguerra, class: "form-control" %>
+      <%= error_tag @sims_person, :pesnguerra %>
+    </div>
+  </div>
+ 
+
+  <div class="field form-group">
+    <%= f.label :pesidentidade, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("@sims_person", "pesidentidade", Patent.all.collect {|p| [ p.pgabrev, p.pgid ] }, { include_blank: true }) %>   
+    <%= f.text_field :pesidentidade, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesidentidade %>
+    </div>
+  </div>
+
+   <div class="field form-group">
+    <%= f.label :pescpf, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pescpf, class: "form-control cpf" %> 
+    <%= error_tag @sims_person, :pescpf %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pespostograd, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">      
+      <%= f.collection_select(:pespostograd, @patents.order(:pgid), :pgid, :pgabrev, { include_blank: t('links.selecione') })  %> 
+      <%= error_tag @sims_person, :pespostograd %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pessexo, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%#= f.select("pessexo",options_for_select({ "M" => "M", "F" => "F" },"pessexo" )) %>    
+    <%= f.select("pessexo",[[ "Masculino", "M"], ["Feminino", "F"]]) %>    
+    <%= error_tag @sims_person, :pessexo %>
+    </div>
+  </div>
+
+  </div><!-- fecha spam-fluid -->
+
+  <div class="col-sm-4">
+
+  <div class="field form-group">
+    <%= f.label :pesdn, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">   
+    <%= f.text_field :pesdn, value: ( l @sims_person.pesdn, :format => :default if @sims_person.pesdn? ), class: 'calendario form-control', :placeholder => 'Selecione data'%>
+    <%= error_tag @sims_person, :pesdn %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pestiposangue, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pestiposangue", @bloods.collect {|p| [ p.sanguesigla, p.sangueid ] }, { include_blank: true }) %>
+    <%= f.collection_select(:pestiposangue, @bloods.order(:sanguesigla), :sangueid, :sanguesigla, { include_blank: t('links.selecione') })  %>       
+    <%= error_tag @sims_person, :pestiposangue %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfilpai, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">      
+      <%= f.text_field :pesfilpai, class: "form-control" %>
+      <%= error_tag @sims_person, :pesfilpai %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfilmae, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">      
+      <%= f.text_field :pesfilmae, class: "form-control" %>
+      <%= error_tag @sims_person, :pesfilmae %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :pesnaturalcidade, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesnaturalcidade, class: "form-control" %>
+    <%= error_tag @sims_person, :pesnaturalcidade %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :pesnaturaluf, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesnaturaluf, class: "form-control" %>
+    <%= error_tag @sims_person, :pesnaturaluf %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesemail, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesemail, class: "form-control" %>
+      <%= error_tag @sims_person, :pesemail %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :peslogin, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :peslogin, class: "form-control" %>
+      <%= error_tag @sims_person, :peslogin %>
+    </div>
+  </div>
+
+  </div><!-- fecha spam-fluid -->
+  
+  <div class="col-sm-4">
+<!-- NÃO ATUALIZAR A CNH, POIS ESSES CAMPOS ÃTUALIZAM A TB_PESSOAS NÃO A TB_CNH, ONDE FICA ARMAZENADA AS INFORMAÇÕES DE CNH
+    <div class="field form-group">
+      <%#= f.label :pescnhnum, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%#= f.text_field :pescnhnum, class: "form-control" %>
+      <%#= error_tag @sims_person, :pescnhnum %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%#= f.label :pescnhcat, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%#= f.select(:pescnhcat, cnh_cat_helper, :prompt => t('links.selecione'), class: 'form-control') %>             
+      <%#= error_tag @sims_person, :pescnhcat %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%#= f.label :pescnhvalidade, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%#= f.text_field :pescnhvalidade, class: "form-control calendario" %>
+      <%#= error_tag @sims_person, :pescnhvalidade %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%#= f.label :pestitulouf, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+       <%#= f.select :pestitulouf, lista_estados_helper, :prompt => t('links.selecione'), class: 'form-control' %>
+      <%#= error_tag @sims_person, :pestitulouf %>
+      </div>
+    </div>
+
+-->
+  </div><!-- fecha spam-fluid -->
+  </div><!-- fecha primeiro row-fluid -->
+
+<legend>Informações Funcionais</legend>  
+<div class="row">
+<div class="col-sm-6">
+
+
+  <div class="field form-group">
+    <%= f.label :pesquadro, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pesquadro", @frames.collect {|p| [ p.quadrodesc, p.quadroid ] }, { include_blank: true }) %>       
+    <%= f.collection_select(:pesquadro, @frames.order(:quadrodesc), :quadroid, :quadrodesc, { include_blank: t('links.selecione') })  %> 
+    <%= error_tag @sims_person, :pesquadro %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesespecialidade, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pesespecialidade", @specialties.collect {|p| [ p.espdesc, p.espid ] }, { include_blank: true }) %>       
+    <%= f.collection_select(:pesespecialidade, @specialties.order(:espdesc), :espid, :espdesc, { include_blank: t('links.selecione') })  %> 
+    <%= error_tag @sims_person, :pesespecialidade %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pessituacao, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pessituacao", @situations.collect {|p| [ p.situacaodesc, p.situacaoid ] }, { include_blank: true }) %>
+    <%= f.collection_select(:pessituacao, @situations.order(:situacaodesc), :situacaoid, :situacaodesc, { include_blank: t('links.selecione') })  %>       
+    <%= error_tag @sims_person, :pessituacao %>
+    </div>
+  </div>  
+
+   <div class="field form-group">
+    <%= f.label :pesom, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pesom", @organizations.collect {|p| [ p.omdesc, p.omid ] }, { include_blank: true }) %>       
+    <%= f.collection_select(:pesom, @organizations.order(:omdesc), :omid, :omdesc, { include_blank: t('links.selecione') })  %>  
+    <%= error_tag @sims_person, :pesom %>
+    </div>
+  </div>
+
+   </div><!-- fecha spam-fluid -->
+   <div class="col-sm-6">  
+
+  <div class="field form-group">
+    <%= f.label :peslocaltrabalho, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "peslocaltrabalho", @squads.collect {|p| [ p.lpsdesc, p.lpsid ] }, { include_blank: true }) %>            
+    <%= f.collection_select(:peslocaltrabalho, @squads.order(:lpsdesc), :lpsid, :lpsdesc, { include_blank: t('links.selecione') })  %>  
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pes_esqsec_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("sims_person", "pes_esqsec_id", @departments.collect {|p| [ p.nome, p.esqsec_id ] }, { include_blank: true }) %>        
+    <%= f.collection_select(:pes_esqsec_id, @departments.order(:esqsec_desc), :esqsec_id, :nome, { include_blank: t('links.selecione') })  %>  
+    <%= error_tag @sims_person, :pes_esqsec_id %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfalertesq, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.collection_select(:pesfalertesq, @squads.order(:lpsdesc), :lpsid, :lpsdesc, { include_blank: t('links.selecione') })  %> 
+    <%#= f.text_field :pesfalertesq, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesfalertesq %>
+    </div>
+  </div>
+
+   </div><!-- fecha spam-fluid -->
+   </div><!-- fecha segundo row -->
+
+   <legend>Endereço do Militar</legend>
+   <div class="row">
+   <div class="col-sm-4">
+
+  <div class="field form-group">
+    <%= f.label :pesend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.text_field :pesend, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesend %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesbairro, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.text_field :pesbairro, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesbairro %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesnum, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesnum, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesnum %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pescidade, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">   
+    <%= f.text_field :pescidade, class: "form-control" %> 
+    <%= error_tag @sims_person, :pescidade %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesuf, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesuf, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesuf %>
+    </div>
+  </div>
+
+  </div><!-- fecha spam-fluid -->
+  <div class="col-sm-6">
+
+  <div class="field form-group">
+    <%= f.label :pescep, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.text_field :pescep, class: "form-control cep" %> 
+    <%= error_tag @sims_person, :pescep %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfone1, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesfone1, class: "form-control phone_with_ddd_cel" %> 
+    <%= error_tag @sims_person, :pesfone1 %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfone2, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">   
+    <%= f.text_field :pesfone2, class: "form-control phone_with_ddd" %> 
+    <%= error_tag @sims_person, :pesfone2 %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfonetrab, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+    <%= f.text_field :pesfonetrab, class: "form-control phone_with_ddd" %> 
+    <%= error_tag @sims_person, :pesfonetrab %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesfonetrabramal, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+    <%= f.text_field :pesfonetrabramal, class: "form-control" %> 
+    <%= error_tag @sims_person, :pesfonetrabramal %>
+    </div>
+  </div>
+
+  </div><!-- fecha spam-fluid -->
+  </div><!-- fecha terceiro row --> 
+
+  <legend>Informações Bancárias</legend>  
+  <div class="row">
+  <div class="col-sm-6"> 
+
+  <div class="field form-group">
+    <%= f.label :pesbanco, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select(:pesbanco, @banks.order(:bancoid), :bancoid, :nome_banco, { include_blank: t('links.selecione') })  %>   
+      <%#= f.text_field :pesbanco, class: "form-control" %> 
+      <%= error_tag @sims_person, :pesbanco %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesagencia, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+      <%= f.text_field :pesagencia, class: "form-control"%> 
+      <%= error_tag @sims_person, :pesagencia %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pescontacorrente, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+      <%= f.text_field :pescontacorrente , class: "form-control"%> 
+      <%= error_tag @sims_person, :pescontacorrente %>
+    </div>    
+  </div>
+
+  </div><!-- fecha spam -->
+  </div><!-- fecha terceiro row -->  
+
+
+
+  <legend>Informações Adicionais</legend>  
+  <div class="row">
+  <div class="col-sm-6"> 
+
+  <div class="field form-group">
+    <%= f.label :pes_cracha_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+    <%= f.text_field :pes_cracha_id, :readonly => true, class: "form-control" %> 
+    <%= error_tag @sims_person, :pes_cracha_id %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pes_cracha_val, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">  
+    <% if @sims_person.pes_cracha_val %>
+      <%= f.text_field :pes_cracha_val, value: ( l @sims_person.pes_cracha_val, :format => :default if @sims_person.pes_cracha_val? ), class: "form-control calendario"%> 
+      <%= error_tag @sims_person, :pes_cracha_val %>
+    <% else %>
+      <%= f.text_field :pes_cracha_val, class: 'form-control', :readonly => true, :placeholder => 'Selecione data' %>     
+      <%= error_tag @sims_person, :pes_cracha_val %>
+    <% end %>
+    </div>
+  </div>
+
+   <div class="field form-group">
+      <%= f.label :pesobs, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+      <%= f.text_area :pesobs , class: "form-control"%> 
+      <%= error_tag @sims_person, :pesobs %>
+    </div>    
+  </div>
+
+  </div><!-- fecha spam -->
+  </div><!-- fecha terceiro row -->  
+  
+
+  <div class="actions">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+<% end %>
+

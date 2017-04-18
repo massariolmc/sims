@@ -1,0 +1,55 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('sims.sims_people.index.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="datatable">
+  <thead>
+    <tr>
+      <th><%= t('sims.sims_people.fields.pesfoto') %></th>
+      <th><%= t('sims.sims_people.fields.pesnguerra') %></th>
+      <th><%= t('sims.sims_people.fields.pespostograd') %></th>
+      <th><%= t('sims.sims_people.fields.pescodigo') %></th>
+      <th><%= t('sims.sims_people.fields.pesom') %></th>
+      <th><%= t('sims.sims_people.fields.peslocaltrabalho') %></th>
+      <th><%= t('sims.sims_people.fields.pessituacao') %></th>
+      <th><%= t('sims.sims_dependents.fields.pes_cracha_id') %></th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('sims.sims_employee_words.ativa_desativa_cracha') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims_people.each do |sims_person| %>
+      <tr>
+        <td><%= sims_person.pesfoto %></td>
+        <td><%= sims_person.pesnguerra %></td>
+        <td><%= sims_person.nome_posto_grad(sims_person.pespostograd) %></td>
+        <td><%= sims_person.pescodigo %></td>
+        <td><%= sims_person.nome_om(sims_person.pesom) %></td>
+        <td><%= sims_person.nome_local_trabalho(sims_person.peslocaltrabalho) %></td>
+        <td><%= sims_person.situacao(sims_person.pessituacao) %></td>     
+        <td><%= sims_person.pegar_cracha(sims_person.pesid) %></td>   
+        <td><%= link_to t('links.show'), sims_person %></td>
+        <td><%= link_to t('links.edit'), edit_sims_person_path(sims_person) %></td>
+        <% if sims_person.cracha_ativo(sims_person.pesid) == '0' %>
+          <td><%= link_to t('sims.sims_employee_words.desativar_cracha'), update_desativa_cracha_sims_person_path(sims_person.pegar_cracha(sims_person.pesid)) %></td>
+        <% elsif sims_person.cracha_ativo(sims_person.pesid) == '1' %>                    
+          <td><%= link_to t('sims.sims_employee_words.ativar_cracha'), update_ativa_cracha_sims_person_path(sims_person.pegar_cracha(sims_person.pesid)) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <!-- <td><%#= link_to t('links.destroy'), sims_person, method: :delete, data: { confirm: t('msg.deletar') } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to t('links.new'), new_sims_person_path %>

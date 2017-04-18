@@ -1,0 +1,71 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<div class="row">
+<%= form_tag( busca_pessoa_sims_biga_licenses_path , :method => :get) do %>
+<legend><strong>Para pesquisar, digite o nome da pessoa ou a placa do veículo:</strong></legend>
+
+
+<div class="radio">
+     <label>
+        <%= radio_button_tag 'Sel', "1", true %> 
+    Pessoa:</label>          
+</div> 
+
+<div class="radio">
+    <label>    
+      <%= radio_button_tag 'Sel', "2" %> 
+    Veículos:</label> 
+</div> 
+
+<div class="col-sm-6">
+  <div class="input-group">
+    <%= text_field_tag 'busca_people', nil, placeholder: 'Pesquisa...', class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Pesquisa", class: "btn btn-default" %>
+    </span>
+  </div><!-- /input-group -->
+</div>
+<% end %>
+</div>
+
+<hr />
+<h1><%= t ('.title') %></h1>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+    <th>#</th>
+      <th><%= t('sims.sims_biga_vehicle_people.fields.vcp_pes_id') %></th>
+      <th><%= t('sims.sims_biga_vehicle_people.fields.vcp_placa_id') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_marca') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_modelo') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_tipo') %></th>
+      <th><%= t('links.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% @sims_biga_vehicle_people.each do |sims_biga_vehicle_person| %>
+      <tr>
+        <td><%= i = i + 1%></td>
+        <td><%= sims_biga_vehicle_person.nome %></td>
+        <td><%= sims_biga_vehicle_person.placa %></td>
+        <td><%= sims_biga_vehicle_person.marca %></td>
+        <td><%= sims_biga_vehicle_person.modelo %></td>
+        <td><%= sims_biga_vehicle_person.automovel %></td>
+        <td><%= link_to t('links.show'), sims_biga_vehicle_person_path(sims_biga_vehicle_person.id) %></td>
+        <!-- 
+        <td><%#= link_to t('links.edit'), edit_sims_biga_vehicle_person_path(sims_biga_vehicle_person) %></td>
+        <td><%#= link_to t('links.destroy'), sims_biga_vehicle_person, method: :delete, data: { confirm: t('msg.deletar') } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @sims_biga_vehicle_people, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+<br>
+
+<%#= link_to t('links.new'), new_sims_biga_vehicle_person_path %>

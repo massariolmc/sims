@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyText
+  type: one
+  qtde: 1
+  valor_un: 9.99
+  interest: one
+  modality: one
+
+two:
+  descricao: MyText
+  type: two
+  qtde: 1
+  valor_un: 9.99
+  interest: two
+  modality: two

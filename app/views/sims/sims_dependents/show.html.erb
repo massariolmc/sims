@@ -1,0 +1,117 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<p>
+  <strong>INFORMAÇÕES PESSOAIS DO DEPENDENTE:</strong>  
+</p>
+
+<div class="row">
+<div class="col-sm-6">
+
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepnome') %></strong>
+  <%= @sims_dependent.pesdepnome %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdeppesid') %></strong>
+  <%= @sims_dependent.sims_person_id(@sims_dependent.pesdeppesid) %> - <strong><%= t('sims.sims_dependents.fields.pescodigo') %></strong>  <%= @sims_dependent.pescodigo %> - <strong><%= t('sims.sims_people.fields.pessituacao') %></strong>
+    <%= @sims_dependent.situacao_person(@sims_dependent.pesdeppesid) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepgrau') %></strong>
+  <%= @sims_dependent.family(@sims_dependent.pesdepgrau) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepsexo') %></strong>
+  <%= @sims_dependent.pesdepsexo %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepdn') %></strong>
+  <%= @sims_dependent.pesdepdn.strftime("%d/%m/%Y") if @sims_dependent.pesdepdn? %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepboletimnum') %></strong>
+  <%= @sims_dependent.pesdepboletimnum %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepboletimdata') %></strong>
+  <%= @sims_dependent.pesdepboletimdata.strftime("%d/%m/%Y") if @sims_dependent.pesdepboletimdata? %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdepradiodata') %></strong>
+  <%= @sims_dependent.pesdepradiodata.strftime("%d/%m/%Y") if @sims_dependent.pesdepradiodata? %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pesdeptiposaram') %></strong>
+  <%= @sims_dependent.pesdeptiposaram %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pes_cracha_id') %></strong>
+  <%= @sims_dependent.pes_cracha_id %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.pes_cracha_val') %></strong>
+  <%= @sims_dependent.pes_cracha_val.strftime("%d/%m/%Y") if @sims_dependent.pes_cracha_val?  %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_dependents.fields.status_cracha') %></strong>
+    <% if @sims_dependent.cracha_ativo(@sims_dependent.pesdepid) == '0' %>
+      <%= "Ativo" %>      
+    <% elsif @sims_dependent.cracha_ativo(@sims_dependent.pesdepid) == '1' %>                    
+      <%= "Inativo" %>          
+    <% end %>
+</p>
+</div>
+<div class="col-sm-4">
+  <% if @marc == 0 %>
+    <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>    
+        <%= @sims_biga_license.cnh_numero  %>    
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
+      <%= @sims_biga_license.cnh_cat %>
+    </p>
+    <p>
+      <%if @sims_biga_license.cnh_validade > Date.today %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+      <% else %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+        <span class="label label-danger">VENCIDA</span>
+      <% end %>
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></strong>
+      <%= @sims_biga_license.cnh_uf %>
+    </p>
+  <% end %>
+
+</div><!-- FIM DO COL-SM-4 -->
+</div>
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DOS VEICULOS:</strong>  
+</legend>
+  <%= render partial: 'sims/sims_people/veiculos', locals: {sims: @sims_vehicles} %>   
+</div>
+
+
+<%= link_to t('links.edit'), edit_sims_dependent_path(@sims_dependent) %> |
+<%= link_to t('links.back'), sims_dependents_path %>

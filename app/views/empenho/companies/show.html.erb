@@ -1,0 +1,67 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.nome_fantasia') %></strong>
+  <%= @company.nome_fantasia %>
+</p>
+
+<p>
+  <strong><%= t('empenho.companies.fields.razao_social') %></strong>
+  <%= @company.razao_social %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.cnpj') %></strong>
+  <samp class="cnpj"><%= @company.cnpj %></samp>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.logradouro') %></strong>
+  <%= @company.logradouro %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.numero') %></strong>
+  <%= @company.numero %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.bairro') %></strong>
+  <%= @company.bairro %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.cidade') %></strong>
+  <%= @company.cidade %>
+</p>
+
+<p>
+  <strong><%= t('empenho.companies.fields.estado') %></strong>
+  <%= @company.estado %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.companies.fields.telefone') %></strong>
+  <samp class="phone_with_ddd"><%= @company.telefone %></samp>
+</p>
+
+<p>
+  <strong><%= t('empenho.companies.fields.cep') %></strong>
+  <samp class="cep"><%= @company.cep %></samp>
+</p>
+
+
+
+
+<%= link_to t('links.edit'), edit_company_path(@company) %> |
+<%= link_to t('links.back'), companies_path %>

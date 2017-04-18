@@ -1,0 +1,148 @@
+<%= form_for(equipment, html: { class: "form-horizontal",  multipart: true}) do |f| %>
+  <% if equipment.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+  <br>
+<h1>
+  <legend>
+  <strong>
+  <% if @appointment %>
+    <%= "#{@appointment.person(@appointment.person_id)} - #{@appointment.setor(@appointment.sims_tba_esq_secao_id)}" %>
+  <% else %>
+    <%= "#{@equipment.appointment.person(@equipment.appointment.person_id)} - #{@equipment.appointment.setor(@equipment.appointment.sims_tba_esq_secao_id)}" %>
+  <% end %>
+  </strong>
+  </legend>
+</h1>
+   <div class="row">
+    <div class="col-sm-6">
+    
+    <% if @appointment %>
+      <%= f.hidden_field :appointment_id, value: @appointment.id %>    
+    <% else %>
+      <%= f.hidden_field :appointment_id, value: @equipment.appointment_id %>    
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :nomeclatura, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">  
+         <%= f.text_area :nomeclatura, class: "form-control" %>         
+          <%= error_tag equipment, :nomeclatura %>          
+        </div>
+    </div>
+
+<!-- NÃO ESTÁ SENDO UTILIZADO ESTE CAMPO
+    <div class="form-group">
+      <%#= f.label :sigla, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%#= f.text_field :sigla, class: "form-control" %>         
+          <%#= error_tag equipment, :sigla %>          
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <%#= f.label :appointment_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%#= f.collection_select(:appointment_id, Appointment.all, :id, :person_id, { include_blank: 'SELECIONE' }) %>        
+          <%#= error_tag equipment, :appointment_id %>          
+        </div>
+    </div>
+-->
+
+    <div class="form-group">
+      <%= f.label :account_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%= f.collection_select(:account_id, Account.all, :id, :nome, { include_blank: 'SELECIONE' }) %>        
+          <%= error_tag equipment, :account_id %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :kind_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%= f.collection_select(:kind_id, Kind.all, :id, :sigla, { include_blank: 'SELECIONE' }) %>        
+          <%= error_tag equipment, :kind_id %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :qtde, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">     
+          <%= f.text_field :qtde, class: "form-control" %>                  
+          <%= error_tag equipment, :qtde %>          
+        </div>
+    </div>    
+
+    <div class="form-group">
+      <%= f.label :bmp, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :bmp, class: "form-control" %>        
+          <%= error_tag equipment, :bmp %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :n_serie, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :n_serie, class: "form-control" %>          
+          <%= error_tag equipment, :n_serie %>          
+        </div>
+    </div>
+
+    </div>
+    <div class="col-sm-6">
+
+    <div class="form-group">
+      <%= f.label :n_pn, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :n_pn, class: "form-control" %>  
+          <%= error_tag equipment, :n_pn %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :valor_atualizado, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :valor_atualizado, class: "form-control" %>     
+          <%= error_tag equipment, :valor_atualizado %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :situation_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%= f.collection_select(:situation_id, Situation.all, :id, :nome, { include_blank: 'SELECIONE' }) %>        
+          <%= error_tag equipment, :situation_id %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :status, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">          
+          <%= f.select :status, options_for_select(Equipment.statuses.map { |key, value| [key, value] }) %>                      
+          <%= error_tag equipment, :status %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :obs, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_area :obs, class: "form-control" %>           
+          <%= error_tag equipment, :obs %>          
+        </div>
+    </div>
+
+    <%= f.hidden_field :user_id, value: current_user.person_id(current_user.username) %>
+
+    </div>
+    </div>
+    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

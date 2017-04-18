@@ -1,0 +1,42 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+    <th><%= t('empenho.companies.fields.nome_fantasia') %> </th>
+    <th><%= t('empenho.companies.fields.razao_social') %> </th>
+    <th><%= t('empenho.companies.fields.cnpj') %> </th>
+    <th><%= t('empenho.companies.fields.telefone') %> </th>
+    <th><%= t('empenho.companies.fields.cidade') %> </th>
+    <th><%= t('empenho.companies.fields.estado') %> </th>    
+    <th colspan="3"><%= t('empenho.opcao') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.nome_fantasia%></td>
+        <td><%= company.razao_social%></td>
+        <td > <samp class="cnpj"> <%= company.cnpj%> </samp> </td>
+        <td><%= company.telefone%></td>
+        <td><%= company.cidade%></td>
+        <td><%= company.estado%></td>
+        <td><%= link_to t('links.show'), company_path(company) %></td>
+        <td><%= link_to t('links.edit'), edit_company_path(company) %></td>
+        <td><%= link_to t('links.destroy'), company_path(company), method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+<%= link_to t('links.new'), new_company_path %>

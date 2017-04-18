@@ -1,0 +1,53 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="datatable">
+  <thead>
+    <tr>
+      <th><%= t('sims.sims_dependents.fields.pesdepnome') %></th>
+      <th><%= t('sims.sims_dependents.fields.pesdepgrau') %></th>
+      <th><%= t('sims.sims_dependents.fields.pesdepsexo') %></th>
+      <th><%= t('sims.sims_dependents.fields.pesdepdn') %></th>
+      <th><%= t('sims.sims_dependents.fields.pesdeppesid') %></th>
+      <th><%= t('sims.sims_dependents.fields.pes_cracha_id') %></th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('sims.sims_employee_words.ativa_desativa_cracha') %> </th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims_dependents.each do |sims_dependent| %>
+      <tr>
+        <td><%= sims_dependent.pesdepnome %></td>
+        <td><%= sims_dependent.family(sims_dependent.pesdepgrau) %></td>
+        <td><%= sims_dependent.pesdepsexo %></td>
+        <td><%= sims_dependent.pesdepdn.strftime("%d/%m/%Y") %></td>
+        <td><%= sims_dependent.sims_person_id(sims_dependent.pesdeppesid) %></td>
+        <td><%= sims_dependent.pegar_cracha(sims_dependent.pesdepid) %></td>
+        <td><%= link_to t('links.show'), sims_dependent %></td>
+        <td><%= link_to t('links.edit'), edit_sims_dependent_path(sims_dependent) %></td>
+        <% if sims_dependent.cracha_ativo(sims_dependent.pesdepid) == '0' %>
+          <td><%= link_to t('sims.sims_employee_words.desativar_cracha'), update_desativa_cracha_sims_dependent_path(sims_dependent.pegar_cracha(sims_dependent.pesdepid)) %></td>
+        <% elsif sims_dependent.cracha_ativo(sims_dependent.pesdepid) == '1' %>                    
+          <td><%= link_to t('sims.sims_employee_words.ativar_cracha'), update_ativa_cracha_sims_dependent_path(sims_dependent.pegar_cracha(sims_dependent.pesdepid)) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <!-- <td><%#= link_to t('links.destroy'), sims_dependent, method: :delete, data: { confirm: t('msg.deletar') } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%#= link_to t('links.new'), new_sims_dependent_path %>

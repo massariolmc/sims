@@ -1,0 +1,1 @@
+json.array! @postgresql_view_people, partial: 'postgresql_view_people/postgresql_view_person', as: :postgresql_view_person

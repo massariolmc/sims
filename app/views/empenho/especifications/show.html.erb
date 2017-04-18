@@ -1,0 +1,38 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<p>
+  <strong><%= t('empenho.especifications.fields.descricao') %></strong>
+  <%= @especification.descricao %>
+</p>
+
+<p>
+  <strong><%= t('empenho.especifications.fields.type_id') %></strong>
+  <%= @especification.type.nome %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.especifications.fields.qtde') %></strong>
+  <%= @especification.qtde %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.especifications.fields.valor_un') %></strong>
+  <%= @especification.valor_un %>
+</p>
+
+
+<p>
+  <strong><%= t('empenho.especifications.fields.modality_id') %></strong>
+  <%= @especification.modality.nome %>
+</p>
+
+
+
+<%= link_to t('links.edit'), edit_especification_path(@especification) %> |
+<%= link_to t('links.back'), especifications_path %>

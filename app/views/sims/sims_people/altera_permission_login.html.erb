@@ -1,0 +1,49 @@
+
+<%= form_tag(  atualiza_permission_login_sims_person_path , :method => :put, html: { class: "form-horizontal"}) do %>
+<legend><strong>Para alterar o perfil:</strong></legend>
+<div class="row">
+
+<div class="col-sm-6">
+<div class="field form-group">
+  <%= label_tag 'nome_user', 'Usuário', class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= text_field_tag 'nome_user', @user.login(@user.username), class: "form-control", readonly: :true %>
+  </div> 
+</div>
+<br/>
+<div class="field form-group">
+  <%= label_tag 'perfil', 'Perfil', class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= select_tag "perfil", options_for_select(User.roles.map { |key, value| [key, value] }) %>
+  </div> 
+</div>
+</div>
+
+
+<%= hidden_field_tag 'id', @user.id %>
+    
+</div>
+
+  <%= submit_tag "Enviar", class: "btn btn-default" %>
+<% end %>
+<br /><br /><br />
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Informações sobre os perfis:</div>
+  <div class="panel-body">
+  <p><strong>Normal_user:</strong> O Usuário irá acessar apenas seus dados pessoais.</p>
+  <p><strong>Admin:</strong> O Usuário será administrador de todos os módulos do Odin.</p>
+  <p><strong>SIMS:</strong> Acesso total as funções do SIMS.</p>
+  <p><strong>Empenho_nivel_1:</strong> Acesso de leitura as funções do módulo de empenho.</p>
+  <p><strong>Empenho_nivel_2:</strong> Acesso de leitura e escrita do módulo de empenho.</p>
+  <p><strong>Sims_empenho_nivel_1:</strong> Acesso total ao SIMS e leitura ao módulo de empenho.</p>
+  <p><strong>Sims_empenho_nivel_2:</strong> Acesso total ao SIMS e leitura e escrita ao módulo de empenho.</p>
+  <p><strong>MaterialCarga:</strong> Acesso ao Material Carga do militar.</p>
+  <p><strong>MaterialCarga_sims:</strong> Acesso ao Material Carga do militar e Acesso total as funções do SIMS.</p>
+  <p><strong>MaterialCarga_Empenho_nivel_1:</strong> Acesso ao Material Carga do militar e Acesso de leitura as funções do módulo de empenho.</p>
+  <p><strong>MaterialCarga_Empenho_nivel_2:</strong> Acesso ao Material Carga do militar e Acesso de leitura e escrita do módulo de empenho.</p>
+  <p><strong>MaterialCarga_sims_empenho_nivel_1:</strong> Acesso ao Material Carga do militar, Acesso total as funções do SIMS e Acesso de leitura as funções do módulo de empenho</p>
+  <p><strong>MaterialCarga_sims_empenho_nivel_2:</strong> Acesso ao Material Carga do militar, Acesso total as funções do SIMS e Acesso de leitura e escrita do módulo de empenho</p>
+ </div>
+
+</div>

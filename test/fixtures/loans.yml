@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  obs: MyText
+  data_saida: 2017-04-16 21:52:50
+  data_devolucao: 2017-04-16 21:52:50
+  user: one
+
+two:
+  person_id: 1
+  obs: MyText
+  data_saida: 2017-04-16 21:52:50
+  data_devolucao: 2017-04-16 21:52:50
+  user: two

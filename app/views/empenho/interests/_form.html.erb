@@ -1,0 +1,147 @@
+<%= form_for(interest, html: { multipart: true}) do |f| %>
+  <% if interest.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+  <div class="form-horizontal "> 
+
+    <div class="row estilo_form_empenho">
+    <div class="col-sm-6">
+
+
+
+    <div class="form-group">
+      <%= f.label :company_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6"> 
+          <%= f.collection_select(:company_id, Company.all, :id, :nome_fantasia, { include_blank: 'SELECIONE' })  %>             
+          <%= error_tag interest, :company_id %>             
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :n_empenho, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :n_empenho, class: "form-control" %>    
+          <%= error_tag interest, :n_empenho %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :emissao, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :emissao, value: ( l @interest.emissao, :format => :default2 if @interest.emissao? ), class: "form-control calendario" %>  
+          <%= error_tag interest, :emissao %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rsrp, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :rsrp, class: "form-control"%>  
+          <%= error_tag interest, :rsrp %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :aplicacao, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :aplicacao, class: "form-control" %>
+          <%= error_tag interest, :aplicacao %>              
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :pregao, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :pregao, class: "form-control" %>  
+          <%= error_tag interest, :pregao %>            
+        </div>
+    </div>
+
+    </div> <!--  FIM DA COL-SM-6  -->
+
+    <div class="col-sm-6">
+
+    <div class="form-group">
+      <%= f.label :processo, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+            <%= f.text_field :processo, class: "form-control" %>        
+            <%#= f.select :processo, lista_estados_helper, :prompt => 'SELECIONE', class: 'form-control' %>                      
+            <%= error_tag interest, :processo %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :sims_squad_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6"> 
+         <%= f.collection_select(:sims_squad_id, SimsSquad.order(:lpsdesc), :id, :lpsdesc, { include_blank: 'SELECIONE' })  %>
+         <%#= select("interest", "squad_id", Squad.collect {|p| [ p.lpsdesc, p.lpsid ] }, { include_blank: true }) %>     
+          <%#= f.text_field :squad_id, class: "form-control" %>  
+          <%= error_tag interest, :sims_squad_id %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :data_envio, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :data_envio, value: ( l @interest.data_envio, :format => :default2 if @interest.data_envio? ), class: "form-control calendario" %>  
+          <%= error_tag interest, :data_envio %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :prazo, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_field :prazo, value: ( l @interest.prazo, :format => :default2 if @interest.prazo? ), class: "form-control calendario" %>  
+          <%= error_tag interest, :prazo %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :avatar, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">
+          <%= f.file_field :avatar %>          
+          <%= error_tag @interest, :avatar %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :obs, class: "col-sm-2 control-label" %>
+        <div class="col-sm-6">        
+          <%= f.text_area :obs, class: "form-control" %>              
+          <%= error_tag interest, :obs %>
+        </div>
+    </div>
+
+    </div>
+    </div> <!--  FIM DA ROW  -->
+
+    </div> <!--  FIM DO FORM HORIZONTAL  -->
+
+    <div class="row">
+      <%= link_to_add_association 'Especificação', f, :especifications, class: "glyphicon glyphicon-plus-sign alert alert-success",
+           'data-association-insertion-node' => "#especifications-interest",
+           'data_association-insertion-method' => "append"
+      %>
+            <fieldset id="especifications-interest">
+              
+                <%= f.fields_for :especifications do |especification| %>
+                  <%= render partial: "especification_fields", locals: {f: especification} %>
+                <% end %>
+             
+            </fieldset>
+    </div>
+
+    <%= f.hidden_field :user_atualiza, value: current_user.id %>
+
+<div class="row">
+<br /> <br />
+  <div class="actions ">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+</div>  
+  
+<% end %>

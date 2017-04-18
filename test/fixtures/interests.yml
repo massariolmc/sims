@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  n_empenho: MyString
+  aplicacao: MyString
+  rsrp: MyString
+  obs: MyText
+  pregao: 
+  company: one
+  emissao: 2017-02-09 20:26:43
+  processo: MyString
+  squad: one
+  data_envio: 2017-02-09 20:26:43
+  prazo: 2017-02-09 20:26:43
+
+two:
+  n_empenho: MyString
+  aplicacao: MyString
+  rsrp: MyString
+  obs: MyText
+  pregao: 
+  company: two
+  emissao: 2017-02-09 20:26:43
+  processo: MyString
+  squad: two
+  data_envio: 2017-02-09 20:26:43
+  prazo: 2017-02-09 20:26:43

@@ -1,0 +1,11 @@
+<h1><%= t ('.title') %></h1>
+
+<% if current_user.admin? || current_user.sims? || current_user.sims_empenho_nivel_1? || current_user.sims_empenho_nivel_1? %>
+  <%= render 'form_admin' %>
+<% else %>
+  <%= render 'form'%>
+<% end %>
+
+
+<%= link_to t('links.show'), @sims_dependent %> |
+<%= link_to t('links.back'), sims_dependents_path %>

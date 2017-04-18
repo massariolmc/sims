@@ -1,0 +1,1 @@
+json.array! @sims_dependets, partial: 'sims_dependets/sims_dependet', as: :sims_dependet

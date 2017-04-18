@@ -1,0 +1,1 @@
+json.array! @especifications, partial: 'especifications/especification', as: :especification

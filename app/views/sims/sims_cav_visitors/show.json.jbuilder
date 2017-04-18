@@ -1,0 +1,1 @@
+json.partial! "sims_cav_visitors/sims_cav_visitor", sims_cav_visitor: @sims_cav_visitor

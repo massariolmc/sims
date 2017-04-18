@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sims_tba_esq_secao_id: 1
+  obs: MyText
+  person: one
+  user_id: 1
+
+two:
+  sims_tba_esq_secao_id: 1
+  obs: MyText
+  person: two
+  user_id: 1

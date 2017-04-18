@@ -1,0 +1,14 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<h1><%= t('.title') %></h1>
+
+<p>
+  <strong><%= t('empenho.interests.fields.n_empenho') %>:</strong>
+  <%= @loan.n_empenho %>
+</p>
+
+<%= link_to t('links.edit'), edit_loan_path(@loan) %> |
+<%= link_to t('links.back'), loans_path %>

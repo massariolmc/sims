@@ -1,0 +1,1 @@
+json.array! @sims_biga_vehicle_people, partial: 'sims_biga_vehicle_people/sims_biga_vehicle_person', as: :sims_biga_vehicle_person

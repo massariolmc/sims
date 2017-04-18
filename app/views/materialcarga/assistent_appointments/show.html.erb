@@ -1,0 +1,23 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong><%= t('materialcarga.assistent_appointments.fields.person_id') %>:</strong>
+  <%= @assistent_appointment.person(@assistent_appointment.person_id) %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.assistent_appointments.fields.appointment_id') %>:</strong>
+  <%= "#{@assistent_appointment.person(@assistent_appointment.appointment.person_id)} - #{@assistent_appointment.setor(
+  @assistent_appointment.appointment.sims_tba_esq_secao_id)}" %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.assistent_appointments.fields.obs') %>:</strong>
+  <%= @assistent_appointment.obs %>
+</p>
+
+
+<%= link_to t('links.edit'), edit_assistent_appointment_path(@assistent_appointment) %> |
+<%= link_to t('links.back'), assistent_appointments_path %>

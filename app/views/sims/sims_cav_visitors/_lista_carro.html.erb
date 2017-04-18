@@ -1,0 +1,27 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('sims.sims_cav_visitors.fields.visveic_tipo') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visveic_marca') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visveic_placa') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visveic_ano') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visveic_renavam') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% i = 0 %>
+    <% visitors_vehicle.each do |sims_cav_visitor| %>
+      <tr>
+        <td><% i = i + 1 %></td>
+        <td><%= sims_cav_visitor.visveic_tipo %></td>
+        <td><%= sims_cav_visitor.visveic_marca %></td>
+        <td><%= sims_cav_visitor.visveic_placa %></td>      
+        <td><%= sims_cav_visitor.visveic_ano %></td>      
+        <td><%= sims_cav_visitor.visveic_renavam %></td>        
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+

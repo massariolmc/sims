@@ -1,0 +1,87 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<p>
+  <legend><strong>INFORMAÇÕES DO VISITANTE:</strong>  </legend>
+</p>
+
+<div class="row">
+<div class="col-sm-6">
+
+
+<p>
+  <strong><%= t('sims.sims_cav_visitors.fields.visitanteid') %></strong>
+  <%= @sims_cav_visitor.visitanteid %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_cav_visitors.fields.visitante_nome') %></strong>
+  <%= @sims_cav_visitor.visitante_nome %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_cav_visitors.fields.visitante_datan') %></strong>
+  <%= @sims_cav_visitor.visitante_datan.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_cav_visitors.fields.visitante_telefone') %></strong>
+  <%= @sims_cav_visitor.visitante_telefone %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_cav_visitors.fields.visitante_user') %></strong>
+  <%= @sims_cav_visitor.cav_visitor_user(@sims_cav_visitor.visitante_user) %>
+</p>
+
+</div>
+
+<div class="col-sm-6">
+  <% if @marc == 0 %>
+    <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>    
+        <%= @sims_biga_license.cnh_numero  %>    
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
+      <%= @sims_biga_license.cnh_cat %>
+    </p>
+    <p>
+      <%if @sims_biga_license.cnh_validade > Date.today %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+      <% else %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+        <span class="label label-danger">VENCIDA</span>
+      <% end %>
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></strong>
+      <%= @sims_biga_license.cnh_uf %>
+    </p>
+  <% end %>
+
+</div><!-- FIM DO COL-SM-4 -->
+</div>
+
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DE ENTRADAS NA GUARNIÇÃO:</strong>  
+</legend>
+  <%= render partial: "lista_entradas", locals: {sims_cav_visitors_in: @sims_cav_visitor_vehicle} %>   
+</div>
+
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DOS VEICULOS:</strong>  
+</legend>
+  <%= render partial: "lista_carro", locals: {visitors_vehicle: @sims_cav_vehicle} %>   
+</div>
+
+<%#= link_to t('links.edit'), edit_sims_cav_visitor_path(@sims_cav_visitor) %> 
+<%= link_to t('links.back'), sims_cav_visitors_path %>

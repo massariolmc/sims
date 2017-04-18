@@ -1,0 +1,1 @@
+json.array! @sims_sims_people, partial: 'sims_sims_people/sims_sims_person', as: :sims_sims_person

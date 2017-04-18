@@ -1,0 +1,1 @@
+json.array! @sims_employee_words, partial: 'sims_employee_words/sims_employee_word', as: :sims_employee_word

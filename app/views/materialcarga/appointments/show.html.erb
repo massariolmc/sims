@@ -1,0 +1,47 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="row">
+	<div class="col-sm-6">
+		
+	
+<p>
+  <strong><%= t('materialcarga.appointments.fields.person_id') %>:</strong>
+  <%= @appointment.person(@appointment.person_id) %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.appointments.fields.sims_tba_esq_secao_id') %>:</strong>
+  <%= @appointment.setor(@appointment.sims_tba_esq_secao_id) %>
+</p>
+
+</div>
+<div class="col-sm-6">
+
+<p>
+  <strong><%= t('materialcarga.appointments.fields.obs') %>:</strong>
+  <%= @appointment.obs %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.appointments.fields.user_id') %>:</strong>
+  <%= @appointment.person(@appointment.user_id) %>
+</p>
+
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+<%= link_to t('links.edit'), edit_appointment_path(@appointment) %> |
+<%= link_to t('links.back'), appointments_path %>
+	</div>	
+</div>
+<br>
+<legend><strong>Materiais</strong></legend>
+
+<div class="row">
+	<div class="col-sm-12">
+		<%= render partial: "show_equipment" %>
+	</div>
+</div>

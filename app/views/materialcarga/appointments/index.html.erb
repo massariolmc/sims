@@ -1,0 +1,12 @@
+
+<% if current_user.admin? %>
+
+<%= render partial: "index_admin" %>
+
+<% elsif  current_user.admin? || current_user.materialcarga? || current_user.materialcarga_sims? || 
+current_user.materialcarga_empenho_nivel_1? || current_user.materialcarga_empenho_nivel_2? || 
+current_user.materialcarga_sims_empenho_nivel_1? || current_user.materialcarga_sims_empenho_nivel_2? %>
+
+<%= render partial: "index_user" %>
+
+<% end %>

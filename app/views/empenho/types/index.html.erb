@@ -1,0 +1,34 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>      
+      <th><%= t('empenho.types.fields.nome') %> </th>
+      <th><%= t('empenho.types.fields.obs') %> </th>      
+      <th colspan="3"><%= t('empenho.opcao') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @types.each do |type| %>
+      <tr>
+        <td><%= type.nome%></td>
+        <td><%= type.obs%></td>
+        <td><%= link_to t('links.show'), type %></td>
+        <td><%= link_to t('links.edit'), edit_type_path(type) %></td>
+        <td><%= link_to t('links.destroy'), type, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_type_path %>

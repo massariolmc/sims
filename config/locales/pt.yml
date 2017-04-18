@@ -1,0 +1,1238 @@
+pt:
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Ultima &raquo;"
+      previous: "&lsaquo;"
+      next: " &rsaquo;"
+      truncate: "&hellip;"
+  devise:
+    confirmations:
+      confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
+      send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta.'
+      send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá uma mensagem com instruções para confirmação da sua conta.'
+    failure:
+      already_authenticated: 'Você já está logado.'
+      inactive: 'Sua conta ainda não foi ativada.'
+      invalid: 'Login ou senha inválidos.'
+      invalid_token: 'O token de autenticação não é válido.'
+      locked: 'Sua conta está bloqueada.'
+      timeout: 'Sua sessão expirou, por favor, efetue login novamente para continuar.'
+      unauthenticated: 'Para continuar, efetue login ou registre-se.'
+      unconfirmed: 'Antes de continuar, confirme a sua conta.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instruções de confirmação'
+      reset_password_instructions:
+        subject: 'Instruções de troca de senha'
+      unlock_instructions:
+        subject: 'Instruções de desbloqueio'
+    omniauth_callbacks:
+      failure: 'Não foi possível autenticá-lo como %{kind} porque "%{reason}".'
+      success: 'Autenticado com sucesso com uma conta de %{kind}.'
+    passwords:
+      no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se usou a URL completa fornecida."
+      send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a troca da sua senha.'
+      send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá um link de recuperação da senha via e-mail.'
+      updated: 'Sua senha foi alterada com sucesso. Você está logado.'
+      updated_not_active: 'Sua senha foi alterada com sucesso.'
+      new:
+        title: "Esqueceu sua senha?"
+      edit:
+        title: "Troque sua senha."
+    registrations:
+      new:
+        title: "Cadastro"
+      edit:
+        title: "Atualizar"
+        cancel: "Cancelar minha conta"
+        update: "Atualizar"
+      destroyed: 'Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+      signed_up: 'Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail.'
+      signed_up_but_inactive: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada.'
+      signed_up_but_locked: 'Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada.'
+      signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para confirmar a sua conta.'
+      update_needs_confirmation: 'Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos.'
+      updated: 'Sua conta foi atualizada com sucesso.'
+    sessions:
+      signed_in: 'Login efetuado com sucesso!'
+      signed_out: 'Saiu com sucesso.'
+      new:
+        title: 'Login'        
+    unlocks:
+      send_instructions: 'Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.'
+      send_paranoid_instructions: 'Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Efetue login para continuar.'
+
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado"
+      confirmation_period_expired: "precisa ser confirmada em até %{period}, por favor, solicite uma nova"
+      expired: "expirou, por favor, solicite uma nova"
+      not_found: "não encontrado"
+      not_locked: "não foi bloqueado"
+      not_saved:
+        one: "Não foi possível salvar %{resource}: 1 erro"
+  
+  organizations:
+    new:
+      title: Cadastro
+    index:
+      title: "Visualizaçao das Organizaçoes"
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+  sims_squads:
+    new:
+      title: Cadastro
+    index:
+      title: "Visualizaçao dos Esquadroes"
+      organization_id: Organizaçao
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+      organization_id: Organizaçao
+  sims_departments:
+    new:
+      title: Cadastro
+    index:
+      title: "Visualizaçao das Seçoes"
+      squad_id: Esquadrao
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+      squad_id: Esquadrao                     
+  sims_people:
+    new:
+      title: Cadastro
+    index:
+      title: Visualizaçao Total
+      patent_id: Posto ou Graduaçao  
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+      patent_id: Posto ou Graduaçao
+  users:
+    new:
+      title: Cadastro
+    index:
+      title: Visualização Total
+      person_id: Nome
+      permission_id: Permissoes  
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+      person_id: Nome
+      permission_id: Permissoes
+      email: Email
+    fields:
+      login: Login
+      permission_id: Permissões
+      person_id: Pessoa
+      password: Senha    
+      password_confirmation: Confirme a Senha
+      current_password: Senha Atual
+      username: Login
+      role: Perfil      
+  sims_patents:
+    new:
+      title: Cadastro
+    index:
+      title: Visualizaçao Total      
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+  permissions:
+    new:
+      title: Cadastro
+    index:
+      title: Visualizaçao Total      
+    edit:
+      title: Editar
+    show:
+      title: "Perfil: %{nome_guerra}"
+  
+  # AQUI COMEÇA A PARTE DE TRADUCAO DO EMPENHO  
+  empenho:    
+    opcao: "Opções"
+    companies:
+      new:
+        title: Cadastro de Empresas
+      index:
+        title: "Visualização das Empresas"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        nome_fantasia: "Nome Fantasia"
+        razao_social: "Razão Social"
+        cnpj: "CNPJ"
+        logradouro: "Endereço"
+        numero: "Nº"
+        bairro: "Bairro"
+        cidade: "Cidade"
+        estado: "Estado"
+        telefone: "Telefone"
+        cep: "CEP"    
+    interests:
+      new:
+        title: Cadastro dos Empenhos
+      index:
+        title: "Visualização dos Empenhos"        
+      edit:
+        title: Editar
+      show:
+        title: "Visualização do Empenho" 
+        especifications: "Especificação do Material / Serviço" 
+      fields:
+        n_empenho: "Nº do Empenho"
+        aplicacao: "Aplicação"
+        rsrp: "RSRP"
+        obs: "Obs"
+        pregao: "Pregão"
+        company_id: "Empresa"
+        emissao: "Emissão"
+        processo: "Processo"
+        squad_id: "Setor"
+        data_envio: "Data do Envio para Empresa"   
+        prazo: "Prazo para Entrega"
+        avatar: "Anexo"
+    especifications:
+      new:
+        title: Cadastro das Especificações do produtos/material
+      index:
+        title: "Visualização dos produtos/material"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        descricao: "Descrição"
+        type_id: "N.D."
+        qtde: "QTDE"
+        valor_un: "Valor Un"        
+        modality_id: "Mat/Serv" 
+        interest_id: "Empenho"
+    types:
+      new:
+        title: "Cadastro"
+      index:
+        title: "Visualização"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        nome: "Nome"
+        obs: "Obs"
+    modalities:
+      new:
+        title: "Cadastro"
+      index:
+        title: "Visualização"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        nome: "Nome"
+        obs: "Obs"    
+  # AQUI COMEÇA A PARTE DE TRADUCAO DO MATERIAL CARGA
+  materialcarga:    
+    opcao: "Opções"
+    appointments:
+      new:
+        title: Cadastro do Responsável pelo Material Carga
+      index:
+        title: "Visualização"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        sims_tba_esq_secao_id: Setor
+        obs: Obs
+        person_id: Militar
+        user_id: Cadastrado por
+    equipment:
+      new:
+        title: Cadastro dos Materiais
+      index:
+        title: "Visualização dos Materiais"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        nomeclatura: Nomeclatura
+        sigla: Sigla
+        appointment_id: Material Carga
+        account_id: Conta
+        kind_id: Classe
+        qtde: QTDE
+        bmp: BMP
+        n_serie: Número de Serie
+        n_pn: Part Number
+        valor_atualizado: Valor Atualizado
+        situation_id: Situação
+        status: Status
+        obs: Obs
+        user_id: Cadastrado por
+    assistent_appointments:
+      new:
+        title: Cadastro do Auxiliar do Material Carga
+      index:
+        title: "Visualização"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:
+        appointment_id: Material Carga
+        obs: Obs
+        person_id: Auxiliar
+        user_id: Cadastrado por
+
+  # AQUI COMEÇA A PARTE DE TRADUCAO DA CAUTELAS      
+  cautela:
+    loans:
+      new:
+        title: Cadastro das Cautelas
+      index:
+        title: "Visualização das Cautelas"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:        
+        obs: Obs
+        person_id: Requisitante
+        user_id: Cadastrado por
+        data_saida: Data da Solicitação
+        data_devolucao: Deta de Devolução
+        status: Status    
+    products:
+      new:
+        title: Cadastro dos Produtos
+      index:
+        title: "Visualização dos Produtos"        
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %#{nome_guerra}"  
+      fields:        
+        obs: Obs       
+        user_id: Cadastrado por
+        loan_id: Pertence a Cautela
+        nome: Nome
+        descricao: Descrição   
+        appointment_id: Material Carga
+        qtde: Quantidade
+        situation_id: Situação
+      
+  # AQUI COMEÇA A PARTE DE TRADUCAO DO SIMS
+  sims:
+    ncompleto: Nome Completo
+    cnh: CNH
+    cat: Cat
+    validade: Validade
+    uf: UF
+    resp_nguerra: Resp
+    pes_cracha_id: Crachá
+    crachadevolvido: Situação do Crachá
+    resp_posto: Posto/Graduação
+    pescpf: CPF
+    id: ID
+    title: Visualização
+    sims_people:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        pesfoto: "Foto"
+        pesncompleto: Nome Completo
+        pesnguerra: Nome de guerra
+        pesemail: Email
+        pescodigo: Saram
+        pesfoto: Foto
+        pespostograd: Posto ou Graduação
+        pescpf: CPF
+        pesidentidade: Identidade
+        pesend: Endereço        
+        pesnum: Nº
+        pesbairro: Bairro
+        pescidade: Cidade
+        pesestado: Estado
+        pesuf: UF
+        pescep: CEP
+        pesespecialidade: Especialidade
+        pesquadro: Quadro
+        pessexo: Sexo
+        pestiposangue: Sangue
+        pesdn: Nascimento
+        pessituacao: Situação
+        pesom: OM
+        peslocaltrabalho: Esquadrão
+        pes_esqsec_id: Seçao
+        pesfalert: Falert
+        pesfonetrab: Telefone Trabalho
+        pesfone1: Celular
+        pesfone2: Telefone Casa
+        pesfonetrabramal: Ramal
+        pes_cracha_id: Crachá
+        pes_cracha_val: Validade do Crachá
+        pesobs: OBS
+        pesfalertesq: Falert
+        pesbanco: Banco
+        pesagencia: Agência
+        pescontacorrente: Conta Corrente
+        pesfilpai: Nome do Pai
+        pesfilmae: Nome da Mãe
+        pesnaturalcidade: Cidade Natal
+        pesnaturaluf: UF Natal
+        status_cracha: Status do Crachá 
+        peslogin: Login
+        pescnhnum: Nº CNH
+        pescnhcat: Cat
+        pescnhvalidade: Validade
+        pestitulouf: UF
+    sims_dependents:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        pesfoto: "Foto"
+        pesdepnome: Nome Completo
+        pesdepgrau: Parentesco
+        pesdepsexo: Sexo
+        pesdepdn: Data Nascimento
+        pescodigo: Saram
+        pesdepboletimnum: Nº do Boletim
+        pesdepboletimdata: Data Boletim
+        pesdepompub: Não sei
+        pesdepradionum: Não sei      
+        pesdepradiodata: Data do radio
+        pesdepirrf: Imposto de renda
+        pesdeptiposaram: Tipo
+        pesdeptipo: Não sei
+        pesdepuser: Cadastrado por
+        pesdepdatacad: Data do cadastro
+        pesdeppesid: "Dependente de:"
+        pesdepdatacas: Não sei
+        pes_cracha_id: Crachá
+        pes_cracha_val: Validade do Crachá 
+        status_cracha: Status do Crachá 
+    sims_employees:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        pesfoto: "Foto"
+        pesesnome: Nome Completo
+        pesesdn: Data Nascimento
+        pesescinum: Identidade
+        pesesciorgao: Orgão Emissor
+        pesescpf: CPF
+        pesesfilpai: Nome do Pai
+        pesesfilmae: Nome da Mãe
+        pesesend: Endereço
+        pesesendnum: Nº        
+        pesesendbairro: Bairro
+        pesesendcidade: Cidade
+        pesesenduf: UF
+        pesesendcep: CEP
+        pesesfone1: Telefone 1
+        pesesfone2: Telefone 2
+        pesestipo: Tipo da Pessoa
+        pesesempresa: Empresa
+        pesesempresacnpj: CNPJ
+        pesesfuncao: Função
+        pesesatividadeextra: Atividade Extra
+        peseslocalserv: Acesso
+        pesesint: AUTORIZAÇÃO SINT
+        pesesintobs: Obs
+        pesesobs: Obs
+        pesesdatacad: Data do Cadastro
+        pesesuser: Cadastrado por
+        pesesid: ID
+        pesesend2: Endereço do responsável
+        pesesempresafone: Fone do esponsável
+        pesesdatacadint: DIA DA AUTORIZAÇÃO
+        pesesuserint: AUTORIZADO POR
+        pesesmatricula: NÃO SEI
+    sims_employee_words:
+      validade_cracha: Alterar Validade crachá
+      desativar_cracha: Desativar crachá
+      ativar_cracha: Ativar crachá
+      ativa_desativa_cracha: "Ativa / Desativa crachá"
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        pesfoto: "Foto"
+        pesespessoa: Nome Completo
+        peseshorarios: Horário Permitido
+        pesesdatainicial: Data Inicial
+        pesesdatafinal: Data Final
+        pesessolicitante: Solicitante
+        pesesdobs: Obs
+        pesesddatacad: Data do Cadastro
+        pesesduser: Cadastrado Por
+        pesesdid: ID
+        pesesesqsolic: Setor Solicitante
+        crachapessoa: Nome Completo
+        crachanivel: Nível de Acesso
+        crachavalidade: Validade do Crachá
+        crachadevolvido: Situação do crachá
+        crachatipo: Tipo
+        crachasubtipo: Sub Tipo
+        crachaobs: Obs
+        crachadatacad: Cadastrado em 
+        crachauser: Cadastrado por
+        crachaid: Nº Crachá
+    sims_biga_licenses:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total  
+        cnh_vencidas: Visualização das CNHs Vencidas
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+      fields:
+        pesfoto: "Foto"
+        cnh_pes_id: Nome # na verdade é o ID da pessoa
+        cnh_pes_id_2: ID
+        cnh_pes_tipo: Tipo
+        cnh_numero: Nº CNH
+        cnh_validade: Validade
+        cnh_cat: Categoria
+        cnh_datacad: Data do Cadastro
+        cnh_obs: Obs
+        cnh_uf: UF
+        person: Nome  
+    sims_biga_vehicles:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+      fields:
+        vcl_placa: Placa
+        vcl_marca: Marca
+        vcl_modelo: Modelo
+        vcl_tipo: Tipo
+        vcl_ano: Ano
+        vcl_renavam: Renavam
+        vcl_cor: Cor
+        vcl_datacad: Data do Cadastro
+        vcl_user_id: User
+        vcl_obs: Obs
+        vcl_dataatualizado: Data da Atualização
+        vcl_situacao: Situação
+        vcl_proprietario: Proprietário
+        vcl_id: ID  
+    sims_biga_notes:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+      fields:
+        vob_id: ID
+        vob_vcl_id: Placa
+        vob_obs: Obs
+        vob_datacad: Data do cadastro
+        vob_user: "Cadastrado por:"
+        vob_tipo: Tipo
+        ves_id: Não sei
+    sims_biga_vehicle_people:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+      fields:
+        vcp_id: ID
+        vcp_placa_id: Placa
+        vcp_pes_id: Pessoa
+        vcp_pes_tipo: Tipo
+        vcp_posse: NÃO SEI
+        vcp_datacad: Data do Cadastro 
+        vcp_datavinculo: Data do cadastro do vinculo
+        vcp_datadesvinculo: Data do desvinculo
+        vcp_opr_id: NÃO SEI
+        vcp_origem: NÃO SEI
+        vcp_cpf: CPF
+        vcp_ativo: Situação
+    sims_biga_vehicle_tags:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total  
+      edit:
+        title: Editar
+      show:
+        title: ""
+      fields:
+        vsl_id: Selo
+        vsl_vcl_placa: Placa
+        vsl_pes_id: 
+        vsl_datacad: Data do cadastro
+        vsl_datarenovacao: Data da Renovação
+        vsl_datadesativacao: 
+        vsl_situacao: Situação
+        vsl_user_id: 
+    sims_cav_visitors:
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        pesfoto: "Foto"
+        visitante_nome: Nome Completo
+        visitante_datan: Data de Nascimento
+        visitante_datacad: Data do Cadastro
+        visitante_user: Cadastrado por
+        visitanteid: ID
+        visitante_obs: Obs
+        visitante_telefone: Telefone
+        visacesso_destino: Destino        
+        visacesso_obs: Obs
+        visacesso_cracha: Crachá
+        visacesso_dataent: Data da Entrada
+        visacesso_horaent: Hora da entrada
+        visacesso_datasai: Data da Saída
+        visacesso_horasai: Hora da Saída
+        visacesso_usersai: Militar que serviço na Saída
+        visacesso_userent: Militar de serviço na Entrada
+        tipodoc_descricao: Tipo do Documento
+        visdoc_docnro: Nº do Documento
+        visdoc_orgexp: Orgão Expedidor
+        visveic_tipo: Modelo
+        visveic_marca: Marca
+        visveic_cor: Cor
+        visveic_placa: Placa
+        visveic_obs: Obs
+        visveic_ano: Ano
+        visveic_renavam: Renavam        
+        justifica_texto: Justificativa
+    sims_biga_moviments:
+      pesquisa: "Pesquisa Avançada"
+      new:
+        title: Cadastro
+      index:
+        title: Visualização Total
+        patent_id: Posto ou Graduação  
+      edit:
+        title: Editar
+      show:
+        title: "Perfil: %{nome_guerra}"
+        patent_id: Posto ou Graduação
+      fields:
+        mov_t_mov: Tipo da Movimentação
+        mov_t_pessoa: Tipo da Pessoa
+        mov_pes_id: ID da pessoa
+        mov_placa: Placa
+        mov_dta_cad: Data
+        mov_user_cad: Militar de SVC
+        mov_cracha: Crachá
+        mov_c_cracha: Portando crachá
+        mov_obs: OBS
+        mov_guia: não sei
+        mov_km: não sei
+        mov_destino: Destino
+        mov_pes_resp: não sei
+        mov_id: ID
+        portao_id: ID do Portão
+        mov_ip: IP
+        mov_tipo_acesso: Militar de serviço na Entrada
+        portao_nome: Portão
+       
+  links:
+    back: Voltar
+    show: Mostrar
+    edit: Editar
+    destroy: Deletar
+    new: Inserir
+    login: "Login"
+    signup: "Cadastrar"
+    forgot: "Esqueceu sua senha"
+    btn: "Enviar"
+    add: "Add Produto"
+    new2: "Cadastrar Modelos dos Produtos"
+    new1: "Cadastrar Marcas dos Produtos"
+    new3: "Cadastrar Tipos de Produtos"
+    atender: Atender Pedido
+    login: Alterar Perfil
+    imprimir: Imprimir
+    anexo: "Anexar Compravante"
+    recibo: "Imprimir Comprovante"
+    selecione: "SELECIONE"
+    opcao: "Opções"
+    opcao_mostrar: "Visualizar"
+    opcao_editar: "Editar Perfil"
+    opcao_deletar: "Deletar"
+    opcao_inserir_cnh: "Cadastrar CNH"
+    editar_cnh: Editar CNH
+    editar_perfil: Editar Perfil
+    opcao_exibe_veiculo_pessoa: "Veiculos"
+    perfil: Altera Perfil
+    new_equip: Cadastrar
+  layout:
+    signin: Login     
+    my_profile: Meu Perfil
+    signout: Logout
+    password: Trocar senha
+    organization: Organizaçao
+    squad: Esquadrao
+    department: Secao
+    person: Pessoas
+    user: Usuarios
+    permission: Permissoes
+    patent: "Posto/Graduaçao"    
+    company: "Empresas"        
+  flash:
+    alert:
+      needs_login: "Voce precisa estar logado para continuar."
+      negado: "Sem privilégios."
+    notice:
+      signed_in: 'Login efetuado com sucesso.'
+      signed_out: 'Logout efetuado com sucesso. Ate logo!'
+      needs_in: "E necessario estar logado."
+      already_login_in: "Voce ja esta logado."
+      created: "Criado com sucesso."
+      updated: "Atualizado com sucesso."
+      destroied: "Excluido com sucesso." 
+      dependent: "Não é possível deletar. Existe uma dependência dependência."
+      add: Adicionado com sucesso.  
+      remove: Removido com sucesso.
+      limpacarrinho: Carrinho de compras vazio.   
+      notlogin: Usuario nao possui perfil.
+      invalid: "Valor Inválido"
+      notupdate: "Erro inesperado."
+  msg:      
+    deletar: "Tem certeza?"
+  general:
+    form_error: Há erros no formulário, por favor verifique.  
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+    models:
+      sims_organization: Organização
+      sims_squad: Esquadrão
+      sims_department: Departamento      
+      sims_person: Pessoas
+      sims_dependent: Dependente
+      sims_employees: Prestador de Serviço
+      sims_biga_license: CNH
+      sims_biga_vehicle_people: Proprietários Veiculos
+      user: Usuario
+      permission: Permissões
+      sims_patent: "Posto / Graduacão"      
+      company: "Empresas" 
+      interest: "Empenhos"
+      especification: "Especificação" 
+      type: "Natureza de despeza" 
+      modality: "Tipo do produto/material"
+      equipment: Material
+      appointment: Material Carga    
+      assistent_appointment: Militar Auxiliar - Material Carga    
+      loan: Empréstimo 
+      product: Produto
+    attributes:
+      organization:
+        omdesc: Nome
+        omabrev: Sigla
+        omsimnao: Ativo
+      sims_squad:
+        lpsdesc: Nome        
+      sims_department:
+        esqsec_esq: Esquadrão
+        esqsec_desc: Nome Seção
+        esqsec_abrev: Sigla
+        esqsec_dficha: Desimpede Ficha
+        esqsec_ramal: Ramal    
+      sims_person:
+        pesncompleto: Nome Completo
+        pesnguerra: Nome de guerra
+        pesemail: Email
+        pescodigo: Saram
+        pesfoto: Foto
+        pespostograd: Posto ou Graduação
+        pescpf: CPF
+        pesidentidade: Identidade
+        pesend: Endereço        
+        pesnum: Nº
+        pesbairro: Bairro
+        pescidade: Cidade
+        pesestado: Estado
+        pesuf: UF
+        pescep: CEP
+        pesespecialidade: Especialidade
+        pesquadro: Quadro
+        pessexo: Sexo
+        pestiposangue: Sangue
+        pesdn: Nascimento
+        pessituacao: Situação
+        pesom: OM
+        peslocaltrabalho: Esquadrão
+        pes_esqsec_id: Seção
+        pesfalert: Falert
+        pesfonetrab: Telefone Trabalho
+        pesfone1: Celular
+        pesfone2: Telefone Casa
+        pesfonetrabramal: Ramal
+        pes_cracha_id: Crachá
+        pes_cracha_val: Validade do Crachá
+        pesobs: OBS
+        pesfalertesq: Falert
+        pesbanco: Banco
+        pesagencia: Agência
+        pescontacorrente: Conta Corrente
+        pesfilpai: Nome do Pai
+        pesfilmae: Nome da Mãe
+        pesnaturalcidade: Cidade Natal
+        pesnaturaluf: UF Natal
+        peslogin: Login
+        pescnhnum: Nº CNH
+        pescnhcat: Cat
+        pescnhvalidade: Validade
+        pestitulouf: UF
+      sims_dependent:
+        pesfoto: "Foto"
+        pesdepnome: Nome Completo
+        pesdepgrau: Parentesco
+        pesdepsexo: Sexo
+        pesdepdn: Data Nascimento
+        pescodigo: Saram
+        pesdepboletimnum: Nº do Boletim
+        pesdepboletimdata: Data Boletim
+        pesdepompub: Não sei
+        pesdepradionum: Não sei      
+        pesdepradiodata: Data do radio
+        pesdepirrf: Imposto de renda
+        pesdeptiposaram: Tipo
+        pesdeptipo: Não sei
+        pesdepuser: Cadastrado por
+        pesdepdatacad: Data do cadastro
+        pesdeppesid: "Dependente de:"
+        pesdepdatacas: Não sei
+        pes_cracha_id: Crachá
+        pes_cracha_val: Validade do Crachá   
+      sims_employee:
+        pesfoto: "Foto"
+        pesesnome: Nome Completo
+        pesesdn: Data Nascimento
+        pesescinum: Identidade
+        pesesciorgao: Orgão Emissor
+        pesescpf: CPF
+        pesesfilpai: Nome do Pai
+        pesesfilmae: Nome da Mãe
+        pesesend: Endereço
+        pesesendnum: Nº        
+        pesesendbairro: Bairro
+        pesesendcidade: Cidade
+        pesesenduf: UF
+        pesesendcep: CEP
+        pesesfone1: Telefone 1
+        pesesfone2: Telefone 2
+        pesestipo: Tipo da Pessoa
+        pesesempresa: Empresa
+        pesesempresacnpj: CNPJ
+        pesesfuncao: Função
+        pesesatividadeextra: Atividade Extra
+        peseslocalserv: Acesso
+        pesesint: AUTORIZAÇÃO SINT
+        pesesintobs: Obs
+        pesesobs: Obs
+        pesesdatacad: Data do Cadastro
+        pesesuser: Cadastrado por
+        pesesid: ID
+        pesesend2: Endereço do responsável
+        pesesempresafone: Fone do esponsável
+        pesesdatacadint: DIA DA AUTORIZAÇÃO
+        pesesuserint: AUTORIZADO POR
+        pesesmatricula: NÃO SEI 
+      sims_biga_license:
+        pesfoto: "Foto"
+        cnh_pes_id: Nome # na verdade é o ID da pessoa
+        cnh_pes_tipo: Tipo
+        cnh_numero: Nº CNH
+        cnh_validade: Validade
+        cnh_cat: Categoria
+        cnh_datacad: Data do Cadastro
+        cnh_obs: Obs
+        cnh_uf: UF  
+      sims_biga_vehicle_person:
+        vcp_id: ID
+        vcp_placa_id: Placa
+        vcp_pes_id: Pessoa
+        vcp_pes_tipo: Tipo
+        vcp_posse: NÃO SEI
+        vcp_datacad: Data do Cadastro 
+        vcp_datavinculo: Data do cadastro do vinculo
+        vcp_datadesvinculo: Data do desvinculo
+        vcp_opr_id: NÃO SEI
+        vcp_origem: NÃO SEI
+        vcp_cpf: CPF
+        vcp_ativo: Situação               
+      user:
+        login: Login
+        permission_id: Permissões
+        person_id: Pessoa
+        password: Senha    
+        password_confirmation: Confirme a Senha
+        current_password: Senha Atual
+        username: Login        
+      sims_patent:
+        nome: Nome          
+      permisson:
+        nome: Nome
+        descriçao: Descrição      
+      company:
+        nome_fantasia: "Nome Fantasia"
+        razao_social: "Razão Social"
+        cnpj: CNPJ
+        telefone: TEL
+        logradouro: "Endereço"
+        numero: "Nº"
+        bairro: "Bairro"
+        cidade: "Cidade"
+        estado: "UF"
+        cep: "CEP"
+      interest:
+        n_empenho: "Nº do Empenho"
+        aplicacao: "Aplicação"
+        rsrp: "RSRP"
+        obs: "Obs"
+        pregao: "Pregão"
+        company_id: "Empresa"
+        emissao: "Emissão"
+        processo: "Processo"
+        sims_squad_id: "Setor"
+        data_envio: "Data do Envio para Empresa"   
+        prazo: "Prazo para Entrega"
+        especification_id: "Especificação" 
+        avatar: "Anexo"   
+      especification:
+        descricao: "Descrição"
+        type_id: "N.D."
+        qtde: "QTDE"
+        valor_un: "Valor Un"        
+        modality_id: "Mat/Serv"
+        total: "Total"
+      type:
+        nome: "Nome"
+        obs: "Obs"
+      modality:
+        nome: "Nome"
+        obs: "Obs"
+      appointment:
+        sims_tba_esq_secao_id: Setor
+        obs: Obs
+        person_id: Militar
+        user_id: Cadastrado por    
+      equipment:
+        nomeclatura: Nomeclatura
+        sigla: Sigla
+        appointment_id: Material Carga
+        account_id: Conta
+        kind_id: Classe
+        qtde: QTDE
+        bmp: BMP
+        n_serie: Número de Serie
+        n_pn: Part Number
+        valor_atualizado: Valor Atualizado
+        situation_id: Situação
+        status: Status
+        obs: Obs
+        user_id: Cadastrado por
+      assistent_appointment:  
+        appointment_id: Material Carga
+        obs: Obs
+        person_id: Auxiliar
+        user_id: Cadastrado por
+      loan:
+        obs: Obs
+        person_id: "Requisitante"
+        user_id: Cadastrado por
+        data_saida: Data da solicitação
+        data_devolucao: Deta de Devolução
+        status: Status
+      product:    
+        obs: Obs       
+        user_id: Cadastrado por
+        loan_id: Pertence a Cautela
+        nome: Nome
+        descricao: Descrição   
+        appointment_id: Material Carga
+        qtde: Quantidade
+        situation_id: Situação
+          
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      required: deve existir
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: 1 caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+      too_short:
+        one: 'é muito curto (mínimo: 1 caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length:
+        one: não possui o tamanho esperado (1 caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+      other_than: deve ser diferente de %{count}
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: "."
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+      default2: "%d/%m/%Y"
+      default3: "%Y-%m-%d"
+    pm: ''

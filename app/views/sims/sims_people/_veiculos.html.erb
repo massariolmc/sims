@@ -1,0 +1,42 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+    <th>#</th>
+      <th><%= t('sims.sims_biga_vehicle_people.fields.vcp_placa_id') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_marca') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_modelo') %></th>      
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_ano') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_renavam') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_cor') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_proprietario') %></th>
+      <th><%= t('sims.sims_biga_vehicle_tags.fields.vsl_id') %></th>
+      <th><%= t('sims.sims_biga_vehicles.fields.vcl_tipo') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% i = 0 %>
+    <% sims.each do |sims_biga_vehicle_person| %>
+      <tr>
+        <td><%= i = i + 1%></td>
+        <td><%= sims_biga_vehicle_person.placa %></td>
+        <td><%= sims_biga_vehicle_person.marca %></td>
+        <td><%= sims_biga_vehicle_person.modelo %></td>
+        <td><%= sims_biga_vehicle_person.ano.to_i %></td>
+        <td><%= sims_biga_vehicle_person.renavam.to_i %></td>
+        <td><%= sims_biga_vehicle_person.cor %></td>    
+        <td><%= sims_biga_vehicle_person.proprietario %></td>
+        <td><%= sims_biga_vehicle_person.selo %></td>
+        <td><%= sims_biga_vehicle_person.automovel %></td>    
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+

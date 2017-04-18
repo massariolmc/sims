@@ -1,0 +1,2 @@
+module Cautela::LoansHelper
+end

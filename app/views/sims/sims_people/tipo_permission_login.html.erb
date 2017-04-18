@@ -1,0 +1,32 @@
+
+<h1><%= t ('users.index.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="datatable">
+  <thead>
+    <tr>
+      <th><%= t('sims.sims_people.fields.pesnguerra') %></th>
+      <th><%= t('users.fields.username') %></th>
+      <th><%= t('users.fields.role') %></th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.login(user.username) %></td>
+        <td><%= user.username %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to t('links.show'), sims_person_path(user.person_id(user.username)) %></td>
+        <td><%= link_to t('links.edit'), edit_sims_person_path(user.person_id(user.username)) %></td>
+        <td><%= link_to t('links.perfil'), altera_permission_login_sims_person_path(user.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+

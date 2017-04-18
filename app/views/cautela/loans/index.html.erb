@@ -1,0 +1,34 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="interests">
+  <thead>
+    <tr>
+        <th><%= t('empenho.interests.fields.prazo') %> </th>          
+        <th><%= t('empenho.opcao') %> </th>
+        <th><%= t('empenho.opcao') %> </th>
+        <th><%= t('empenho.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.n_empenho%></td>
+        <td><%= link_to t('links.show'), loan %></td>
+        <td><%= link_to t('links.edit'), edit_loan_path(loan) %></td>
+        <td><%= link_to t('links.destroy'), loan, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_loan_path %>

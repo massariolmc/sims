@@ -1,0 +1,338 @@
+<%= form_for(@sims_employee, html: { class: "form-horizontal"}) do |f| %>
+  <% if @sims_employee.errors.any? %>
+    <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+  <legend>Informações do Prestador de Serviço</legend>
+
+  <div class="row">
+
+  <!-- 
+  <div class="col-sm-4">
+
+  <div class="field form-group">
+    <%#= f.label :pesfoto, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%#= f.text_field :pesfoto, class: "form-control" %>
+    </div>
+  </div>  
+</div>
+-->
+
+<div class="col-sm-6">
+  <div class="field form-group">
+    <%= f.label :pesesnome, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesesnome, class: "form-control" %>
+      <%= error_tag @sims_employee, :pesesnome %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesdn, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">   
+    <%= f.text_field :pesesdn, value: ( l @sims_employee.pesesdn, :format => :default if @sims_employee.pesesdn? ), class: 'calendario form-control', :placeholder => 'Selecione data'%>
+    <%= error_tag @sims_employee, :pesesdn %>
+    </div>
+  </div>  
+
+  <div class="field form-group">
+    <%= f.label :pesescinum, class: "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+        <%= f.text_field :pesescinum, class: "form-control"%>    
+        <%= error_tag @sims_employee, :pesescinum %>
+      </div>    
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesciorgao, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesesciorgao, class: "form-control" %>
+      <%= error_tag @sims_employee, :pesesciorgao %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesescpf, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesescpf, class: "form-control cpf" %> 
+    <%= error_tag @sims_employee, :pesescpf %>
+    </div>
+  </div>
+ 
+
+  <div class="field form-group">
+    <%= f.label :pesesfilpai, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+    <%= f.text_field :pesesfilpai, class: "form-control" %> 
+    <%= error_tag @sims_employee, :pesesfilpai %>
+    </div>
+  </div>
+
+
+
+  <div class="field form-group">
+    <%= f.label :pesesfilmae, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesfilmae, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesfilmae %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesend, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesend, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesend %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesendnum, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesendnum, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesendnum %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesendbairro, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesendbairro, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesendbairro %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesendcidade, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesendcidade, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesendcidade %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :pesesenduf, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesenduf, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesenduf %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesendcep, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesendcep, class: "form-control cep" %>         
+      <%= error_tag @sims_employee, :pesesendcep %>
+    </div>
+  </div>
+
+ </div> 
+ <div class="col-sm-6"> 
+
+  <div class="field form-group">
+    <%= f.label :pesesfone1, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesfone1, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesfone1 %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesfone2, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesfone2, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesfone2 %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesestipo, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesestipo, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesestipo %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesempresa, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesempresa, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesempresa %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesempresacnpj, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesempresacnpj, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesempresacnpj %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesfuncao, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesfuncao, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesfuncao %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesatividadeextra, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesatividadeextra, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesatividadeextra %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :peseslocalserv, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :peseslocalserv, class: "form-control" %>         
+      <%= error_tag @sims_employee, :peseslocalserv %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesobs, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_area :pesesobs, class: "form-control" %>         
+      <%= error_tag @sims_employee, :pesesobs %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesuser, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesuser, value: @sims_employee.person(@sims_employee.pesesuser), class: "form-control", readonly: true %>       
+      <%#= error_tag @sims_employee, :pesesuser %>
+      <%= @sims_employee.person(@sims_employee.pesesuser) %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesdatacad, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesdatacad, value: ( l @sims_employee.pesesdatacad, :format => :default if @sims_employee.pesesdatacad? ), class: 'form-control', :readonly => true %>         
+      <%= error_tag @sims_employee, :pesesdatacad %>
+    </div>
+  </div>
+  </div><!-- fecha col-sm -->
+  </div><!-- fecha row -->
+  
+  <div class="row">
+    <legend>SINT</legend>
+
+  <div class="field form-group">
+    <%= f.label :pesesint, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :peseslocalserv, value: (
+         if @sims_employee.pesesint.to_i == 0 
+          p "SEM AUTORIZAÇÃO" 
+         elsif @sims_employee.pesesint.to_i == 1 
+          p "AUTORIZADO" 
+         elsif @sims_employee.pesesint.to_i == 2 
+          p "NÃO AUTORIZADO" 
+         else
+          p "NÃO" 
+         end), class: "form-control", readonly: true %>         
+      <%= error_tag @sims_employee, :pesesint %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :pesesuserint, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesuserint, value: @sims_employee.person(@sims_employee.pesesuserint), class: "form-control", readonly: true %>         
+      <%= error_tag @sims_employee, :pesesuserint %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesdatacadint, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_field :pesesdatacadint, value: ( l @sims_employee.pesesdatacadint, :format => :default if @sims_employee.pesesdatacadint? ), class: 'form-control', :readonly => true %>         
+      <%= error_tag @sims_employee, :pesesdatacadint %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesesintobs, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%= f.text_area :pesesintobs, class: "form-control", :readonly => true %>         
+      <%= error_tag @sims_employee, :pesesintobs %>
+    </div>
+  </div>
+
+
+<!--   CAMPOS QUE NÃO ACHEI A FUNÇÃO 
+
+  <div class="field form-group">
+    <%#= f.label :pesesid, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesid, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesid %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%#= f.label :pesesend2, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesend2, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesend2 %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%#= f.label :pesesempresafone, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesempresafone, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesempresafone %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%#= f.label :pesesdatacadint, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesdatacadint, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesdatacadint %>
+    </div>
+  </div>
+
+
+  <div class="field form-group">
+    <%#= f.label :pesesuserint, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesuserint, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesuserint %>
+    </div>
+  </div>
+
+
+
+  <div class="field form-group">
+    <%#= f.label :pesesmatricula, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">    
+      <%#= f.text_field :pesesmatricula, class: "form-control" %>         
+      <%#= error_tag @sims_employee, :pesesmatricula %>
+    </div>
+  </div>
+                            
+                    FIM        -->
+                            
+
+  </div> <!-- fecha row -->
+ 
+
+  <div class="actions">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+<% end %>

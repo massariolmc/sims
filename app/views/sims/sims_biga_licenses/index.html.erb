@@ -1,0 +1,59 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<div class="row">
+<%= form_tag( busca_pessoa_sims_biga_licenses_path , :method => :get) do %>
+<legend><strong>Para cadastrar a CNH, informe o nome da pessoa:</strong></legend>
+<div class="col-sm-6">
+  <div class="input-group">
+    <%= text_field_tag 'busca_people', nil, placeholder: 'Informe parte do nome', class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Pesquisa", class: "btn btn-default" %>
+    </span>
+  </div><!-- /input-group -->
+</div>
+<% end %>
+</div>
+
+<hr />
+<h1><%= t ('.title') %></h1>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_pes_id') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.person') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></th>
+      <th><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims_biga_licenses.each do |sims_biga_license| %>
+      <tr>
+        <td><%= sims_biga_license.cnh_pes_id %></td>
+        <td><%= sims_biga_license.procura_pessoa(sims_biga_license.cnh_pes_id) %></td>
+        <td><%= sims_biga_license.cnh_numero %></td>
+        <td><%= sims_biga_license.cnh_cat %></td>
+        <td><%= sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %></td>
+        <td><%= sims_biga_license.cnh_uf %></td>
+        <td><%= link_to t('links.show'), sims_biga_license %></td>
+        <td><%= link_to t('links.edit'), edit_sims_biga_license_path(sims_biga_license) %></td>
+       <!-- <td><%#= link_to t('links.destroy'), sims_biga_license, method: :delete, data: { confirm: t('msg.deletar') } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @sims_biga_licenses, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+ 
+<br>
+
+<%#= link_to t('links.new'), new_sims_biga_license_path %>

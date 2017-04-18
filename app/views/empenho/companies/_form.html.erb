@@ -1,0 +1,105 @@
+<%= form_for(company, html: { class: "form-horizontal",  multipart: true}) do |f| %>
+  <% if company.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+    <div class="row">
+    <div class="col-sm-6">
+
+
+    <div class="form-group">
+      <%= f.label :nome_fantasia, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :nome_fantasia, class: "form-control" %>    
+          <%= error_tag company, :nome_fantasia %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :razao_social, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :razao_social, class: "form-control" %>
+          <%= error_tag company, :razao_social %>              
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cnpj, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :cnpj, class: "form-control", :placeholder => "Apenas números" %>  
+          <%= error_tag company, :cnpj %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :logradouro, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :logradouro, class: "form-control" %>              
+          <%= error_tag company, :logradouro %>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :numero, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :numero, class: "form-control" %>  
+          <%= error_tag company, :numero %>            
+        </div>
+    </div>
+
+    </div>
+
+    <div class="col-sm-6">
+
+    <div class="form-group">
+      <%= f.label :bairro, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :bairro, class: "form-control" %> 
+          <%= error_tag company, :bairro %>             
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cidade, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :cidade, class: "form-control" %>  
+          <%= error_tag company, :cidade %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :estado, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+            <%= f.select :estado, lista_estados_helper, :prompt => 'SELECIONE', class: 'form-control' %>                      
+            <%= error_tag company, :estado %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :telefone, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :telefone, class: "form-control phone_with_ddd" %>  
+          <%= error_tag company, :telefone %>            
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cep, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_field :cep, class: "form-control" %>  
+          <%= error_tag company, :cep %>            
+        </div>
+    </div>
+
+    </div>
+    </div> <!--  FIM DA ROW  -->
+
+  <div class="actions ">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+  
+
+<% end %>

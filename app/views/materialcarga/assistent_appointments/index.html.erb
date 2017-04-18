@@ -1,0 +1,39 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+    <th><%= t('materialcarga.assistent_appointments.fields.person_id')%></th>
+    <th><%= t('materialcarga.assistent_appointments.fields.appointment_id')%></th>
+    <th><%= t('materialcarga.assistent_appointments.fields.obs')%></th>
+    <th><%= t('empenho.opcao') %> </th>
+    <th><%= t('empenho.opcao') %> </th>
+    <th><%= t('empenho.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assistent_appointments.each do |assistent_appointment| %>
+      <tr>
+        <td><%= assistent_appointment.person(assistent_appointment.person_id) %></td>
+        <td><%= "#{assistent_appointment.person(assistent_appointment.appointment.person_id)} - #{assistent_appointment.setor(assistent_appointment.appointment.sims_tba_esq_secao_id)}" %></td>
+        <td><%= assistent_appointment.obs %></td>
+        <td><%= link_to t('links.show'), assistent_appointment %></td>
+        <td><%= link_to t('links.edit'), edit_assistent_appointment_path(assistent_appointment) %></td>
+        <td><%= link_to t('links.destroy'), assistent_appointment, method: :delete, data: { confirm: t('msg.deletar')} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_assistent_appointment_path %>

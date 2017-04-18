@@ -1,0 +1,70 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+<div class="alert alert-danger" role="alert">
+<p><%= alert %></p>
+</div>
+<% end %>
+<p>
+
+<h1><%= t ('sims.sims_biga_moviments.pesquisa') %></h1>
+<div class="row">
+  <%= render partial: "quem_passou_apos_determinado_horario" %>   
+</div>
+
+<div class="row">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+    <th>#</th>
+    <th><%= t('sims.sims_people.fields.pesncompleto') %></th>
+    <th><%= t('sims.sims_people.fields.pespostograd') %></th>
+    <th><%= t('sims.sims_people.fields.pesnguerra') %></th>
+    <th><%= t('sims.sims_biga_moviments.fields.mov_placa') %></th>
+    <th><%= t('sims.sims_biga_moviments.fields.mov_dta_cad') %></th>    
+    <th><%= t('sims.sims_biga_moviments.fields.portao_nome') %></th>    
+    <th><%= t('sims.sims_biga_moviments.fields.mov_cracha') %></th>
+    <th><%= t('sims.sims_biga_moviments.fields.mov_c_cracha') %></th>
+    <th><%= t('sims.sims_biga_moviments.fields.mov_t_mov') %></th>
+    <th><%= t('sims.sims_biga_moviments.fields.mov_user_cad') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% i = 0 %>
+    <% @postgresql_view_people.each do |postgresql_view_person| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <% if postgresql_view_person.tipo_id == 1 || postgresql_view_person.tipo_id == 3 %>
+          <td><%= "#{postgresql_view_person.ncompleto} - #{postgresql_view_person.resp_local}" %></td>
+        <% elsif postgresql_view_person.tipo_id == 2 %>
+          <td><%= "#{postgresql_view_person.ncompleto} - #{postgresql_view_person.grau_parentesco} - #{postgresql_view_person.resp_posto} - #{postgresql_view_person.resp_nguerra} - #{postgresql_view_person.resp_local}" %></td>
+        <% elsif postgresql_view_person.tipo_id == 5 %>
+          <td><%= "#{postgresql_view_person.ncompleto} - #{postgresql_view_person.resp_local}" %></td>
+        <% end %>
+        <td><%= postgresql_view_person.pgabrev%></td>
+        <td><%= postgresql_view_person.pesnguerra%></td>
+        <td><%= postgresql_view_person.mov_placa%></td>        
+        <td><%= postgresql_view_person.mov_dta_cad.strftime("%d/%m/%Y %H:%M")%></td>
+        <td><%= postgresql_view_person.portao_nome%></td>        
+        <td><%= postgresql_view_person.mov_cracha%></td>
+        <td><%= postgresql_view_person.entradacracha%></td>
+        <td><%= postgresql_view_person.mov%></td> 
+        <td><%= postgresql_view_person.user_gate(postgresql_view_person.mov_user_cad) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if i > 0 %>
+<%= paginate @postgresql_view_people, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+<% end %>
+
+</div>
+<br>
+
+<%#= link_to 'New Postgresql View Person', new_postgresql_view_person_path %>

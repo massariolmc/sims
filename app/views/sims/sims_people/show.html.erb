@@ -1,0 +1,280 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="row">
+<div class="col-sm-12">
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfoto') %></strong>
+  <%= @sims_person.pesfoto %>
+</p>
+</div>
+</div>
+
+<div class="row">
+<p>
+  <legend><strong>INFORMAÇÕES PESSOAIS:</strong></legend>
+</p>
+<div class="col-sm-4">
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesncompleto') %></strong>
+  <%= @sims_person.pesncompleto %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesnguerra') %></strong>
+  <%= @sims_person.pesnguerra %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pespostograd') %></strong>
+  <%= @sims_person.nome_posto_grad(@sims_person.pespostograd) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesquadro') %></strong>
+  <%= @sims_person.quadro(@sims_person.pesquadro) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesespecialidade') %></strong>
+  <%= @sims_person.especialidade(@sims_person.pesespecialidade) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesdn') %></strong>
+  <%= @sims_person.pesdn.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pessexo') %></strong>
+  <%= @sims_person.pessexo %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pestiposangue') %></strong>
+  <%= @sims_person.tipo_sangue(@sims_person.pestiposangue) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pessituacao') %></strong>
+  <%= @sims_person.situacao(@sims_person.pessituacao) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesidentidade') %></strong>
+  <%= @sims_person.pesidentidade %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pescpf') %></strong>
+  <samp class="cpf"><%= @sims_person.pescpf %></samp>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pescodigo') %></strong>
+  <%= @sims_person.pescodigo %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesemail') %></strong>
+  <%= @sims_person.pesemail %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.peslogin') %></strong>
+  <%= @sims_person.peslogin %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesom') %></strong>
+  <%= @sims_person.nome_om(@sims_person.pesom) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.peslocaltrabalho') %></strong>
+  <%= @sims_person.nome_local_trabalho(@sims_person.peslocaltrabalho) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pes_esqsec_id') %></strong>
+  <%= @sims_person.secao(@sims_person.pes_esqsec_id) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfone1') %></strong>
+  <samp class="phone_with_ddd_cel"><%= @sims_person.pesfone1 %></samp>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfone2') %></strong>
+  <samp class="phone_with_ddd"><%= @sims_person.pesfone2 %></samp>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfonetrab') %></strong>
+  <%= @sims_person.pesfonetrab %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfonetrabramal') %></strong>
+  <%= @sims_person.pesfonetrabramal %>
+</p>
+
+</div>	
+
+<div class="col-sm-4">
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfalert') %></strong>
+  <%= @sims_person.pesfalert %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfilpai') %></strong>
+  <%= @sims_person.pesfilpai %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesfilmae') %></strong>
+  <%= @sims_person.pesfilmae %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesnaturalcidade') %></strong>
+  <%= @sims_person.pesnaturalcidade %> - <%= @sims_person.pesnaturaluf %>
+</p>
+
+<br />
+<p>
+  <strong>ENDEREÇO:</strong>  
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesend') %></strong>
+  <%= @sims_person.pesend %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesnum') %></strong>
+  <%= @sims_person.pesnum %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesbairro') %></strong>
+  <%= @sims_person.pesbairro %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pescidade') %></strong>
+  <%= @sims_person.pescidade %> - <%= @sims_person.pesuf %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pescep') %></strong>
+  <samp class="cep"><%= @sims_person.pescep %></samp>
+</p>
+
+<br />
+<p>
+  <strong>INFORMAÇÕES BANCÁRIAS:</strong>  
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesbanco') %></strong>
+  	<%= @sims_person.banco(@sims_person.pesbanco) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesagencia') %></strong>
+  	<%= @sims_person.pesagencia %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pescontacorrente') %></strong>
+  	<%= @sims_person.pescontacorrente %>
+</p>
+
+<br />
+<p>
+  <strong>INFORMAÇÕES CRACHÁ:</strong>  
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pes_cracha_id') %></strong>
+  <%= @sims_person.pes_cracha_id %>
+</p>
+
+<%if @sims_person.pes_cracha_val > Date.today %>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+    <%= @sims_person.pes_cracha_val.strftime("%d/%m/%Y") %>
+<% else %>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+    <%= @sims_person.pes_cracha_val.strftime("%d/%m/%Y") %>
+  <span class="label label-danger">VENCIDA</span>
+<% end %>
+
+<p>
+  <strong><%= t('sims.sims_person.fields.status_cracha') %></strong>
+    <% if @sims_person.cracha_ativo(@sims_person.pesid) == '0' %>
+      <%= "Ativo" %>      
+    <% elsif @sims_person.cracha_ativo(@sims_person.pesid) == '1' %>                    
+      <%= "Inativo" %>          
+    <% end %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_people.fields.pesobs') %></strong>
+  <%= @sims_person.pesobs %>
+</p>
+
+</div>
+
+<div class="col-sm-4">
+  <% if @marc == 0 %>
+    <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>    
+        <%= @sims_biga_license.cnh_numero  %>    
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
+      <%= @sims_biga_license.cnh_cat %>
+    </p>
+    <p>
+      <%if @sims_biga_license.cnh_validade > Date.today %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+      <% else %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+        <span class="label label-danger">VENCIDA</span>
+      <% end %>
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></strong>
+      <%= @sims_biga_license.cnh_uf %>
+    </p>
+  <% end %>
+
+</div><!-- FIM DO COL-SM-4 -->
+</div><!-- FIM DO ROW -->
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DOS DEPENDENTES:</strong>  
+</legend>
+  <%= render partial: "dependentes" %>   
+</div>
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DOS VEICULOS:</strong>  
+</legend>
+  <%= render partial: "veiculos", locals: {sims: @sims_vehicles} %>   
+</div>
+
+
+<%= link_to  t('links.edit'), edit_sims_person_path(@sims_person) %> |
+<%= link_to t('links.back'), sims_people_path %>

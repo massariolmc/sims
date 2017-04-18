@@ -1,0 +1,2 @@
+module Empenho::EspecificationsHelper
+end

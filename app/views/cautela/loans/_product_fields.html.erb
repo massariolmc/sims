@@ -1,0 +1,60 @@
+  <div class="nested-fields">
+   <div class="estilo_form_empenho">
+
+  <div class="row">
+    <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :nome %>                
+          <%= f.text_field :nome, class: "form-control" %>                  
+    </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :descricao %>                
+          <%= f.text_area :descricao, class: "form-control" %>                  
+    </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+  
+   <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :appointment_id, class: "col-sm-2 control-label" %> 
+        <div class="col-sm-2">
+          <%= f.collection_select(:appointment_id, @appointments, :id, :appointment_nome, { include_blank: 'SELECIONE' })  %>
+        </div>                      
+    </div>
+   </div>
+   
+
+   <div class="col-sm-3">
+    <div class="form-group">
+      <%= f.label :qtde, class: "col-sm-4 control-label" %>                
+      <div class="col-sm-3">
+          <%= f.text_field :qtde, class: "form-control", :placeholder => "Apenas números" %>                
+      </div>
+    </div>
+   </div>
+
+   <div class="col-sm-3">
+    <div class="form-group">
+     <%= f.label :situation_id %>               
+       <%= f.collection_select(:situation_id, Situation.order(:nome), :id, :nome, { include_blank: 'SELECIONE' })  %>          
+    </div>
+   </div>
+
+  </div>
+   <%= f.hidden_field :user_id, value: current_user.person_id(current_user.username) %> 
+
+    <div class="form-group">      
+        <%= link_to_remove_association "Remover", f, class: "glyphicon glyphicon-minus-sign alert alert-danger" %>   
+    </div>
+        
+  </div>
+          
+  </div> 

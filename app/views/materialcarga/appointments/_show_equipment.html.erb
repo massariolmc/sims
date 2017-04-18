@@ -1,0 +1,50 @@
+<table class="display" id="interests">
+  <thead>
+    <tr>
+      <th><%= t('materialcarga.equipment.fields.nomeclatura') %> </th>
+      <th><%= t('materialcarga.equipment.fields.account_id') %> </th>
+      <th><%= t('materialcarga.equipment.fields.kind_id') %> </th>
+      <th><%= t('materialcarga.equipment.fields.bmp') %> </th>
+      <th><%= t('materialcarga.equipment.fields.n_serie') %> </th>
+      <th><%= t('materialcarga.equipment.fields.n_pn') %> </th>
+      <th><%= t('materialcarga.equipment.fields.valor_atualizado') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.situation_id') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.status') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.user_id') %> </th> 
+      <th><%= t('empenho.opcao') %> </th>
+      <th><%= t('empenho.opcao') %> </th>
+      <th><%= t('empenho.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointment.equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.nomeclatura %></td>
+        <td><%= equipment.account.sigla %></td>
+        <td><%= equipment.kind.sigla %></td>
+        <td><%= equipment.bmp %></td>
+        <td><%= equipment.n_serie %></td>
+        <td><%= equipment.n_pn %></td>
+        <td><%= equipment.valor_atualizado %></td>
+        <td><%= equipment.situation.legenda %></td>
+        <td><%= equipment.status %></td>        
+        <td><%= equipment.person(equipment.user_id) %></td>
+        <td><%= link_to t('links.show'), equipment %></td>
+        <td><%= link_to t('links.edit'), edit_equipment_path(equipment) %></td>
+        <td><%= link_to t('links.destroy'), equipment, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to t('links.back'), appointments_path %>
+
+<br><br><br>
+<div class="panel panel-primary">
+  <div class="panel-heading">Informações sobre a situações do material:</div>
+  <div class="panel-body">
+  Legenda Situação: A-Em uso B-Bem cedido D-Est.distrib. G-Aguard.confirmação L-A alienar N-Est.interno P-Em reparo R-A reparar T-Em trânsito
+
+</div>
+</div>

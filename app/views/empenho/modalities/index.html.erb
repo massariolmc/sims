@@ -1,0 +1,34 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= t('empenho.modalities.fields.nome') %> </th>
+      <th><%= t('empenho.modalities.fields.obs') %> </th>
+      <th colspan="3"><%= t('empenho.opcao') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @modalities.each do |modality| %>
+      <tr>
+        <td><%= modality.nome %></td>
+        <td><%= modality.obs %></td>
+        <td><%= link_to t('links.show'), modality %></td>
+        <td><%= link_to t('links.edit'), edit_modality_path(modality) %></td>
+        <td><%= link_to t('links.destroy'), modality, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_modality_path %>

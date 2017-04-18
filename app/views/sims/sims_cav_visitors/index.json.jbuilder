@@ -1,0 +1,1 @@
+json.array! @sims_cav_visitors, partial: 'sims_cav_visitors/sims_cav_visitor', as: :sims_cav_visitor

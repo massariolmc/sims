@@ -1,0 +1,218 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="row">
+<legend><strong>INFORMAÇÕES DO PRESTADOR DE SERVIÇO:</strong>  </legend>
+<div class="col-sm-4">
+  
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesnome') %></strong>
+  <%= @sims_employee.pesesnome %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesdn') %></strong>
+  <%= @sims_employee.pesesdn.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesescinum') %></strong>
+  <%= @sims_employee.pesescinum %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesciorgao') %></strong>
+  <%= @sims_employee.pesesciorgao %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesescpf') %></strong>
+  <samp class="cpf"><%= @sims_employee.pesescpf %></samp>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesfilpai') %></strong>
+  <%= @sims_employee.pesesfilpai %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesfilmae') %></strong>
+  <%= @sims_employee.pesesfilmae %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesend') %></strong>
+  <%= @sims_employee.pesesend %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesendnum') %></strong>
+  <%= @sims_employee.pesesendnum %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesendbairro') %></strong>
+  <%= @sims_employee.pesesendbairro %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesendcidade') %></strong>
+  <%= @sims_employee.pesesendcidade %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesenduf') %></strong>
+  <%= @sims_employee.pesesenduf %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesendcep') %></strong>
+  <samp class="cep"><%= @sims_employee.pesesendcep %></samp>
+</p>
+
+</div>
+<div class="col-sm-4">
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesfone1') %></strong>
+  <%= @sims_employee.pesesfone1 %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesfone2') %></strong>
+  <%= @sims_employee.pesesfone2 %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesestipo') %></strong>
+  <%= @sims_employee.pesestipo %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesempresa') %></strong>
+  <%= @sims_employee.pesesempresa %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesempresacnpj') %></strong>
+  <samp class="cnpj"><%= @sims_employee.pesesempresacnpj %></samp>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesfuncao') %></strong>
+  <%= @sims_employee.pesesfuncao %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.peseslocalserv') %></strong>
+  <%= @sims_employee.peseslocalserv %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesobs') %></strong>
+  <%= @sims_employee.pesesobs %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesuser') %></strong>
+  <%= @sims_employee.person(@sims_employee.pesesuser) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesdatacad') %></strong>
+  <%= @sims_employee.pesesdatacad.strftime("%d/%m/%Y") %>
+</p>
+
+</div>
+
+  <div class="col-sm-4">
+  <% if @marc == 0 %>
+    <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>    
+        <%= @sims_biga_license.cnh_numero  %>    
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
+      <%= @sims_biga_license.cnh_cat %>
+        <p>
+      <%if @sims_biga_license.cnh_validade > Date.today %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+      <% else %>
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+        <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+        <span class="label label-danger">VENCIDA</span>
+      <% end %>
+    </p>
+      <p>
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></strong>
+      <%= @sims_biga_license.cnh_uf %>
+    </p>
+  <% end %>
+
+</div><!-- FIM DO COL-SM-4 -->
+
+</div>
+
+<div class="row">
+	<legend><strong>INFORMAÇÕES DO CRACHÁ</strong></legend>
+		<%= render partial: "lista_prestador_cracha" %>	
+</div>
+
+<div class="row">
+<legend><strong>SINT</strong></legend>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesint') %></strong>
+  <%= if @sims_employee.pesesint.to_i == 0 
+          p "SEM AUTORIZAÇÃO" 
+         elsif @sims_employee.pesesint.to_i == 1 
+          p "AUTORIZADO" 
+         elsif @sims_employee.pesesint.to_i == 2 
+          p "NÃO AUTORIZADO" 
+         else
+          p "NÃO" 
+         end %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesuserint') %></strong>
+  <%= @sims_employee.person(@sims_employee.pesesuserint) %>
+</p>
+
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesdatacadint') %></strong>
+  <%= @sims_employee.pesesdatacadint.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_employees.fields.pesesintobs') %></strong>
+  <%= @sims_employee.pesesintobs %>
+</p>
+</div>
+
+<div class="row">
+<legend>
+  <strong>INFORMAÇÕES DOS VEICULOS:</strong>  
+</legend>
+  <%= render partial: 'sims/sims_people/veiculos', locals: {sims: @sims_vehicles} %>   
+</div>
+
+
+
+
+
+<%= link_to t('links.edit'), edit_sims_employee_path(@sims_employee) %> |
+<%= link_to t('links.back'), sims_employees_path %>

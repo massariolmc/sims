@@ -1,0 +1,147 @@
+<%= form_for(@sims_dependent, html: { class: "form-horizontal"}) do |f| %>
+  <% if @sims_dependent.errors.any? %>
+    <div id="error_explanation">
+      <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+  <legend>Informações dos Dependentes</legend>
+
+  <div class="row">
+  <!-- 
+  <div class="col-sm-4">
+
+  <div class="field form-group">
+    <%#= f.label :pesfoto, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%#= f.text_field :pesfoto, class: "form-control" %>
+    </div>
+  </div>  
+</div> -->
+
+<div class="col-sm-6">
+
+  <div class="field form-group">
+    <%= f.label :pesdepnome, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pesdepnome,class: "form-control" %>
+      <%= error_tag @sims_dependent, :pesdepnome %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesdeppesid, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= @sims_dependent.sims_person_id(@sims_dependent.pesdeppesid)  %>    
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesdepgrau, class: "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+        <%= f.collection_select(:pesdepgrau, @families.order(:parentedesc), :parenteid, :parentedesc, { include_blank: t('links.selecione') })  %>
+        <%= error_tag @sims_dependent, :pesdepgrau %>
+      </div>    
+  </div>
+
+   <div class="field form-group">
+    <%= f.label :pesdepsexo, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%#= f.select("pessexo",options_for_select({ "M" => "M", "F" => "F" },"pessexo" )) %>    
+    <%= f.select("pesdepsexo",[[ "Masculino", "M"], ["Feminino", "F"]]) %>    
+    <%= error_tag @sims_dependent, :pesdepsexo %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesdepdn, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">   
+    <%= f.text_field :pesdepdn, value: ( l @sims_dependent.pesdepdn, :format => :default if @sims_dependent.pesdepdn? ), class: 'calendario form-control', :placeholder => 'Selecione data'%>
+    <%= error_tag @sims_dependent, :pesdepdn %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pescodigo, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pescodigo, :readonly => true, class: "form-control" %>
+      <%= error_tag @sims_dependent, :pescodigo %>
+    </div>
+  </div>
+ 
+
+  <div class="field form-group">
+    <%= f.label :pesdepboletimnum, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%#= select("@sims_dependent", "pesidentidade", Patent.all.collect {|p| [ p.pgabrev, p.pgid ] }, { include_blank: true }) %>   
+    <%= f.text_field :pesdepboletimnum, class: "form-control" %> 
+    <%= error_tag @sims_dependent, :pesdepboletimnum %>
+    </div>
+  </div>
+
+
+  </div><!-- fecha col -->
+  <div class="col-sm-6">
+
+
+  <div class="field form-group">
+    <%= f.label :pesdepboletimdata, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10"> 
+    <%= f.text_field :pesdepboletimdata, value: ( l @sims_dependent.pesdepboletimdata, :format => :default if @sims_dependent.pesdepboletimdata? ), class: 'calendario form-control', :placeholder => 'Selecione data' %> 
+    <%= error_tag @sims_dependent, :pesdepboletimdata %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesdepradiodata, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">     
+    <%= f.text_field :pesdepradiodata, value: ( l @sims_dependent.pesdepradiodata, :format => :default if @sims_dependent.pesdepradiodata? ), class: 'calendario form-control', :placeholder => 'Selecione data' %> 
+    <%= error_tag @sims_dependent, :pesdepradiodata %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pesdeptiposaram, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">       
+    <%= f.select("pesdeptiposaram",[[ "AMHC", "AMHC"], ["AMH", "AMH"]]) %>    
+    <%= error_tag @sims_dependent, :pesdeptiposaram %>
+    </div>
+  </div>
+
+    <!-- Quando fizer o login colocar aqui o pesid do militar que cadastrou   -->
+    <%#= f.hidden_field(:pesdepuser, :value => current_user.id) %>
+    <%#= f.hidden_field(:pesdepdatacad, value: ( l @sims_dependent.pesdepdatacad, :format => :default if @sims_dependent.pesdepdatacad? )) %>
+
+    <!-- Colocar o pesid do militar que titular do dependente   -->
+    <%#= f.hidden_field(:pesdeppesid, :value => ) %>
+
+
+  <div class="field form-group">
+    <%= f.label :pes_cracha_id, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">     
+    <%= f.text_field :pes_cracha_id, :readonly => true, class: "form-control" %> 
+    <%= error_tag @sims_dependent, :pes_cracha_id %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :pes_cracha_val, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <% if @sims_dependent.pes_cracha_val %>
+      <%= f.text_field :pes_cracha_val, value: ( l @sims_dependent.pes_cracha_val, :format => :default if @sims_dependent.pes_cracha_val? ), class: 'calendario form-control', :placeholder => 'Selecione data' %>     
+    <% else %>
+      <%= f.text_field :pes_cracha_val, class: 'form-control', :readonly => true, :placeholder => 'Selecione data' %>     
+    <%= error_tag @sims_dependent, :pes_cracha_val %>
+    <% end %>
+    </div>
+  </div>
+
+  </div><!-- fecha col-fluid -->
+  </div><!-- fecha row -->
+
+
+  <div class="actions">
+   <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+<% end %>

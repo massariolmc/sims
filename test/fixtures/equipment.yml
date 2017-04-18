@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nomeclatura: MyText
+  sigla: MyString
+  appointment: one
+  account: one
+  kind: one
+  qtde: 1
+  bmp: MyString
+  n_serie: 
+  n_pn: MyString
+  valor_atualizado: 9.99
+  situation: one
+  status: 1
+  obs: MyText
+
+two:
+  nomeclatura: MyText
+  sigla: MyString
+  appointment: two
+  account: two
+  kind: two
+  qtde: 1
+  bmp: MyString
+  n_serie: 
+  n_pn: MyString
+  valor_atualizado: 9.99
+  situation: two
+  status: 1
+  obs: MyText

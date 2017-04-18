@@ -1,0 +1,6 @@
+<h1><%= t ('.title') %></h1>
+
+<%= render 'form', loan: @loan %>
+
+<%= link_to t('links.show'), @loan %> |
+<%= link_to t('links.back'), loans_path %>

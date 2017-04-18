@@ -1,0 +1,17 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<p>
+  <strong><%= t('empenho.types.fields.nome') %></strong>
+  <%= @type.nome %>
+</p>
+
+<p>
+  <strong><%= t('empenho.types.fields.obs') %></strong>
+  <%= @type.obs %>
+</p>
+
+<%= link_to t('links.edit'), edit_type_path(@type) %> |
+<%= link_to t('links.back'), types_path %>

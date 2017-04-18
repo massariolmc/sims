@@ -1,0 +1,40 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="display">
+  <thead>
+    <tr>
+    <th><%= t('empenho.especifications.fields.descricao') %> </th>    
+    <th><%= t('empenho.especifications.fields.type_id') %> </th>    
+    <th><%= t('empenho.especifications.fields.qtde') %> </th>    
+    <th><%= t('empenho.especifications.fields.valor_un') %> </th>    
+    <th><%= t('empenho.especifications.fields.modality_id') %> </th>    
+    <th colspan="3"><%= t('empenho.opcao') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @especifications.each do |especification| %>
+      <tr>
+        <td><%= especification.descricao%></td>
+        <td><%= especification.type.nome%></td>
+        <td><%= especification.qtde%></td>
+        <td><%= especification.valor_un%></td>
+        <td><%= especification.modality.nome%></td>
+        <td><%= link_to t('links.show'), especification %></td>
+        <td><%= link_to t('links.edit'), edit_especification_path(especification) %></td>
+        <td><%= link_to t('links.destroy'), especification, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_especification_path %>

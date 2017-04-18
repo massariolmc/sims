@@ -1,0 +1,46 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="interests">
+  <thead>
+    <tr>
+        <th><%= t('empenho.interests.fields.n_empenho') %> </th>    
+        <th><%= t('empenho.interests.fields.aplicacao') %> </th>       
+        <th><%= t('empenho.interests.fields.pregao') %> </th>    
+        <th><%= t('empenho.interests.fields.company_id') %> </th>    
+        <th><%= t('empenho.interests.fields.emissao') %> </th>    
+        <th><%= t('empenho.interests.fields.processo') %> </th>    
+        <th><%= t('empenho.interests.fields.squad_id') %> </th>    
+        <th><%= t('empenho.interests.fields.data_envio') %> </th>    
+        <th><%= t('empenho.interests.fields.prazo') %> </th>          
+        <th><%= t('empenho.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.n_empenho%></td>
+        <td><%= interest.aplicacao%></td>
+        <td><%= interest.pregao%></td>
+        <td><%= interest.company.nome_fantasia%></td>
+        <td><%= interest.emissao.strftime("%d/%m/%Y")%></td>
+        <td><%= interest.processo%></td>
+        <td><%= interest.squad.lpsdesc%></td>
+        <td><%= interest.data_envio.strftime("%d/%m/%Y")%></td>
+        <td><%= interest.prazo.strftime("%d/%m/%Y")%></td>
+        <td><%= link_to t('links.show'), interest %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+<br>
+

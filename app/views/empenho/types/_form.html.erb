@@ -1,0 +1,33 @@
+<%= form_for(type, html: { class: "form-horizontal",  multipart: true}) do |f| %>
+<% if type.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+   <div class="form-group">
+      <%= f.label :nome, class: "col-sm-2 control-label" %>
+        <div class="col-sm-4">        
+          <%= f.text_field :nome, class: "form-control" %>    
+          <%= error_tag type, :nome %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :obs, class: "col-sm-2 control-label" %>
+        <div class="col-sm-4">        
+          <%= f.text_area :obs, class: "form-control" %>
+          <%= error_tag type, :obs %>              
+        </div>
+    </div>
+
+    
+
+
+  <div class="actions ">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+
+<% end %>
+

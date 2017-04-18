@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  appointment: one
+  obs: MyText
+
+two:
+  person_id: 1
+  appointment: two
+  obs: MyText

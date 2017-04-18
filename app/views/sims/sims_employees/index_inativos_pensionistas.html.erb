@@ -1,0 +1,45 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('sims.sims_employees.index.title') %></h1>
+
+<div class="table-responsive">
+<table class="display" id="datatable">
+  <thead>
+      <th><%= t('sims.sims_employees.fields.pesesnome') %></th>
+      <th><%= t('sims.sims_employees.fields.pesesdn') %></th>
+      <th><%= t('sims.sims_employees.fields.pesescpf') %></th>
+      <th><%= t('sims.sims_employees.fields.pesestipo') %></th>
+      <th><%= t('sims.sims_employees.fields.pesesempresa') %></th>
+      <th><%= t('sims.sims_employees.fields.peseslocalserv') %></th>
+      <th><%= t('sims.sims_employee_words.fields.crachaid') %></th>      
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao') %> </th>     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims_employees.each do |sims_employee| %>
+      <tr>
+        <td><%= sims_employee.pesesnome %></td>
+        <td><%= sims_employee.pesesdn.strftime("%d/%m/%Y") %></td>
+        <td><samp class="cpf"><%= sims_employee.pesescpf %></samp></td>
+        <td><%= sims_employee.pesestipo %></td>
+        <td><%= sims_employee.pesesempresa %></td>
+        <td><%= sims_employee.peseslocalserv %></td>
+        <td><%= sims_employee.pegar_cracha(sims_employee.pesesid) %></td>        
+        <td><%= link_to t('links.show'), sims_employee %></td>
+        <td><%= link_to t('links.edit'), edit_sims_employee_path(sims_employee) %></td>
+        <!-- <td><%#= link_to t('links.destroy'), sims_employee, method: :delete, data: { confirm: t('msg.deletar') } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%#= link_to t('links.new'), new_sims_employee_path %>

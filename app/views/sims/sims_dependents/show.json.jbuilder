@@ -1,0 +1,1 @@
+json.partial! "sims_dependets/sims_dependet", sims_dependet: @sims_dependet

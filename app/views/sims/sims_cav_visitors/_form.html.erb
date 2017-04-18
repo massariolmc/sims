@@ -1,0 +1,17 @@
+<%= form_for(sims_cav_visitor) do |f| %>
+  <% if sims_cav_visitor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sims_cav_visitor.errors.count, "error") %> prohibited this sims_cav_visitor from being saved:</h2>
+
+      <ul>
+      <% sims_cav_visitor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

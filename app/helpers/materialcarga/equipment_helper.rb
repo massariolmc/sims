@@ -1,0 +1,2 @@
+module Materialcarga::EquipmentHelper
+end

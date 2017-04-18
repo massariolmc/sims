@@ -1,0 +1,17 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<p>
+  <strong><%= t('empenho.modalities.fields.nome') %></strong>
+  <%= @modality.nome %>
+</p>
+
+<p>
+  <strong><%= t('empenho.modalities.fields.obs') %></strong>
+  <%= @modality.obs %>
+</p>
+
+<%= link_to t('links.edit'), edit_modality_path(@modality) %> |
+<%= link_to t('links.back'), modalities_path %>

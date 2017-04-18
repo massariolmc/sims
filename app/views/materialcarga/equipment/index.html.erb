@@ -1,0 +1,54 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+
+<h1><%= t ('.title') %></h1>
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= t('materialcarga.equipment.fields.nomeclatura') %> </th>
+      <th><%= t('materialcarga.equipment.fields.sigla') %> </th>
+      <th><%= t('materialcarga.equipment.fields.appointment_id') %> </th>
+      <th><%= t('materialcarga.equipment.fields.kind_id') %> </th>
+      <th><%= t('materialcarga.equipment.fields.bmp') %> </th>
+      <th><%= t('materialcarga.equipment.fields.n_serie') %> </th>
+      <th><%= t('materialcarga.equipment.fields.n_pn') %> </th>
+      <th><%= t('materialcarga.equipment.fields.valor_atualizado') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.situation_id') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.status') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.obs') %> </th> 
+      <th><%= t('materialcarga.equipment.fields.user_id') %> </th> 
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.nomeclatura %></td>
+        <td><%= equipment.sigla %></td>
+        <td><%= equipment.appointment_id %></td>
+        <td><%= equipment.kind_id %></td>
+        <td><%= equipment.bmp %></td>
+        <td><%= equipment.n_serie %></td>
+        <td><%= equipment.n_pn %></td>
+        <td><%= equipment.valor_atualizado %></td>
+        <td><%= equipment.situation_id %></td>
+        <td><%= equipment.status %></td>
+        <td><%= equipment.obs %></td>
+        <td><%= equipment.user_id %></td>
+        <td><%= link_to t('links.show'), equipment %></td>
+        <td><%= link_to t('links.edit'), edit_equipment_path(equipment) %></td>
+        <td><%= link_to t('links.destroy'), equipment, method: :delete, data: { confirm: t('msg.deletar') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('links.new'), new_equipment_path %>

@@ -1,0 +1,48 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+
+<p>
+  <legend><strong>INFORMAÇÕES DA PESSOA:</strong>  </legend>
+</p>
+
+<div class="row">
+<div class="col-sm-6">
+
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_pes_id_2') %></strong>
+  <%= @sims_biga_license.cnh_pes_id %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.person') %></strong>
+  <%= @sims_biga_license.procura_pessoa(@sims_biga_license.cnh_pes_id) %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>
+  <%= @sims_biga_license.cnh_numero %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
+  <%= @sims_biga_license.cnh_cat %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
+  <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_uf') %></strong>
+  <%= @sims_biga_license.cnh_uf %>
+</p>
+
+</div>
+</div>
+
+<%= link_to t('links.edit'), edit_sims_biga_license_path(@sims_biga_license) %> |
+<%= link_to t('links.back'), sims_biga_licenses_path %>

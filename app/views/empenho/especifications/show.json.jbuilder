@@ -1,0 +1,1 @@
+json.partial! "especifications/especification", especification: @especification

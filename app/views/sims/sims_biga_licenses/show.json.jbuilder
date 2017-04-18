@@ -1,0 +1,1 @@
+json.partial! "sims_biga_licenses/sims_biga_license", sims_biga_license: @sims_biga_license

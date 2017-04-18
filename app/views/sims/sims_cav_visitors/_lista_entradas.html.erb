@@ -1,0 +1,46 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_destino') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_obs') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_cracha') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_dataent') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_horaent') %></th>
+       <th><%= t('sims.sims_cav_visitors.fields.visacesso_userent') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_datasai') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_horasai') %></th>     
+      <th><%= t('sims.sims_cav_visitors.fields.visacesso_usersai') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.tipodoc_descricao') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visdoc_docnro') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.visdoc_orgexp') %></th>
+      <th><%= t('sims.sims_cav_visitors.fields.justifica_texto') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if sims_cav_visitors_in.size > 0%>
+  <% i = 0 %>
+    <% sims_cav_visitors_in.each do |sims_cav_visitor| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= sims_cav_visitor.visacesso_destino %></td>
+        <td><%= sims_cav_visitor.visacesso_obs %></td>
+        <td><%= sims_cav_visitor.visacesso_cracha %></td>
+        <td><%= sims_cav_visitor.visacesso_dataent.strftime("%d/%m/%Y") if sims_cav_visitor.visacesso_dataent %></td>
+        <td><%= sims_cav_visitor.visacesso_horaent.strftime("%H:%M:%S") if sims_cav_visitor.visacesso_horaent %></td>
+        <td><%= sims_cav_visitor.cav_visitor_user(sims_cav_visitor.visacesso_userent) %></td>
+        <td><%= sims_cav_visitor.visacesso_datasai.strftime("%d/%m/%Y") if sims_cav_visitor.visacesso_datasai %></td>
+        <td><%= sims_cav_visitor.visacesso_horasai.strftime("%H:%M:%S") if sims_cav_visitor.visacesso_horasai %></td>
+        <td><%= sims_cav_visitor.cav_visitor_user(sims_cav_visitor.visacesso_usersai) %></td>
+        <td><%= sims_cav_visitor.tipodoc_descricao %></td>
+        <td><%= sims_cav_visitor.visdoc_docnro %></td>
+        <td><%= sims_cav_visitor.visdoc_orgexp %></td>
+        <td><%= sims_cav_visitor.justifica_texto %></td>        
+      </tr>
+    <% end %>
+  <% else %>
+    <%= "NÃO POSSUI OCORRÊNCIAS" %>
+   <% end %>
+  </tbody>
+</table>

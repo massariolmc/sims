@@ -1,0 +1,52 @@
+
+<table class="table table-condensed text-center">
+  <thead>
+      <th class="text-center"><%= t('sims.sims_employees.fields.pesesnome') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.peseshorarios') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.pesessolicitante') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.pesesesqsolic') %></th>      
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.crachavalidade') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.crachadevolvido') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.fields.crachaid') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.validade_cracha') %></th>
+      <th class="text-center"><%= t('sims.sims_employee_words.ativa_desativa_cracha') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims_employee_badges.each do |sims_employee_badge| %>
+      <tr>
+        <td><%= sims_employee_badge.pesesnome %></td>
+        <td><%= sims_employee_badge.peseshorarios %></td>
+        <td><%= sims_employee_badge.pesessolicitante %></td>
+        <td><%= sims_employee_badge.nome_local_trabalho(sims_employee_badge.pesesesqsolic) %></td>           
+        <td><%= sims_employee_badge.crachavalidade.strftime("%d/%m/%Y") if sims_employee_badge.crachavalidade  %></td>   
+        <td><%= sims_employee_badge.situation %></td>     
+        <td><%= sims_employee_badge.crachaid %></td>  
+        <!-- <td><%#= link_to t('sims.sims_employee_words.validadade_cracha'), update_validade_cracha_sims_employee_path %></td> -->
+        <% if sims_employee_badge.crachaid? %>
+        <td><%= form_tag(update_validade_cracha_sims_employee_path, :method => :get, role: "form") do %>
+          <div class="form-group input-group col-sm-8">
+            <%= text_field_tag 'validade', nil, placeholder: 'Validade', class: "form-control calendario" %><%= hidden_field_tag 'valor', sims_employee_badge.crachaid %>        
+            <span class="input-group-btn"> <button type="submit" name="commit" value="OK" class="btn btn-default" data-disable-with="OK" ><i class="glyphicon glyphicon-ok-sign"></i></button></span>
+          </div> <%#= submit_tag "OK", class: "btn btn-default"  %> <% end %>
+        </td> 
+        <% else %>  
+          <td><%= "NÃO POSSUI CRACHÁ" %></td>
+        <% end %>
+
+        <% if sims_employee_badge.crachadevolvido == '0' %>
+          <td><%= link_to t('sims.sims_employee_words.desativar_cracha'), update_desativa_cracha_sims_employee_path(sims_employee_badge.crachaid) %></td>
+        <% elsif sims_employee_badge.crachadevolvido == '1' %>                    
+          <td><%= link_to t('sims.sims_employee_words.ativar_cracha'), update_ativa_cracha_sims_employee_path(sims_employee_badge.crachaid) %></td>
+        <% else %>
+          <td><%= "NÃO POSSUI CRACHÁ" %></td>
+        <% end %>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<hr />

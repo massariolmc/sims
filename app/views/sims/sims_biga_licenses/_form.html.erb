@@ -1,0 +1,77 @@
+<%= form_for(sims_biga_license, html: { class: "form-horizontal"}) do |f| %>
+  <% if sims_biga_license.errors.any? %>
+     <div id="error_explanation">
+      <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+
+
+   <div class="col-sm-6">
+
+  <%= f.hidden_field :cnh_pes_id, value: sims_biga_license.cnh_pes_id %>
+
+   <div class="field form-group">
+    <%= f.label :cnh_pes_id, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= PostgresqlViewPerson.select("ncompleto || ' - ' || tipo || ' - ' || pgabrev || ' - ' || 'CRACHA: '|| COALESCE(pes_cracha_id,0) as \"nome\" ").order("nome asc").where("id = ?", sims_biga_license.cnh_pes_id).map(&:nome) %> 
+      </div>
+    </div> 
+
+   <div class="field form-group">
+      <%= f.label :cnh_pes_tipo, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+       <%= f.select("cnh_pes_tipo",[[ "SELECIONE", ""],[ "MILITAR", "0"], ["DEPENDENTE", "1"], ["VISITANTE", "2"], ["PRESTADOR DE SERVIÇO", "3"]]) %>  
+      <%= error_tag sims_biga_license, :cnh_pes_tipo %>
+      </div>
+    </div> 
+  
+
+    <div class="field form-group">
+      <%= f.label :cnh_numero, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%= f.text_field :cnh_numero, class: "form-control" %>
+      <%= error_tag sims_biga_license, :cnh_numero %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :cnh_cat, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%= f.select(:cnh_cat, cnh_cat_helper, :prompt => t('links.selecione'), class: 'form-control') %>             
+      <%= error_tag sims_biga_license, :cnh_cat %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :cnh_validade, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+      <%= f.text_field :cnh_validade, value: ( l sims_biga_license.cnh_validade, :format => :default if sims_biga_license.cnh_validade? ), class: "form-control calendario" %>
+      <%= error_tag sims_biga_license, :cnh_validade %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :cnh_uf, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+       <%= f.select :cnh_uf, lista_estados_helper, :prompt => t('links.selecione'), class: 'form-control' %>
+      <%= error_tag sims_biga_license, :cnh_uf %>
+      </div>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :cnh_obs, class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">      
+       <%= f.text_area :cnh_obs, class: 'form-control' %>
+      <%= error_tag sims_biga_license, :cnh_obs %>
+      </div>
+    </div>
+
+
+  </div><!-- fecha spam-fluid -->
+  </div><!-- fecha primeiro row-fluid -->
+
+  <div class="actions">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+<% end %>

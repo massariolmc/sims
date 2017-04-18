@@ -1,0 +1,1 @@
+json.partial! "postgresql_view_people/postgresql_view_person", postgresql_view_person: @postgresql_view_person

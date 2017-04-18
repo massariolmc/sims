@@ -1,0 +1,17 @@
+<%= form_for(postgresql_view_person) do |f| %>
+  <% if postgresql_view_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(postgresql_view_person.errors.count, "error") %> prohibited this postgresql_view_person from being saved:</h2>
+
+      <ul>
+      <% postgresql_view_person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

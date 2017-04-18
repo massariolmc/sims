@@ -1,0 +1,1 @@
+json.array! @sims_biga_licenses, partial: 'sims_biga_licenses/sims_biga_license', as: :sims_biga_license

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan: one
+  nome: MyString
+  descricao: MyText
+  appointment: one
+  qtde: 1
+  situation: one
+  user: one
+
+two:
+  loan: two
+  nome: MyString
+  descricao: MyText
+  appointment: two
+  qtde: 1
+  situation: two
+  user: two

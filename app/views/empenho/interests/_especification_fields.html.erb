@@ -1,0 +1,42 @@
+    <div class="nested-fields">
+   <div class="form-inline estilo_form_empenho">
+
+    <div class="form-group">
+      <%= f.label :descricao %>                
+          <%= f.text_area :descricao, class: "form-control" %>    
+          <%#= error_tag especification, :descricao %>     
+    </div>
+
+    <div class="form-group">
+      <%= f.label :type_id%>      
+          <%= f.collection_select(:type_id, Type.all, :id, :nome, { include_blank: 'SELECIONE' })  %>      
+          <%#= error_tag especification, :type_id %>        
+    </div>
+
+    <div class="form-group">
+      <%= f.label :qtde %>                
+          <%= f.text_field :qtde, class: "form-control", :placeholder => "Apenas números" %>  
+          <%#= error_tag especification, :qtde %>      
+    </div>
+
+    <div class="form-group">
+      <%= f.label :valor_un %>               
+          <%= f.text_field :valor_un, class: "form-control" %>              
+          <%#= error_tag especification, :valor_un %>       
+    </div>
+
+    <div class="form-group">
+      <%= f.label :modality_id %>               
+        <%= f.collection_select(:modality_id, Modality.order(:nome), :id, :nome, { include_blank: 'SELECIONE' })  %>
+          <%#= error_tag especification, :modality_id %>        
+    </div>
+
+    <div class="form-group">      
+        <%= link_to_remove_association "", f, class: "glyphicon glyphicon-minus-sign alert alert-danger" %>      
+    </div>
+
+        
+  </div>
+          
+    </div> 
+

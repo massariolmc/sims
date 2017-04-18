@@ -1,0 +1,7 @@
+<h1><%= t ('.title') %></h1>
+
+
+<%= render 'form', appointment: @appointment %>
+
+<%= link_to t('links.show'), @appointment %> |
+<%= link_to t('links.back'), appointments_path %>

@@ -1,0 +1,2 @@
+module Empenho::ModalitiesHelper
+end

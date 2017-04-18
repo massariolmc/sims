@@ -1,0 +1,87 @@
+
+
+
+<div class="row">
+<%= form_tag( busca_pessoa_sims_biga_licenses_path , :method => :get) do %>
+<legend><strong>Para cadastrar a CNH, informe o nome da pessoa:</strong></legend>
+<div class="col-sm-6">
+  <div class="input-group">
+    <%= text_field_tag 'busca_people', nil, placeholder: 'Informe parte do nome', class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Pesquisa", class: "btn btn-default" %>
+    </span>
+  </div><!-- /input-group -->
+</div>
+<% end %>
+</div>
+<hr>
+<h1><%= t ('sims.title') %></h1>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= t('sims.id') %></th>
+      <th><%= t('sims.ncompleto') %></th>
+      <th><%= t('sims.tipo') %></th>
+      <th><%= t('sims.cnh') %></th>
+      <th><%= t('sims.cat') %></th>
+      <th><%= t('sims.uf') %></th>
+      <th><%= t('links.opcao_mostrar') %> </th>
+      <th><%= t('links.opcao_editar') %> </th>
+      <th><%= t('links.opcao') %> </th>
+      <th><%= t('links.opcao_exibe_veiculo_pessoa') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sims.each do |sims_pessoa| %>
+      <% marc = 0 %>
+      <tr>
+        <td><%= sims_pessoa.id %></td>
+        <td><%= sims_pessoa.ncompleto %></td>
+        <td><%= sims_pessoa.tipo %></td>
+        <% if sims_pessoa.cnh != '0'  %>
+          <td><%= sims_pessoa.cnh %></td>
+          <td><%= sims_pessoa.cat %></td>
+          <td><%= sims_pessoa.uf %></td>        
+        <% else %>
+          <% marc = 1%>
+          <td><%= "Não possui" %></td>
+          <td><%= "Não possui" %></td>
+          <td><%= "Não possui" %></td>       
+        <% end %>
+
+        <% if sims_pessoa.tipo == "DEPENDENTE" %>
+          <td><%= link_to t('links.opcao_mostrar'), sims_dependent_path(sims_pessoa.id) %></td>
+          <td><%= link_to t('links.opcao_editar'), edit_sims_dependent_path(sims_pessoa.id) %></td>          
+        <% elsif sims_pessoa.tipo == "SERVICO" %>
+          <td><%= link_to t('links.opcao_mostrar'), sims_employee_path(sims_pessoa.id) %></td>
+          <td><%= link_to t('links.opcao_editar'), edit_sims_employee_path(sims_pessoa.id) %></td>          
+        <% elsif sims_pessoa.tipo == "VISITANTE" %>
+          <td><%= link_to t('links.opcao_mostrar'), sims_cav_visitor_path(sims_pessoa.id) %></td>
+          <td><%= link_to t('links.opcao_editar'), edit_sims_cav_visitor_path(sims_pessoa.id) %></td>          
+        <% elsif sims_pessoa.tipo == "OPERACIONAIS" %>
+          <td><%= link_to t('links.opcao_mostrar'), sims_biga_license_path(sims_pessoa.id) %></td>
+          <td><%= link_to t('links.opcao_editar'), edit_sims_biga_license_path(sims_pessoa.id) %></td>          
+        <% elsif sims_pessoa.tipo == "EFETIVO" %>
+          <td><%= link_to t('links.opcao_mostrar'), sims_person_path(sims_pessoa.id) %></td>
+          <td><%= link_to t('links.opcao_editar'), edit_sims_person_path(sims_pessoa.id) %></td>          
+        <% end %>
+
+        <% if marc == 0 %>
+          <td><%= link_to t('links.editar_cnh'), edit_sims_biga_license_path(sims_pessoa.id) %></td>
+        <% elsif marc == 1 %>
+          <td><%= link_to t('links.opcao_inserir_cnh'), new_sims_biga_license_path(sims_pessoa.id) %></td>
+        <% end %>
+       
+        <td><%= link_to t('links.opcao_exibe_veiculo_pessoa'), sims_biga_vehicle_person_path(sims_pessoa.id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= paginate @sims, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+ 
+<br>

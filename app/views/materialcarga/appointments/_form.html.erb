@@ -1,0 +1,54 @@
+<%= form_for(appointment, html: { class: "form-horizontal",  multipart: true}) do |f| %>
+  <% if appointment.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+    <br/><br/>
+  <% end %>
+    <div class="row">
+    <div class="col-sm-6">
+
+    <div class="form-group">
+      <%= f.label :person_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+        <%= f.collection_select(:person_id, @person_of, :id, :nome_inicial, { include_blank: 'SELECIONE' }) %>        
+          <%= error_tag appointment, :person_id %>          
+        </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :sims_tba_esq_secao_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10"> 
+          <%= f.collection_select(:sims_tba_esq_secao_id, @depart.order(esqsec_esq: :asc), :id, :nome, { include_blank: 'SELECIONE' }) %>  
+          <%= error_tag appointment, :sims_tba_esq_secao_id %>          
+        </div>
+    </div>
+
+<!--
+   <div class="form-group">
+    <%#= f.label :user_id, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%#= f.text_field :user_id, class: "form-control" %>    
+          <%#= error_tag appointment, :user_id %>          
+        </div>
+    </div>
+-->    
+
+    <%= f.hidden_field :user_id, value: current_user.person_id(current_user.username) %>    
+
+    <div class="form-group">
+      <%= f.label :obs, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_area :obs, class: "form-control" %>    
+          <%= error_tag appointment, :obs %>          
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,72 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.appointment_id') %>:</strong>
+  <%= @equipment.appointment.person(@equipment.appointment.person_id) %> - <%= @equipment.appointment.setor(@equipment.appointment.sims_tba_esq_secao_id) %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.nomeclatura') %>:</strong>
+  <%= @equipment.nomeclatura %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.account_id') %>:</strong>
+  <%= @equipment.account.sigla %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.kind_id') %>:</strong>
+  <%= @equipment.kind.sigla %>
+</p>
+
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.qtde') %>:</strong>
+  <%= @equipment.qtde %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.bmp') %>:</strong>
+  <%= @equipment.bmp %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.n_serie') %>:</strong>
+  <%= @equipment.n_serie %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.n_pn') %>:</strong>
+  <%= @equipment.n_pn %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.valor_atualizado') %>:</strong>
+  <%= @equipment.valor_atualizado %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.situation_id') %>:</strong>
+  <%= @equipment.situation.legenda %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.status') %>:</strong>
+  <%= @equipment.status %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.obs') %>:</strong>
+  <%= @equipment.obs %>
+</p>
+
+<p>
+  <strong><%= t('materialcarga.equipment.fields.user_id') %>:</strong>
+  <%= @equipment.person(@equipment.user_id) %>
+</p>
+
+<%= link_to t('links.edit'), edit_equipment_path(@equipment) %> |
+<%= link_to t('links.back'), appointments_path %>

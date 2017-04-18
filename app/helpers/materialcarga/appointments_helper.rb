@@ -1,0 +1,2 @@
+module Materialcarga::AppointmentsHelper
+end

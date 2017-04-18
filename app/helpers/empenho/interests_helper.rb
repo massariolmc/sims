@@ -1,0 +1,2 @@
+module Empenho::InterestsHelper
+end
