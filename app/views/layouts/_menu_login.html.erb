@@ -1,11 +1,13 @@
 <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <%= current_user.login(current_user.username) %> <b class="caret"></b></a>                   
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:white;"><i class="fa fa-user"  style="color:white;"></i>  <%= current_user.login(current_user.username) %> <b class="caret"></b></a>
     <ul class="dropdown-menu">
         <li>
             <a href="<%= sims_person_path(current_user.person_id(current_user.username))%>"><i class="fa fa-fw fa-user"></i> Profile</a>
         </li>
         <li>
-            <a href="http://www.gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+          <%= link_to "https://mail.intraer" do %>
+              <i class="fa fa-fw fa-envelope"></i> Email Corporativo
+          <% end %>
         </li>
         <li>
             <a href="http://www.gapcg.intraer"><i class="fa fa-fw fa-gear"></i> GAP-CG</a>
@@ -15,5 +17,5 @@
             <a rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
             <%#= link_to t('layout.signout'), destroy_user_session_path, method: :delete, class: "fa fa-fw fa-power-off"%>
         </li>
-    </ul>                      
+    </ul>
 </li>
