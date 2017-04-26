@@ -32,20 +32,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 gem 'pundit'
-
 gem 'cocoon'
-
 gem 'kaminari', github: "amatsuda/kaminari", branch: '0-17-stable'
 gem 'bootstrap-kaminari-views'
-
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-
 gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"
-
 gem 'toastr-rails'
-
+gem 'rails-erd'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
