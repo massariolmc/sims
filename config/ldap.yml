@@ -28,8 +28,8 @@ authorizations: &AUTHORIZATIONS
 ## Environment
 
 development:
-  #host: 192.168.0.52
-  host: 192.168.1.109
+  host: 192.168.1.106
+  #host: 192.168.1.109
   port: 389
   attribute: uid
   base: ou=Users,dc=mjml,dc=net

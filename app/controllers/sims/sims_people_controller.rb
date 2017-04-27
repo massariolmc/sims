@@ -122,11 +122,15 @@ class Sims::SimsPeopleController < ApplicationController
     end
 
     def update_validade_cracha      
-      if params[:sims_person][:pes_cracha_id].present?                                  
-        badge = SimsBadge.find(params[:sims_person][:pes_cracha_id])                  
-        sims_user = SimsUser.find_by(userpessoa: badge.crachapessoa)
-        badge.update(crachavalidade: params[:sims_person][:pes_cracha_val] )        
-        sims_user.update(uservalidade: params[:sims_person][:pes_cracha_val] )        
+      if params[:sims_person][:pes_cracha_id].present?
+        if SimsBadge.exists?(crachaid: params[:sims_person][:pes_cracha_id])                                  
+          badge = SimsBadge.find(params[:sims_person][:pes_cracha_id])
+          badge.update(crachavalidade: params[:sims_person][:pes_cracha_val] )        
+        end
+        if SimsUser.exists?(userpessoa: badge.crachapessoa)                  
+          sims_user = SimsUser.find_by(userpessoa: badge.crachapessoa)
+          sims_user.update(uservalidade: params[:sims_person][:pes_cracha_val] )        
+        end       
       end
     end
 

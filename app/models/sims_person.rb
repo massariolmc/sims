@@ -55,16 +55,26 @@ class SimsPerson < ApplicationRecord
     	#self.pesfone2.gsub!(/(\-)/, "") 
     	#self.pesfonetrab.gsub!(/(\-)/, "") 
     	self.pescpf.gsub!(".", "").gsub!("-", "") 
-    	self.pescep.gsub!("-", "")     	 
-    	self.pesfone2.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
-    	self.pesfonetrab.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
-    	self.pesfone1.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
+    	self.pescep.gsub!("-", "")
+
+      if self.pesfone2.present?     	 
+    	 self.pesfone2.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
+      end
+      if self.pesfonetrab.present?
+    	 self.pesfonetrab.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
+      end
+      if self.pesfone1.present? 
+    	 self.pesfone1.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
+      end
   	end
   
   def nome_inicial  	  	  	
     "#{nome_posto_grad(self.pespostograd)} - #{self.pesnguerra}"    
   end
 
+  def nome_completo
+    "#{self.pesncompleto} - #{nome_posto_grad(self.pespostograd)}"    
+  end
 
   def nome_posto_grad(aux)
   	p = SimsPatent.find(aux)

@@ -1,0 +1,72 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+<div class="alert alert-danger" role="alert">
+<p><%= alert %></p>
+</div>
+<% end %>
+<p>
+
+<h1><%= t ('cautela.loans.pesquisa.title') %></h1>
+<div class="row">
+  <%= render partial: "form_pesquisa" %>   
+</div>
+
+<div class="row">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+    <th>#</th>
+    <th><%= t('cautela.loans.fields.person_id') %></th>
+    <th><%= t('cautela.loans.fields.data_saida') %></th>
+    <th><%= t('cautela.loans.fields.data_devolucao') %></th>
+    <th><%= t('cautela.loans.fields.appointment_id') %></th>
+    <th><%= t('cautela.loans.fields.status2') %></th>    
+    <th><%= t('cautela.products.fields.nome') %></th>
+    <th><%= t('cautela.products.fields.descricao') %></th>
+    <th><%= t('cautela.products.fields.qtde') %></th>
+    <th><%= t('cautela.loans.fields.obs') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% i = 0 %>
+    <% @loans_pesquisa.each do |loan| %>
+      <tr>
+        <td><%= i = i + 1 %></td>
+        <td><%= loan.person_id%></td>
+        <td><%= loan.data_saida.strftime("%d/%m/%Y")%></td>
+        <td><%= loan.data_devolucao.strftime("%d/%m/%Y %H:%M") if loan.data_devolucao? %></td>        
+        <td><%= loan.appointment_id%></td>
+        <td><%= loan.testa_status2(loan.status2) %></td>        
+        <td><%= loan.nome%></td>
+        <td><%= loan.descricao%></td>
+        <td><%= loan.qtde%></td> 
+        <td><%= loan.obs %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if i > 0 %>
+<%= paginate @loans_pesquisa, :theme => 'twitter-bootstrap-3',
+                   :pagination_class => "pagination-small pagination-centered" %>
+<% end %>
+
+</div>
+<br>
+
+<script type="text/javascript">
+
+ // $(document).ready(function() {
+  //  alert("teste")
+   // $("#campo_nome").hide();
+
+    //$(".radio-inline").click(function(){
+     //   $("#campo_nome").show();
+    //});
+    
+//});
+</script>

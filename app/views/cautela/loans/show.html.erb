@@ -3,12 +3,109 @@
 <% end %>
 <p>
 
-<h1><%= t('.title') %></h1>
+<legend><strong><%= t('.title') %></strong></legend>
+<div class="row">
+<div class="col-sm-6">
 
 <p>
-  <strong><%= t('empenho.interests.fields.n_empenho') %>:</strong>
-  <%= @loan.n_empenho %>
+  <strong><%= t('cautela.loans.fields.person_id') %>:</strong>
+  <%= @loan.person(@loan.person_id) %>
 </p>
 
-<%= link_to t('links.edit'), edit_loan_path(@loan) %> |
+<p>
+	<strong><%= t('cautela.loans.fields.appointment_id') %>:</strong>
+	<td><%= @loan.appointment.appointment_nome %></td>
+</p>
+
+
+<p>
+  <strong><%= t('cautela.loans.fields.data_saida') %>:</strong>
+  <%= @loan.data_saida.strftime("%d/%m/%Y") %>
+</p>
+
+
+<p>
+  <strong><%= t('cautela.loans.fields.status2') %>:</strong>
+  <span class="label label-<%= @loan.label(@loan.status2) %>"  >
+  <%= @loan.testa_status2(@loan.status2) %></span>
+</p>
+
+<% if @loan.status2 == 2 %>
+
+<p>
+  <strong><%= t('cautela.loans.fields.data_inativa') %>:</strong>
+  <%= @loan.data_devolucao.strftime("%d/%m/%Y %H:%m") %>
+</p>
+
+<% elsif @loan.status2 == 3 %>
+<p>
+  <strong><%= t('cautela.loans.fields.data_devolucao') %>:</strong>
+  <%= @loan.data_devolucao.strftime("%d/%m/%Y %H:%m") %>
+</p>
+<% end %>
+
+
+<% if policy(@loan).show? %>
+  <% if @loan.avatar.present? %>
+      <%= link_to t("links.recibo"), abrir_anexo_loan_path(@loan), class: "btn btn-info", :target => '_blank' %>
+  <% else %>
+      <%= link_to t("links.anexo"), anexar_comprovante_loan_path(@loan) %>
+  <%end %>
+<% else %>
+  <% if @loan.avatar.present? %>
+    <%= link_to t("links.recibo"), abrir_anexo_loan_path(@loan), class: "btn btn-info", :target => '_blank' %>
+  <%end %>
+<% end %>
+<p>
+<% if policy(@loan).show? %>
+  <% if @loan.avatar.present? %>
+      <%= link_to t("links.anexo"), anexar_comprovante_loan_path(@loan) %>
+  <% end %>  
+<% end %>
+</p>
+</div>
+
+<div class="col-sm-6">
+<p class="text-right">
+  <%= link_to t('links.imprimir_cautela'), impressao_loan_path(@loan, format: :pdf), class: "btn btn-info" %>  
+</p>
+  
+</div>
+
+</div>
+
+<br />
+<legend><strong><%= t('.products') %>:</strong></legend>
+
+<%= render partial: "show_product", locals: {products: @loan_product}  %>
+
+<br/>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+  	<p>
+  		<strong><%= t('cautela.loans.fields.obs') %>:</strong>  		
+	</p>
+  </div>
+  <div class="panel-body">
+    <%= @loan.obs %>
+  </div>
+</div>
+
+<% if @loan.status2 == 0 %>
+  <%= link_to t('links.aprovar'), finaliza_cautela_loan_path(@loan,valor: 1), data: { confirm: t('msg.aprovar') } %> |
+  <%= link_to t('links.edit'), edit_loan_path(@loan) %> |
+  <%= link_to t('links.destroy'), @loan, method: :delete, data: { confirm: t('msg.deletar') } %> |
+  <%= link_to t('links.back'), loans_path %>
+
+<% elsif @loan.status2 == 1 %>
+  <%= link_to t('links.finalizar'), finaliza_cautela_loan_path(@loan,valor: 3), data: { confirm: t('msg.finalizar') } %> |
+  <%#= link_to t('links.inativar'), finaliza_cautela_loan_path(@loan,valor: 2), data: { confirm: t('msg.inativar') } %> 
+  <%= link_to t('links.inativar'), obs_inativar_loan_path(@loan), data: { confirm: t('msg.inativar') } %> |
+  <%= link_to t('links.back'), loans_path %>
+<% elsif @loan.status2 == 2 %>  
+  <%= link_to t('links.back'), loans_path %>
+<% elsif @loan.status2 == 3 %>
+<%#= link_to t('links.inativar'), finaliza_cautela_loan_path(@loan,valor: 2), data: { confirm: t('msg.inativar') } %>
+<%= link_to t('links.inativar'), obs_inativar_loan_path(@loan), data: { confirm: t('msg.inativar') } %> |
 <%= link_to t('links.back'), loans_path %>
+<% end %>

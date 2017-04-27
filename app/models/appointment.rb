@@ -4,6 +4,7 @@ class Appointment < ApplicationRecord
   has_many :assistent_appointment, dependent: :destroy
   belongs_to :sims_person, foreign_key: :person_id
   belongs_to :sims_department, foreign_key: :sims_tba_esq_secao_id
+  has_many :loans
 
   validates_presence_of :person_id, :sims_tba_esq_secao_id
 

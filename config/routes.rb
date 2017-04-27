@@ -25,7 +25,20 @@ Rails.application.routes.draw do
 	end
 
 	scope module: 'cautela' do
-	  resources :loans
+	  resources :loans do 
+	  	member do 
+	  		get :finaliza_cautela
+	  		get :impressao
+	  		get :abrir_anexo
+	  		get :anexar_comprovante
+	  		get :obs_inativar
+	  		put :update_anexar_comprovante
+	  		put :update_obs_inativar	  		
+	  	end
+	  	collection do 
+	  		get :pesquisa_cautelas	  		 
+	  	end
+	  end
 	  resources :products
 	end
 

@@ -1,0 +1,69 @@
+<%= form_tag( pesquisa_cautelas_loans_path, id: "pesquisa_cautelas",  :method => :get, class: "form-horizontal") do %>
+<legend><strong>Escolha as opções para pesquisa:</strong></legend>
+
+
+<div class="row">
+	<div class="col-sm-6">
+		
+			<strong>Informe:</strong>
+		
+		<div>
+		<label class="radio-inline"><%= radio_button_tag 'mat', "1" %>Parte do nome do solicitante</label>
+		<label class="radio-inline"><%= radio_button_tag 'mat', "2"%>Parte do nome do material</label>
+		<label class="radio-inline"><%= radio_button_tag 'mat', "3" %>Parte da descrição do material</label>		
+		</div>
+		<div id="campo_nome">
+		<div class="form-group">
+		    <div class="col-sm-6">
+		       <%= text_field_tag 'nome', nil, placeholder: 'Insira...', class: "form-control" %>
+		    </div>
+		</div>
+		</div>
+	</div>	 
+</div>
+
+<div class="row">
+	<div class="col-sm-6">
+		
+			<strong>Escolha data da solicitação ou devolução:</strong>
+		
+		<div class="form-inline">
+			<label class="radio-inline"><%= radio_button_tag 'data', "1" %>Data da solicitação</label>
+			<label class="radio-inline"><%= radio_button_tag 'data', "2" %>Data da devolução</label>
+			<%= text_field_tag 'data_texto', nil, placeholder: 'Data...', class: "form-control calendario" %>
+		</div>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="col-sm-6">
+	<p>
+		<strong>Escolha o setor de origem do material:</strong>
+	</p>
+		<%= select_tag "setor", options_from_collection_for_select(@appointments, :id, :appointment_nome)%>
+	</div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="col-sm-6">
+	<p>
+		<strong>Escolha o estado da cautela:</strong>
+	</p>
+		<div class="col-sm-3">
+		<%= select_tag "estado", options_for_select([[ "TODOS", "" ],[ "Pendente", "0" ],[ "Aprovada", "1" ] ,[ "Inativada", "2" ],[ "Finalizada", "3" ]]), class: "form-control" %>
+		</div>
+	</div>
+</div>
+<br />
+
+
+<%= submit_tag "Pesquisa", class: "btn btn-default" %>
+
+
+<% end %>
+<hr />
+

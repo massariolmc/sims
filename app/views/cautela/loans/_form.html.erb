@@ -1,23 +1,38 @@
 <%= form_for(loan, html: { class: "form-horizontal",  multipart: true}) do |f| %>
   <% if loan.errors.any? %>
-     <div id="error_explanation">
-    <%= t'general.form_error'%>          
+  <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+      <% loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-    <br/><br/>
   <% end %>
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       
       <div class="form-group">
-      <%= f.label :person_id, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">        
+      <%= f.label :person_id, class: "col-sm-4 control-label" %>
+        <div class="col-sm-4">        
         <%= f.collection_select(:person_id, @person_of, :id, :nome_inicial, { include_blank: 'SELECIONE' }) %>        
           <%= error_tag loan, :person_id %>          
         </div>
       </div>
 
     </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.label :appointment_id, class: "col-sm-4 control-label" %> 
+        <div class="col-sm-4">
+          <%= f.collection_select(:appointment_id, @appointments, :id, :appointment_nome, { include_blank: 'SELECIONE' })  %>
+        </div>                      
+    </div>
+   </div>
+   
 
     <div class="col-sm-4">  
       <div class="form-group">
@@ -27,23 +42,15 @@
           <%= error_tag loan, :data_saida %>            
         </div>
       </div>
-    </div>
-       
-    <div class="col-sm-4">  
-      <div class="form-group">
-      <%= f.label :obs, class: "col-sm-2 control-label" %>
-        <div class="col-sm-10">        
-          <%= f.text_area :obs, class: "form-control" %>    
-          <%= error_tag loan, :obs %>          
-        </div>
-      </div>  
     </div>    
 
   </div>
 
-   <%= f.hidden_field :user_id, value: current_user.person_id(current_user.username) %>
+   <%= f.hidden_field :user_id, value: current_user.id %>
+
 
   <div class="row">
+  <div class="col-sm-6"> 
       <%= link_to_add_association 'Produtos', f, :products, class: "glyphicon glyphicon-plus-sign alert alert-success",
            'data-association-insertion-node' => "#products-loan",
            'data_association-insertion-method' => "append"
@@ -55,8 +62,24 @@
                 <% end %>
              
             </fieldset>
-  </div>
+</div>
+<div class="col-sm-6"> 
 
+<div class="panel panel-primary">
+  <div class="panel-heading">Observações:</div>
+  <div class="panel-body">
+    
+      <div class="form-group">
+      <%= f.label :obs, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.text_area :obs, rows: 5,class: "form-control" %>    
+          <%= error_tag loan, :obs %>          
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>  
+</div>
 
   <div class="actions">
     <%= f.submit t("links.btn"), class: "btn btn-default" %>

@@ -11,7 +11,6 @@ class User < ApplicationRecord
   before_save :email, on: :create
 
   has_many :loans
-  has_many :products
 
   def email
     self.email = self.username

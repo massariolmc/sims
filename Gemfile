@@ -46,6 +46,10 @@ gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ld
 
 gem 'toastr-rails'
 
+gem 'prawn'
+gem 'responders'
+gem 'prawn-table'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -310,14 +310,25 @@ pt:
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Informações sobre a cautela"  
+        products: "Lista de materiais cautelados"
+      anexar_comprovante:
+        title: "Anexar Comprovante"
+      obs_inativar:
+        title: "Inserir observação para Inativar"
+      pesquisa:
+        title: "Pesquisa"      
       fields:        
         obs: Obs
-        person_id: Requisitante
+        person_id: Solicitante
         user_id: Cadastrado por
         data_saida: Data da Solicitação
-        data_devolucao: Deta de Devolução
-        status: Status    
+        data_devolucao: Data da Devolução
+        data_inativa: Data da Inativação
+        status: Status   
+        appointment_id: "Material Pertence a" 
+        status2: "Estado da Cautela"
+        avatar: Anexo
     products:
       new:
         title: Cadastro dos Produtos
@@ -332,8 +343,7 @@ pt:
         user_id: Cadastrado por
         loan_id: Pertence a Cautela
         nome: Nome
-        descricao: Descrição   
-        appointment_id: Material Carga
+        descricao: Descrição           
         qtde: Quantidade
         situation_id: Situação
       
@@ -730,6 +740,11 @@ pt:
     opcao_exibe_veiculo_pessoa: "Veiculos"
     perfil: Altera Perfil
     new_equip: Cadastrar
+    finalizar: "Finalizar"
+    inativar: "Inativar"
+    aprovar: "Aprovar"
+    imprimir_cautela: Imprimir Cautela
+    imprimir_cautela_assinada: Cautela Assinada
   layout:
     signin: Login     
     my_profile: Meu Perfil
@@ -747,6 +762,7 @@ pt:
     alert:
       needs_login: "Voce precisa estar logado para continuar."
       negado: "Sem privilégios."
+      falta_anexo: "Para aprovar é preciso anexar a cautela assinada."
     notice:
       signed_in: 'Login efetuado com sucesso.'
       signed_out: 'Logout efetuado com sucesso. Ate logo!'
@@ -763,7 +779,10 @@ pt:
       invalid: "Valor Inválido"
       notupdate: "Erro inesperado."
   msg:      
-    deletar: "Tem certeza?"
+    deletar: "Tem certeza?"    
+    inativar: "Tem certeza? Antes de inativar, informe o motivo no campo Observações."
+    finalizar: "Tem certeza? Antes de finalizar, verifique se o material foi devolvido."
+    aprovar: "Tem certeza? Antes de aprovar, verifique se foi anexado a cautela assinada."
   general:
     form_error: Há erros no formulário, por favor verifique.  
   activerecord:
@@ -1010,18 +1029,19 @@ pt:
         user_id: Cadastrado por
       loan:
         obs: Obs
-        person_id: "Requisitante"
+        person_id: "Solicitante"
         user_id: Cadastrado por
         data_saida: Data da solicitação
-        data_devolucao: Deta de Devolução
+        data_devolucao: Data da Devolução
         status: Status
+        appointment_id: "Material Pertence a"
+        avatar: Anexo
       product:    
         obs: Obs       
         user_id: Cadastrado por
         loan_id: Pertence a Cautela
         nome: Nome
-        descricao: Descrição   
-        appointment_id: Material Carga
+        descricao: Descrição           
         qtde: Quantidade
         situation_id: Situação
           

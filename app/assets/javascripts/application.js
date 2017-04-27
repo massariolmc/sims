@@ -25,5 +25,4 @@
 //= require js_datatables/dataTables.uikit
 //= require js_datatables/jquery.dataTables
 //= require sims_biga_licenses
-//= require sims_researches
 //= require_tree .

@@ -1,0 +1,35 @@
+<%= form_for(loan, url: {action: "update_anexar_comprovante"}, html: {method: "put", class: "form-horizontal",  multipart: true}) do |f| %>
+  <% if loan.errors.any? %>
+     <div id="error_explanation">
+    <%= t'general.form_error'%>          
+    </div>
+  <%end%>
+    <br/><br/>
+
+<%= f.hidden_field :person_id, value: loan.person_id %>
+<%= f.hidden_field :data_saida, value: loan.data_saida %>
+<%= f.hidden_field :data_devolucao, value: loan.data_devolucao %>
+<%= f.hidden_field :user_id, value: loan.user_id %>
+<%= f.hidden_field :appointment_id, value: loan.appointment_id %>
+<%= f.hidden_field :status2, value: loan.status2 %>
+<%= f.hidden_field :obs, value: loan.obs %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      
+      <div class="form-group">
+      <%= f.label :avatar, class: "col-sm-2 control-label" %>
+        <div class="col-sm-10">        
+          <%= f.file_field :avatar %>     
+          <%= error_tag loan, :avatar %>          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("links.btn"), class: "btn btn-default" %>
+  </div>
+
+<% end %>

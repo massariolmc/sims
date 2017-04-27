@@ -1,0 +1,23 @@
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+    <th><%= t('cautela.products.fields.nome') %> </th>
+    <th><%= t('cautela.products.fields.descricao') %> </th>
+    <th><%= t('cautela.products.fields.qtde') %> </th>
+    <th><%= t('cautela.products.fields.situation_id') %> </th>            
+    </tr>
+  </thead>
+
+  <tbody>
+    <% products.each do |pp| %>
+      <tr>
+        <td><%= pp.nome %></td>
+        <td><%= pp.descricao%></td>        
+        <td><%= pp.qtde%></td> 
+        <td><%= pp.situation.nome%></td>                 
+      </tr>  
+    <% end %>
+  </tbody>
+</table>

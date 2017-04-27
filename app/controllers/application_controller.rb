@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def set_tb_pessoas
     @person = SimsPerson.all  
     @person_ef = SimsPerson.where("pessituacao = 4").order(pespostograd: :asc, pesnguerra: :asc)  
-    @person_of = SimsPerson.where("pespostograd < 12").order(pespostograd: :asc, pesnguerra: :asc)    
+    @person_of = SimsPerson.where("pespostograd < 12 and pessituacao = 4").order(pespostograd: :asc, pesnguerra: :asc)    
     @organizations = SimsOrganization.all
     @squads = SimsSquad.order(lpsid: :asc)
     @patents = SimsPatent.all

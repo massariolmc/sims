@@ -1,0 +1,29 @@
+
+<table class="display" id="loans3">
+  <thead>
+    <tr>
+        <th><%= t('cautela.loans.fields.person_id') %> </th>
+        <th><%= t('cautela.loans.fields.appointment_id') %> </th>          
+        <th><%= t('cautela.loans.fields.data_saida') %> </th>          
+        <th><%= t('cautela.loans.fields.status') %> </th>     
+        <th><%= t('cautela.loans.fields.data_inativa') %> </th>      
+        <th><%= t('cautela.loans.fields.user_id') %> </th>        
+        <th><%= t('links.opcao') %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% loans.each do |loan| %>
+      <tr>
+        <td><%= loan.person(loan.person_id) %></td>
+        <td><%= loan.appointment.appointment_nome %></td>
+        <td><%= loan.data_saida.strftime("%d/%m/%Y")%></td>
+        <td><%= loan.testa_status2(loan.status2) %></td>
+        <td><%= loan.data_devolucao.strftime("%d/%m/%Y")%></td>
+        <td><%= loan.user_to_person(loan.user_id)%></td>
+        <td><%= link_to t('links.show'), loan %></td>
+        <!-- <td><%#= link_to t('links.edit'), edit_loan_path(loan) %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
