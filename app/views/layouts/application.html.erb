@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
- 
+
   <head>
     <title>Odin</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all'%><!--, 'data-turbolinks-track': 'reload' %> -->
     <%= javascript_include_tag 'application' %> <!--, 'data-turbolinks-track': 'reload' %> -->
+    <style>
+    .nav .sidebar-nav, .side-nav{
+        background: #1f3b59;
+      }
+      body{
+        background: #1f3b59;
+      }
+    </style>
   </head>
-   
+
   <body>
 
      <div id="wrapper">
 <% if user_signed_in? %> <!-- VERIFICA SE ESTA LOGADO -->
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background:#1f3b59; color:white;">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -23,16 +31,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/hello/index">Odin - Sistema Integrado de Negócios</a>
+                <%= link_to root_path, :style => "color:white; font-size:28px; font-weight:bold; margin-left:20px;" do %>
+                    <%= image_tag("gladio.png", size: "55x45") + " Odin" %>
+                <% end %>
+
             </div>
             <!-- Top Menu Items -->
- 
-            
+
+
             <ul class="nav navbar-right top-nav">
 
                 <%#= render partial: 'layouts/menu_mensagem' %>
                 <%= render partial: 'layouts/menu_login' %>
-                
+
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -40,38 +51,38 @@
 
                 <% case  %>
                     <% when current_user.role == "sims"   %>
-                        <%= render partial: 'layouts/menu_sims' %> 
-                    
-                    <% when current_user.role == "empenho_nivel_1" || current_user.role == "empenho_nivel_2"  %>
-                        <%= render partial: 'layouts/menu_empenhos' %> 
-                    
-                    <% when current_user.role == "sims_empenho_nivel_1" || current_user.role == "sims_empenho_nivel_2" %>            
-                        <%= render partial: 'layouts/menu_empenhos' %> 
                         <%= render partial: 'layouts/menu_sims' %>
 
-                     <% when current_user.role == "materialcarga" %>            
-                        <%= render partial: 'layouts/menu_materialcarga' %>  
+                    <% when current_user.role == "empenho_nivel_1" || current_user.role == "empenho_nivel_2"  %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
 
-                     <% when current_user.role == "materialcarga_sims" %>            
-                        <%= render partial: 'layouts/menu_materialcarga' %> 
-                        <%= render partial: 'layouts/menu_sims' %>   
+                    <% when current_user.role == "sims_empenho_nivel_1" || current_user.role == "sims_empenho_nivel_2" %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
+                        <%= render partial: 'layouts/menu_sims' %>
 
-                                        
-                    <% when current_user.role == "materialcarga_empenho_nivel_1" || current_user.role == "materialcarga_empenho_nivel_2" %>   
-                        <%= render partial: 'layouts/menu_empenhos' %> 
-                        <%= render partial: 'layouts/menu_materialcarga' %>     
+                     <% when current_user.role == "materialcarga" %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
 
-                    <% when current_user.role == "materialcarga_sims_empenho_nivel_1" || current_user.role == "materialcarga_sims_empenho_nivel_2" %>   
-                        <%= render partial: 'layouts/menu_empenhos' %> 
-                        <%= render partial: 'layouts/menu_materialcarga' %> 
-                        <%= render partial: 'layouts/menu_sims' %>         
+                     <% when current_user.role == "materialcarga_sims" %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
+                        <%= render partial: 'layouts/menu_sims' %>
+
+
+                    <% when current_user.role == "materialcarga_empenho_nivel_1" || current_user.role == "materialcarga_empenho_nivel_2" %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
+
+                    <% when current_user.role == "materialcarga_sims_empenho_nivel_1" || current_user.role == "materialcarga_sims_empenho_nivel_2" %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
+                        <%= render partial: 'layouts/menu_sims' %>
 
                     <% when current_user.role == "admin" %>
                         <%= render partial: 'layouts/menu_empenhos' %>
-                        <%= render partial: 'layouts/menu_materialcarga' %>  
-                        <%= render partial: 'layouts/menu_cautelas' %> 
-                        <%= render partial: 'layouts/menu_sims' %> 
-                        <%= render partial: 'layouts/menu_users' %>  
+                        <%= render partial: 'layouts/menu_materialcarga' %>
+                        <%= render partial: 'layouts/menu_cautelas' %>
+                        <%= render partial: 'layouts/menu_sims' %>
+                        <%= render partial: 'layouts/menu_users' %>
                 <% end %>
 
                 </ul>
@@ -83,7 +94,7 @@
 
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Page Heading
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
@@ -101,7 +112,8 @@
                         </ol>
                     </div>
                 </div>
-                <div class="row">    
+                 -->
+                <div class="row">
                     <% unless flash.empty? %>
                          <script type="text/javascript">
                               <% flash.each do |f| %>
@@ -126,6 +138,6 @@
     <!-- /#wrapper -->
   </body>
     <% else %>
-        <%= render template: 'devise/sessions/new' %>   
+        <%= render template: 'devise/sessions/new' %>
     <% end %>
 </html>

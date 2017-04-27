@@ -29,11 +29,11 @@ authorizations: &AUTHORIZATIONS
 
 development:
   #host: 192.168.0.52
-  host: 192.168.1.109
+  host: 10.152.16.1
   port: 389
   attribute: uid
-  base: ou=Users,dc=mjml,dc=net
-  admin_user: cn=admin,dc=mjml,dc=net
+  base: ou=Users,dc=bacg,dc=intraer
+  admin_user: cn=admin,dc=bacg,dc=intraer
   admin_password: 1q2w3e
   ssl: false
   # <<: *AUTHORIZATIONS

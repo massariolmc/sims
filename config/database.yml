@@ -23,27 +23,27 @@ default: &default
 
 sims_development:
   <<: *default
-  database: sims
+  database: sims_bacg
   host: localhost
-  username: postgres
-  password: 12345678
+  username: antonioricardo
+  password: rub32912289
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 sims_production:
   <<: *default
-  database: sims
+  database: sims_bacg
   host: 10.152.16.41
   username: postgres
   password: 123456
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>  
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 development:
   <<: *default
   database: Odin_development
   host: localhost
-  username: postgres
-  password: 12345678  
+  username: antonioricardo
+  password: rub32912289
 
 
   # The specified database role being used to connect to postgres.
