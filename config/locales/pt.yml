@@ -58,7 +58,7 @@ pt:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Saiu com sucesso.'
       new:
-        title: 'Login'        
+        title: 'Login'
     unlocks:
       send_instructions: 'Dentro de minutos, você receberá um email com instruções para o desbloqueio da sua conta.'
       send_paranoid_instructions: 'Se sua conta existir, você receberá um e-mail com instruções para desbloqueá-la em alguns minutos.'
@@ -73,7 +73,7 @@ pt:
       not_locked: "não foi bloqueado"
       not_saved:
         one: "Não foi possível salvar %{resource}: 1 erro"
-  
+
   organizations:
     new:
       title: Cadastro
@@ -104,13 +104,13 @@ pt:
       title: Editar
     show:
       title: "Perfil: %{nome_guerra}"
-      squad_id: Esquadrao                     
+      squad_id: Esquadrao
   sims_people:
     new:
       title: Cadastro
     index:
       title: Visualizaçao Total
-      patent_id: Posto ou Graduaçao  
+      patent_id: Posto ou Graduaçao
     edit:
       title: Editar
     show:
@@ -122,7 +122,7 @@ pt:
     index:
       title: Visualização Total
       person_id: Nome
-      permission_id: Permissoes  
+      permission_id: Permissoes
     edit:
       title: Editar
     show:
@@ -134,16 +134,16 @@ pt:
       login: Login
       permission_id: Permissões
       person_id: Pessoa
-      password: Senha    
+      password: Senha
       password_confirmation: Confirme a Senha
       current_password: Senha Atual
       username: Login
-      role: Perfil      
+      role: Perfil
   sims_patents:
     new:
       title: Cadastro
     index:
-      title: Visualizaçao Total      
+      title: Visualizaçao Total
     edit:
       title: Editar
     show:
@@ -152,24 +152,24 @@ pt:
     new:
       title: Cadastro
     index:
-      title: Visualizaçao Total      
+      title: Visualizaçao Total
     edit:
       title: Editar
     show:
       title: "Perfil: %{nome_guerra}"
-  
-  # AQUI COMEÇA A PARTE DE TRADUCAO DO EMPENHO  
-  empenho:    
+
+  # AQUI COMEÇA A PARTE DE TRADUCAO DO EMPENHO
+  empenho:
     opcao: "Opções"
     companies:
       new:
         title: Cadastro de Empresas
       index:
-        title: "Visualização das Empresas"        
+        title: "Visualização das Empresas"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         nome_fantasia: "Nome Fantasia"
         razao_social: "Razão Social"
@@ -180,17 +180,17 @@ pt:
         cidade: "Cidade"
         estado: "Estado"
         telefone: "Telefone"
-        cep: "CEP"    
+        cep: "CEP"
     interests:
       new:
         title: Cadastro dos Empenhos
       index:
-        title: "Visualização dos Empenhos"        
+        title: "Visualização dos Empenhos"
       edit:
         title: Editar
       show:
-        title: "Visualização do Empenho" 
-        especifications: "Especificação do Material / Serviço" 
+        title: "Visualização do Empenho"
+        especifications: "Especificação do Material / Serviço"
       fields:
         n_empenho: "Nº do Empenho"
         aplicacao: "Aplicação"
@@ -201,34 +201,34 @@ pt:
         emissao: "Emissão"
         processo: "Processo"
         squad_id: "Setor"
-        data_envio: "Data do Envio para Empresa"   
+        data_envio: "Data do Envio para Empresa"
         prazo: "Prazo para Entrega"
         avatar: "Anexo"
     especifications:
       new:
         title: Cadastro das Especificações do produtos/material
       index:
-        title: "Visualização dos produtos/material"        
+        title: "Visualização dos produtos/material"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         descricao: "Descrição"
         type_id: "N.D."
         qtde: "QTDE"
-        valor_un: "Valor Un"        
-        modality_id: "Mat/Serv" 
+        valor_un: "Valor Un"
+        modality_id: "Mat/Serv"
         interest_id: "Empenho"
     types:
       new:
         title: "Cadastro"
       index:
-        title: "Visualização"        
+        title: "Visualização"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         nome: "Nome"
         obs: "Obs"
@@ -236,26 +236,26 @@ pt:
       new:
         title: "Cadastro"
       index:
-        title: "Visualização"        
+        title: "Visualização"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         nome: "Nome"
-        obs: "Obs"    
+        obs: "Obs"
   # AQUI COMEÇA A PARTE DE TRADUCAO DO MATERIAL CARGA
-  materialcarga:    
+  materialcarga:
     opcao: "Opções"
     appointments:
       new:
         title: Cadastro do Responsável pelo Material Carga
       index:
-        title: "Visualização"        
+        title: "Visualização"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         sims_tba_esq_secao_id: Setor
         obs: Obs
@@ -265,11 +265,11 @@ pt:
       new:
         title: Cadastro dos Materiais
       index:
-        title: "Visualização dos Materiais"        
+        title: "Visualização dos Materiais"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         nomeclatura: Nomeclatura
         sigla: Sigla
@@ -289,27 +289,28 @@ pt:
       new:
         title: Cadastro do Auxiliar do Material Carga
       index:
-        title: "Visualização"        
+        title: "Visualização"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
+        title: "Perfil: %#{nome_guerra}"
       fields:
         appointment_id: Material Carga
         obs: Obs
         person_id: Auxiliar
         user_id: Cadastrado por
 
-  # AQUI COMEÇA A PARTE DE TRADUCAO DA CAUTELAS      
+  # AQUI COMEÇA A PARTE DE TRADUCAO DA CAUTELAS
   cautela:
     loans:
       new:
         title: Cadastro das Cautelas
       index:
-        title: "Visualização das Cautelas"        
+        title: "Visualização das Cautelas"
       edit:
         title: Editar
       show:
+<<<<<<< HEAD
         title: "Informações sobre a cautela"  
         products: "Lista de materiais cautelados"
       anexar_comprovante:
@@ -319,34 +320,48 @@ pt:
       pesquisa:
         title: "Pesquisa"      
       fields:        
+=======
+        title: "Perfil: %#{nome_guerra}"
+      fields:
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
         obs: Obs
         person_id: Solicitante
         user_id: Cadastrado por
         data_saida: Data da Solicitação
+<<<<<<< HEAD
         data_devolucao: Data da Devolução
         data_inativa: Data da Inativação
         status: Status   
         appointment_id: "Material Pertence a" 
         status2: "Estado da Cautela"
         avatar: Anexo
+=======
+        data_devolucao: Deta de Devolução
+        status: Status
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
     products:
       new:
         title: Cadastro dos Produtos
       index:
-        title: "Visualização dos Produtos"        
+        title: "Visualização dos Produtos"
       edit:
         title: Editar
       show:
-        title: "Perfil: %#{nome_guerra}"  
-      fields:        
-        obs: Obs       
+        title: "Perfil: %#{nome_guerra}"
+      fields:
+        obs: Obs
         user_id: Cadastrado por
         loan_id: Pertence a Cautela
         nome: Nome
+<<<<<<< HEAD
         descricao: Descrição           
+=======
+        descricao: Descrição
+        appointment_id: Material Carga
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
         qtde: Quantidade
         situation_id: Situação
-      
+
   # AQUI COMEÇA A PARTE DE TRADUCAO DO SIMS
   sims:
     ncompleto: Nome Completo
@@ -366,7 +381,7 @@ pt:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -382,7 +397,7 @@ pt:
         pespostograd: Posto ou Graduação
         pescpf: CPF
         pesidentidade: Identidade
-        pesend: Endereço        
+        pesend: Endereço
         pesnum: Nº
         pesbairro: Bairro
         pescidade: Cidade
@@ -414,7 +429,7 @@ pt:
         pesfilmae: Nome da Mãe
         pesnaturalcidade: Cidade Natal
         pesnaturaluf: UF Natal
-        status_cracha: Status do Crachá 
+        status_cracha: Status do Crachá
         peslogin: Login
         pescnhnum: Nº CNH
         pescnhcat: Cat
@@ -425,7 +440,7 @@ pt:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -441,7 +456,7 @@ pt:
         pesdepboletimnum: Nº do Boletim
         pesdepboletimdata: Data Boletim
         pesdepompub: Não sei
-        pesdepradionum: Não sei      
+        pesdepradionum: Não sei
         pesdepradiodata: Data do radio
         pesdepirrf: Imposto de renda
         pesdeptiposaram: Tipo
@@ -451,14 +466,14 @@ pt:
         pesdeppesid: "Dependente de:"
         pesdepdatacas: Não sei
         pes_cracha_id: Crachá
-        pes_cracha_val: Validade do Crachá 
-        status_cracha: Status do Crachá 
+        pes_cracha_val: Validade do Crachá
+        status_cracha: Status do Crachá
     sims_employees:
       new:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -474,7 +489,7 @@ pt:
         pesesfilpai: Nome do Pai
         pesesfilmae: Nome da Mãe
         pesesend: Endereço
-        pesesendnum: Nº        
+        pesesendnum: Nº
         pesesendbairro: Bairro
         pesesendcidade: Cidade
         pesesenduf: UF
@@ -507,7 +522,7 @@ pt:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -532,14 +547,14 @@ pt:
         crachatipo: Tipo
         crachasubtipo: Sub Tipo
         crachaobs: Obs
-        crachadatacad: Cadastrado em 
+        crachadatacad: Cadastrado em
         crachauser: Cadastrado por
         crachaid: Nº Crachá
     sims_biga_licenses:
       new:
         title: Cadastro
       index:
-        title: Visualização Total  
+        title: Visualização Total
         cnh_vencidas: Visualização das CNHs Vencidas
       edit:
         title: Editar
@@ -556,12 +571,12 @@ pt:
         cnh_datacad: Data do Cadastro
         cnh_obs: Obs
         cnh_uf: UF
-        person: Nome  
+        person: Nome
     sims_biga_vehicles:
       new:
         title: Cadastro
       index:
-        title: Visualização Total  
+        title: Visualização Total
       edit:
         title: Editar
       show:
@@ -580,12 +595,12 @@ pt:
         vcl_dataatualizado: Data da Atualização
         vcl_situacao: Situação
         vcl_proprietario: Proprietário
-        vcl_id: ID  
+        vcl_id: ID
     sims_biga_notes:
       new:
         title: Cadastro
       index:
-        title: Visualização Total  
+        title: Visualização Total
       edit:
         title: Editar
       show:
@@ -602,7 +617,7 @@ pt:
       new:
         title: Cadastro
       index:
-        title: Visualização Total  
+        title: Visualização Total
       edit:
         title: Editar
       show:
@@ -613,7 +628,7 @@ pt:
         vcp_pes_id: Pessoa
         vcp_pes_tipo: Tipo
         vcp_posse: NÃO SEI
-        vcp_datacad: Data do Cadastro 
+        vcp_datacad: Data do Cadastro
         vcp_datavinculo: Data do cadastro do vinculo
         vcp_datadesvinculo: Data do desvinculo
         vcp_opr_id: NÃO SEI
@@ -624,7 +639,7 @@ pt:
       new:
         title: Cadastro
       index:
-        title: Visualização Total  
+        title: Visualização Total
       edit:
         title: Editar
       show:
@@ -632,18 +647,18 @@ pt:
       fields:
         vsl_id: Selo
         vsl_vcl_placa: Placa
-        vsl_pes_id: 
+        vsl_pes_id:
         vsl_datacad: Data do cadastro
         vsl_datarenovacao: Data da Renovação
-        vsl_datadesativacao: 
+        vsl_datadesativacao:
         vsl_situacao: Situação
-        vsl_user_id: 
+        vsl_user_id:
     sims_cav_visitors:
       new:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -658,7 +673,7 @@ pt:
         visitanteid: ID
         visitante_obs: Obs
         visitante_telefone: Telefone
-        visacesso_destino: Destino        
+        visacesso_destino: Destino
         visacesso_obs: Obs
         visacesso_cracha: Crachá
         visacesso_dataent: Data da Entrada
@@ -676,7 +691,7 @@ pt:
         visveic_placa: Placa
         visveic_obs: Obs
         visveic_ano: Ano
-        visveic_renavam: Renavam        
+        visveic_renavam: Renavam
         justifica_texto: Justificativa
     sims_biga_moviments:
       pesquisa: "Pesquisa Avançada"
@@ -684,7 +699,7 @@ pt:
         title: Cadastro
       index:
         title: Visualização Total
-        patent_id: Posto ou Graduação  
+        patent_id: Posto ou Graduação
       edit:
         title: Editar
       show:
@@ -709,8 +724,9 @@ pt:
         mov_ip: IP
         mov_tipo_acesso: Militar de serviço na Entrada
         portao_nome: Portão
-       
+
   links:
+    auth: Autenticar
     back: Voltar
     show: Mostrar
     edit: Editar
@@ -746,7 +762,7 @@ pt:
     imprimir_cautela: Imprimir Cautela
     imprimir_cautela_assinada: Cautela Assinada
   layout:
-    signin: Login     
+    signin: Login
     my_profile: Meu Perfil
     signout: Logout
     password: Trocar senha
@@ -756,8 +772,8 @@ pt:
     person: Pessoas
     user: Usuarios
     permission: Permissoes
-    patent: "Posto/Graduaçao"    
-    company: "Empresas"        
+    patent: "Posto/Graduaçao"
+    company: "Empresas"
   flash:
     alert:
       needs_login: "Voce precisa estar logado para continuar."
@@ -770,21 +786,26 @@ pt:
       already_login_in: "Voce ja esta logado."
       created: "Criado com sucesso."
       updated: "Atualizado com sucesso."
-      destroied: "Excluido com sucesso." 
+      destroied: "Excluido com sucesso."
       dependent: "Não é possível deletar. Existe uma dependência dependência."
-      add: Adicionado com sucesso.  
+      add: Adicionado com sucesso.
       remove: Removido com sucesso.
-      limpacarrinho: Carrinho de compras vazio.   
+      limpacarrinho: Carrinho de compras vazio.
       notlogin: Usuario nao possui perfil.
       invalid: "Valor Inválido"
       notupdate: "Erro inesperado."
+<<<<<<< HEAD
   msg:      
     deletar: "Tem certeza?"    
     inativar: "Tem certeza? Antes de inativar, informe o motivo no campo Observações."
     finalizar: "Tem certeza? Antes de finalizar, verifique se o material foi devolvido."
     aprovar: "Tem certeza? Antes de aprovar, verifique se foi anexado a cautela assinada."
+=======
+  msg:
+    deletar: "Tem certeza?"
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
   general:
-    form_error: Há erros no formulário, por favor verifique.  
+    form_error: Há erros no formulário, por favor verifique.
   activerecord:
     errors:
       messages:
@@ -795,7 +816,7 @@ pt:
     models:
       sims_organization: Organização
       sims_squad: Esquadrão
-      sims_department: Departamento      
+      sims_department: Departamento
       sims_person: Pessoas
       sims_dependent: Dependente
       sims_employees: Prestador de Serviço
@@ -803,16 +824,16 @@ pt:
       sims_biga_vehicle_people: Proprietários Veiculos
       user: Usuario
       permission: Permissões
-      sims_patent: "Posto / Graduacão"      
-      company: "Empresas" 
+      sims_patent: "Posto / Graduacão"
+      company: "Empresas"
       interest: "Empenhos"
-      especification: "Especificação" 
-      type: "Natureza de despeza" 
+      especification: "Especificação"
+      type: "Natureza de despeza"
       modality: "Tipo do produto/material"
       equipment: Material
-      appointment: Material Carga    
-      assistent_appointment: Militar Auxiliar - Material Carga    
-      loan: Empréstimo 
+      appointment: Material Carga
+      assistent_appointment: Militar Auxiliar - Material Carga
+      loan: Empréstimo
       product: Produto
     attributes:
       organization:
@@ -820,13 +841,13 @@ pt:
         omabrev: Sigla
         omsimnao: Ativo
       sims_squad:
-        lpsdesc: Nome        
+        lpsdesc: Nome
       sims_department:
         esqsec_esq: Esquadrão
         esqsec_desc: Nome Seção
         esqsec_abrev: Sigla
         esqsec_dficha: Desimpede Ficha
-        esqsec_ramal: Ramal    
+        esqsec_ramal: Ramal
       sims_person:
         pesncompleto: Nome Completo
         pesnguerra: Nome de guerra
@@ -836,7 +857,7 @@ pt:
         pespostograd: Posto ou Graduação
         pescpf: CPF
         pesidentidade: Identidade
-        pesend: Endereço        
+        pesend: Endereço
         pesnum: Nº
         pesbairro: Bairro
         pescidade: Cidade
@@ -883,7 +904,7 @@ pt:
         pesdepboletimnum: Nº do Boletim
         pesdepboletimdata: Data Boletim
         pesdepompub: Não sei
-        pesdepradionum: Não sei      
+        pesdepradionum: Não sei
         pesdepradiodata: Data do radio
         pesdepirrf: Imposto de renda
         pesdeptiposaram: Tipo
@@ -893,7 +914,7 @@ pt:
         pesdeppesid: "Dependente de:"
         pesdepdatacas: Não sei
         pes_cracha_id: Crachá
-        pes_cracha_val: Validade do Crachá   
+        pes_cracha_val: Validade do Crachá
       sims_employee:
         pesfoto: "Foto"
         pesesnome: Nome Completo
@@ -904,7 +925,7 @@ pt:
         pesesfilpai: Nome do Pai
         pesesfilmae: Nome da Mãe
         pesesend: Endereço
-        pesesendnum: Nº        
+        pesesendnum: Nº
         pesesendbairro: Bairro
         pesesendcidade: Cidade
         pesesenduf: UF
@@ -927,7 +948,7 @@ pt:
         pesesempresafone: Fone do esponsável
         pesesdatacadint: DIA DA AUTORIZAÇÃO
         pesesuserint: AUTORIZADO POR
-        pesesmatricula: NÃO SEI 
+        pesesmatricula: NÃO SEI
       sims_biga_license:
         pesfoto: "Foto"
         cnh_pes_id: Nome # na verdade é o ID da pessoa
@@ -937,33 +958,33 @@ pt:
         cnh_cat: Categoria
         cnh_datacad: Data do Cadastro
         cnh_obs: Obs
-        cnh_uf: UF  
+        cnh_uf: UF
       sims_biga_vehicle_person:
         vcp_id: ID
         vcp_placa_id: Placa
         vcp_pes_id: Pessoa
         vcp_pes_tipo: Tipo
         vcp_posse: NÃO SEI
-        vcp_datacad: Data do Cadastro 
+        vcp_datacad: Data do Cadastro
         vcp_datavinculo: Data do cadastro do vinculo
         vcp_datadesvinculo: Data do desvinculo
         vcp_opr_id: NÃO SEI
         vcp_origem: NÃO SEI
         vcp_cpf: CPF
-        vcp_ativo: Situação               
+        vcp_ativo: Situação
       user:
         login: Login
         permission_id: Permissões
         person_id: Pessoa
-        password: Senha    
+        password: Senha
         password_confirmation: Confirme a Senha
         current_password: Senha Atual
-        username: Login        
+        username: Login
       sims_patent:
-        nome: Nome          
+        nome: Nome
       permisson:
         nome: Nome
-        descriçao: Descrição      
+        descriçao: Descrição
       company:
         nome_fantasia: "Nome Fantasia"
         razao_social: "Razão Social"
@@ -985,15 +1006,15 @@ pt:
         emissao: "Emissão"
         processo: "Processo"
         sims_squad_id: "Setor"
-        data_envio: "Data do Envio para Empresa"   
+        data_envio: "Data do Envio para Empresa"
         prazo: "Prazo para Entrega"
-        especification_id: "Especificação" 
-        avatar: "Anexo"   
+        especification_id: "Especificação"
+        avatar: "Anexo"
       especification:
         descricao: "Descrição"
         type_id: "N.D."
         qtde: "QTDE"
-        valor_un: "Valor Un"        
+        valor_un: "Valor Un"
         modality_id: "Mat/Serv"
         total: "Total"
       type:
@@ -1006,7 +1027,7 @@ pt:
         sims_tba_esq_secao_id: Setor
         obs: Obs
         person_id: Militar
-        user_id: Cadastrado por    
+        user_id: Cadastrado por
       equipment:
         nomeclatura: Nomeclatura
         sigla: Sigla
@@ -1022,7 +1043,7 @@ pt:
         status: Status
         obs: Obs
         user_id: Cadastrado por
-      assistent_appointment:  
+      assistent_appointment:
         appointment_id: Material Carga
         obs: Obs
         person_id: Auxiliar
@@ -1034,6 +1055,7 @@ pt:
         data_saida: Data da solicitação
         data_devolucao: Data da Devolução
         status: Status
+<<<<<<< HEAD
         appointment_id: "Material Pertence a"
         avatar: Anexo
       product:    
@@ -1042,9 +1064,18 @@ pt:
         loan_id: Pertence a Cautela
         nome: Nome
         descricao: Descrição           
+=======
+      product:
+        obs: Obs
+        user_id: Cadastrado por
+        loan_id: Pertence a Cautela
+        nome: Nome
+        descricao: Descrição
+        appointment_id: Material Carga
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
         qtde: Quantidade
         situation_id: Situação
-          
+
   date:
     abbr_day_names:
     - Dom

@@ -28,12 +28,17 @@ authorizations: &AUTHORIZATIONS
 ## Environment
 
 development:
+<<<<<<< HEAD
   host: 192.168.1.106
   #host: 192.168.1.109
+=======
+  #host: 192.168.0.52
+  host: 10.152.16.1
+>>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
   port: 389
   attribute: uid
-  base: ou=Users,dc=mjml,dc=net
-  admin_user: cn=admin,dc=mjml,dc=net
+  base: ou=Users,dc=bacg,dc=intraer
+  admin_user: cn=admin,dc=bacg,dc=intraer
   admin_password: 1q2w3e
   ssl: false
   # <<: *AUTHORIZATIONS
