@@ -250,11 +250,8 @@ DEPENDENCIES
   puma (~> 3.0)
   pundit
   rails (~> 5.0.1)
-<<<<<<< HEAD
-  responders
-=======
   rails-erd
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+  responders
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

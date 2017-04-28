@@ -39,15 +39,13 @@ gem 'bootstrap-kaminari-views'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"
 gem 'toastr-rails'
-<<<<<<< HEAD
 
 gem 'prawn'
 gem 'responders'
 gem 'prawn-table'
 
-=======
 gem 'rails-erd'
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
