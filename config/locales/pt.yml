@@ -310,7 +310,6 @@ pt:
       edit:
         title: Editar
       show:
-<<<<<<< HEAD
         title: "Informações sobre a cautela"  
         products: "Lista de materiais cautelados"
       anexar_comprovante:
@@ -320,25 +319,22 @@ pt:
       pesquisa:
         title: "Pesquisa"      
       fields:        
-=======
         title: "Perfil: %#{nome_guerra}"
       fields:
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
         obs: Obs
         person_id: Solicitante
         user_id: Cadastrado por
         data_saida: Data da Solicitação
-<<<<<<< HEAD
         data_devolucao: Data da Devolução
         data_inativa: Data da Inativação
         status: Status   
         appointment_id: "Material Pertence a" 
         status2: "Estado da Cautela"
         avatar: Anexo
-=======
         data_devolucao: Deta de Devolução
         status: Status
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
     products:
       new:
         title: Cadastro dos Produtos
@@ -353,12 +349,10 @@ pt:
         user_id: Cadastrado por
         loan_id: Pertence a Cautela
         nome: Nome
-<<<<<<< HEAD
         descricao: Descrição           
-=======
         descricao: Descrição
         appointment_id: Material Carga
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
         qtde: Quantidade
         situation_id: Situação
 
@@ -794,16 +788,14 @@ pt:
       notlogin: Usuario nao possui perfil.
       invalid: "Valor Inválido"
       notupdate: "Erro inesperado."
-<<<<<<< HEAD
   msg:      
     deletar: "Tem certeza?"    
     inativar: "Tem certeza? Antes de inativar, informe o motivo no campo Observações."
     finalizar: "Tem certeza? Antes de finalizar, verifique se o material foi devolvido."
     aprovar: "Tem certeza? Antes de aprovar, verifique se foi anexado a cautela assinada."
-=======
   msg:
     deletar: "Tem certeza?"
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
   general:
     form_error: Há erros no formulário, por favor verifique.
   activerecord:
@@ -1055,7 +1047,6 @@ pt:
         data_saida: Data da solicitação
         data_devolucao: Data da Devolução
         status: Status
-<<<<<<< HEAD
         appointment_id: "Material Pertence a"
         avatar: Anexo
       product:    
@@ -1064,7 +1055,6 @@ pt:
         loan_id: Pertence a Cautela
         nome: Nome
         descricao: Descrição           
-=======
       product:
         obs: Obs
         user_id: Cadastrado por
@@ -1072,7 +1062,7 @@ pt:
         nome: Nome
         descricao: Descrição
         appointment_id: Material Carga
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+
         qtde: Quantidade
         situation_id: Situação
 

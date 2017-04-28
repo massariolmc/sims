@@ -28,13 +28,7 @@ authorizations: &AUTHORIZATIONS
 ## Environment
 
 development:
-<<<<<<< HEAD
-  host: 192.168.1.106
-  #host: 192.168.1.109
-=======
-  #host: 192.168.0.52
-  host: 10.152.16.1
->>>>>>> a49928aead03e515abe02b3f88bf7f8a31dc79df
+  host: 192.168.0.13
   port: 389
   attribute: uid
   base: ou=Users,dc=bacg,dc=intraer
