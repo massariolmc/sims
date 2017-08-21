@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all'%><!--, 'data-turbolinks-track': 'reload' %> -->
     <%= javascript_include_tag 'application' %> <!--, 'data-turbolinks-track': 'reload' %> -->
+    
     <style>
     .nav .sidebar-nav, .side-nav{
         background: #1f3b59;
@@ -61,26 +62,26 @@
                         <%= render partial: 'layouts/menu_sims' %>
 
 <<<<<<< HEAD
-                     <% when current_user.role == "materialcarga" %>            
+                     <% when current_user.role == "materialcarga" %>
                         <%= render partial: 'layouts/menu_materialcarga' %>
                         <%= render partial: 'layouts/menu_cautelas' %>
 
-                     <% when current_user.role == "materialcarga_sims" %>            
-                        <%= render partial: 'layouts/menu_materialcarga' %> 
+                     <% when current_user.role == "materialcarga_sims" %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
                         <%= render partial: 'layouts/menu_cautelas' %>
-                        <%= render partial: 'layouts/menu_sims' %>   
+                        <%= render partial: 'layouts/menu_sims' %>
 
-                                        
-                    <% when current_user.role == "materialcarga_empenho_nivel_1" || current_user.role == "materialcarga_empenho_nivel_2" %>   
-                        <%= render partial: 'layouts/menu_empenhos' %> 
-                        <%= render partial: 'layouts/menu_materialcarga' %> 
-                        <%= render partial: 'layouts/menu_cautelas' %>    
 
-                    <% when current_user.role == "materialcarga_sims_empenho_nivel_1" || current_user.role == "materialcarga_sims_empenho_nivel_2" %>   
-                        <%= render partial: 'layouts/menu_empenhos' %> 
-                        <%= render partial: 'layouts/menu_materialcarga' %> 
+                    <% when current_user.role == "materialcarga_empenho_nivel_1" || current_user.role == "materialcarga_empenho_nivel_2" %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
                         <%= render partial: 'layouts/menu_cautelas' %>
-                        <%= render partial: 'layouts/menu_sims' %>         
+
+                    <% when current_user.role == "materialcarga_sims_empenho_nivel_1" || current_user.role == "materialcarga_sims_empenho_nivel_2" %>
+                        <%= render partial: 'layouts/menu_empenhos' %>
+                        <%= render partial: 'layouts/menu_materialcarga' %>
+                        <%= render partial: 'layouts/menu_cautelas' %>
+                        <%= render partial: 'layouts/menu_sims' %>
 =======
                      <% when current_user.role == "materialcarga" %>
                         <%= render partial: 'layouts/menu_materialcarga' %>
