@@ -25,7 +25,7 @@ sims_development:
   <<: *default
   database: sims_bacg
   host: localhost
-  username: antonioricardo
+  username: postgres
   password: rub32912289
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
@@ -42,7 +42,7 @@ development:
   <<: *default
   database: Odin_development
   host: localhost
-  username: antonioricardo
+  username: postgres
   password: rub32912289
 
 

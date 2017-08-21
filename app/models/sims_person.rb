@@ -5,8 +5,8 @@ class SimsPerson < ApplicationRecord
   	 self.establish_connection :sims_development
     elsif Rails.env == 'production'
      self.establish_connection :sims_production
-    end 
-  	
+    end
+
     self.table_name = "tb_pessoas"
   	self.primary_key = "pesid"
 
@@ -25,7 +25,7 @@ class SimsPerson < ApplicationRecord
   validates :pesuf, length: { maximum: 2 }
   validates :pesnaturaluf, length: { maximum: 2 }
 
-  scope :verifica_people, -> (query) {where ("peslogin = '#{query}' and pessituacao=4")}  
+  scope :verifica_people, -> (query) {where ("peslogin = '#{query}' and pessituacao=4")}
   scope :pesquisa, -> (query) { where("pesncompleto ilike ?", "%#{query}%")}
   scope :oficiais, -> { select("tb_posto_graduacao.pgabrev || ' - ' || tb_pessoas.pesnguerra as \"nome\" ").
                               joins("inner join tb_posto_graduacao on (tb_posto_graduacao.pgid = tb_pessoas.pespostograd)
@@ -35,51 +35,51 @@ class SimsPerson < ApplicationRecord
   before_save :maiusculo
 	  def maiusculo
 	      self.pesncompleto.upcase!
-	      self.pesnguerra.upcase!     
-	      self.pesend.upcase!     
-	      self.pesbairro.upcase!     
-	      self.pescidade.upcase!     
+	      self.pesnguerra.upcase!
+	      self.pesend.upcase!
+	      self.pesbairro.upcase!
+	      self.pescidade.upcase!
 	      self.pesuf.upcase!
-	      self.pesfilpai.upcase!     
+	      self.pesfilpai.upcase!
 	      self.pesfilmae.upcase!
 	      self.pesnaturalcidade.upcase!
 	      self.pesnaturaluf.upcase!
 	      self.pesemail.downcase!
 	  end
-  before_create :retirar_mascara 
-  before_update :retirar_mascara 
-	def retirar_mascara 
-    	#self.pescpf.gsub!(/(\.|\-|\/)/, "") 
-    	#self.pescep.gsub!(/(\(|\)|\-)/, "") 
-    	#self.pesfone1.gsub!(/(\-)/, "") 
-    	#self.pesfone2.gsub!(/(\-)/, "") 
-    	#self.pesfonetrab.gsub!(/(\-)/, "") 
-    	self.pescpf.gsub!(".", "").gsub!("-", "") 
+  before_create :retirar_mascara
+  before_update :retirar_mascara
+	def retirar_mascara
+    	#self.pescpf.gsub!(/(\.|\-|\/)/, "")
+    	#self.pescep.gsub!(/(\(|\)|\-)/, "")
+    	#self.pesfone1.gsub!(/(\-)/, "")
+    	#self.pesfone2.gsub!(/(\-)/, "")
+    	#self.pesfonetrab.gsub!(/(\-)/, "")
+    	self.pescpf.gsub!(".", "").gsub!("-", "")
     	self.pescep.gsub!("-", "")
 
-      if self.pesfone2.present?     	 
+      if self.pesfone2.present?
     	 self.pesfone2.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
       end
       if self.pesfonetrab.present?
     	 self.pesfonetrab.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
       end
-      if self.pesfone1.present? 
+      if self.pesfone1.present?
     	 self.pesfone1.gsub!("(", "").gsub!(")", "").gsub!(" ", "").gsub!("-", "")
       end
   	end
-  
-  def nome_inicial  	  	  	
-    "#{nome_posto_grad(self.pespostograd)} - #{self.pesnguerra}"    
+
+  def nome_inicial
+    "#{nome_posto_grad(self.pespostograd)} - #{self.pesnguerra}"
   end
 
   def nome_completo
-    "#{self.pesncompleto} - #{nome_posto_grad(self.pespostograd)}"    
+    "#{self.pesncompleto} - #{nome_posto_grad(self.pespostograd)}"
   end
 
   def nome_posto_grad(aux)
   	p = SimsPatent.find(aux)
   	p.pgabrev
-  end  
+  end
 
   def nome_om(aux)
     if aux != 0 && aux != nil
@@ -98,7 +98,7 @@ class SimsPerson < ApplicationRecord
       p "NAO POSSUI ESQUADRAO"
     end
   end
-  
+
   def situacao(aux)
     p = SimsSituation.find(aux)
     p.situacaodesc
@@ -134,7 +134,7 @@ class SimsPerson < ApplicationRecord
   def secao(aux)
     if aux != 0 && aux != nil
       p = SimsDepartment.find(aux)
-      p.nome
+      p.esqsec_abrev
     else
       p "Sem cadastro"
     end

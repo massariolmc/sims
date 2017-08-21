@@ -2,19 +2,15 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="row">
-<div class="col-sm-12">
 
-<p>
-  <strong><%= t('sims.sims_people.fields.pesfoto') %></strong>
-  <%= @sims_person.pesfoto %>
-</p>
-</div>
-</div>
 
 <div class="row">
 <p>
   <legend><strong>INFORMAÇÕES PESSOAIS:</strong></legend>
+</p>
+<p>
+
+    <img src="http://10.152.16.34/sims/fotos_bacg/<%= @sims_person.pesidentidade %>.jpg" width="120" height="150" style="border-radius:5px;">
 </p>
 <div class="col-sm-4">
 
@@ -123,7 +119,7 @@
   <%= @sims_person.pesfonetrabramal %>
 </p>
 
-</div>	
+</div>
 
 <div class="col-sm-4">
 
@@ -149,7 +145,7 @@
 
 <br />
 <p>
-  <strong>ENDEREÇO:</strong>  
+  <strong>ENDEREÇO:</strong>
 </p>
 
 <p>
@@ -179,7 +175,7 @@
 
 <br />
 <p>
-  <strong>INFORMAÇÕES BANCÁRIAS:</strong>  
+  <strong>INFORMAÇÕES BANCÁRIAS:</strong>
 </p>
 
 <p>
@@ -199,7 +195,7 @@
 
 <br />
 <p>
-  <strong>INFORMAÇÕES CRACHÁ:</strong>  
+  <strong>INFORMAÇÕES CRACHÁ:</strong>
 </p>
 
 <p>
@@ -211,7 +207,7 @@
   <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
     <%= @sims_person.pes_cracha_val.strftime("%d/%m/%Y") %>
 <% else %>
-  <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+  <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
     <%= @sims_person.pes_cracha_val.strftime("%d/%m/%Y") %>
   <span class="label label-danger">VENCIDA</span>
 <% end %>
@@ -219,9 +215,9 @@
 <p>
   <strong><%= t('sims.sims_person.fields.status_cracha') %></strong>
     <% if @sims_person.cracha_ativo(@sims_person.pesid) == '0' %>
-      <%= "Ativo" %>      
-    <% elsif @sims_person.cracha_ativo(@sims_person.pesid) == '1' %>                    
-      <%= "Inativo" %>          
+      <%= "Ativo" %>
+    <% elsif @sims_person.cracha_ativo(@sims_person.pesid) == '1' %>
+      <%= "Inativo" %>
     <% end %>
 </p>
 
@@ -235,8 +231,8 @@
 <div class="col-sm-4">
   <% if @marc == 0 %>
     <p>
-      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>    
-        <%= @sims_biga_license.cnh_numero  %>    
+      <strong><%= t('sims.sims_biga_licenses.fields.cnh_numero') %></strong>
+        <%= @sims_biga_license.cnh_numero  %>
     </p>
       <p>
       <strong><%= t('sims.sims_biga_licenses.fields.cnh_cat') %></strong>
@@ -247,7 +243,7 @@
         <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
         <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
       <% else %>
-        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>        
+        <strong><%= t('sims.sims_biga_licenses.fields.cnh_validade') %></strong>
         <%= @sims_biga_license.cnh_validade.strftime("%d/%m/%Y") %>
         <span class="label label-danger">VENCIDA</span>
       <% end %>
@@ -263,16 +259,16 @@
 
 <div class="row">
 <legend>
-  <strong>INFORMAÇÕES DOS DEPENDENTES:</strong>  
+  <strong>INFORMAÇÕES DOS DEPENDENTES:</strong>
 </legend>
-  <%= render partial: "dependentes" %>   
+  <%= render partial: "dependentes" %>
 </div>
 
 <div class="row">
 <legend>
-  <strong>INFORMAÇÕES DOS VEICULOS:</strong>  
+  <strong>INFORMAÇÕES DOS VEICULOS:</strong>
 </legend>
-  <%= render partial: "veiculos", locals: {sims: @sims_vehicles} %>   
+  <%= render partial: "veiculos", locals: {sims: @sims_vehicles} %>
 </div>
 
 
